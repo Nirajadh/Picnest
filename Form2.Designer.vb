@@ -22,11 +22,12 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -35,24 +36,32 @@ Partial Class Form2
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        txtname = New Guna.UI2.WinForms.Guna2TextBox()
+        Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         signinlabel = New LinkLabel()
         supPasstoggle = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        btncreate = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        supPass = New Guna.UI2.WinForms.Guna2TextBox()
+        txtpassword = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        supuser = New Guna.UI2.WinForms.Guna2TextBox()
+        txtusername = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2Panel2.SuspendLayout()
         Guna2Panel1.SuspendLayout()
         Guna2Panel3.SuspendLayout()
@@ -60,17 +69,12 @@ Partial Class Form2
         ' 
         ' Guna2ControlBox1
         ' 
-        Guna2ControlBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        resources.ApplyResources(Guna2ControlBox1, "Guna2ControlBox1")
         Guna2ControlBox1.CustomizableEdges = CustomizableEdges1
         Guna2ControlBox1.FillColor = Color.Black
         Guna2ControlBox1.IconColor = Color.White
-        Guna2ControlBox1.Location = New Point(755, 12)
-        Guna2ControlBox1.Margin = New Padding(0)
         Guna2ControlBox1.Name = "Guna2ControlBox1"
-        Guna2ControlBox1.RightToLeft = RightToLeft.Yes
         Guna2ControlBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2ControlBox1.Size = New Size(40, 25)
-        Guna2ControlBox1.TabIndex = 5
         ' 
         ' Guna2Panel2
         ' 
@@ -78,50 +82,71 @@ Partial Class Form2
         Guna2Panel2.BorderColor = Color.White
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1
+        Guna2Panel2.Controls.Add(txtname)
+        Guna2Panel2.Controls.Add(Guna2HtmlLabel6)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel3)
         Guna2Panel2.Controls.Add(signinlabel)
         Guna2Panel2.Controls.Add(supPasstoggle)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel2)
-        Guna2Panel2.Controls.Add(Guna2Button1)
+        Guna2Panel2.Controls.Add(btncreate)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel5)
-        Guna2Panel2.Controls.Add(supPass)
+        Guna2Panel2.Controls.Add(txtpassword)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel4)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel1)
-        Guna2Panel2.Controls.Add(supuser)
-        Guna2Panel2.CustomizableEdges = CustomizableEdges11
+        Guna2Panel2.Controls.Add(txtusername)
+        Guna2Panel2.CustomizableEdges = CustomizableEdges13
         Guna2Panel2.FillColor = Color.White
-        Guna2Panel2.Location = New Point(207, 6)
+        resources.ApplyResources(Guna2Panel2, "Guna2Panel2")
         Guna2Panel2.Name = "Guna2Panel2"
-        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        Guna2Panel2.Size = New Size(369, 459)
-        Guna2Panel2.TabIndex = 4
+        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        ' 
+        ' txtname
+        ' 
+        txtname.BackColor = SystemColors.Control
+        txtname.BorderColor = Color.Gray
+        txtname.BorderRadius = 3
+        txtname.CustomizableEdges = CustomizableEdges3
+        txtname.DefaultText = ""
+        txtname.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txtname.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txtname.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtname.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtname.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        resources.ApplyResources(txtname, "txtname")
+        txtname.ForeColor = Color.Black
+        txtname.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txtname.IconLeft = My.Resources.Resources.icons8_name_64
+        txtname.IconLeftSize = New Size(30, 30)
+        txtname.Name = "txtname"
+        txtname.PasswordChar = ChrW(0)
+        txtname.PlaceholderText = ""
+        txtname.SelectedText = ""
+        txtname.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        ' 
+        ' Guna2HtmlLabel6
+        ' 
+        Guna2HtmlLabel6.BackColor = Color.Transparent
+        resources.ApplyResources(Guna2HtmlLabel6, "Guna2HtmlLabel6")
+        Guna2HtmlLabel6.ForeColor = SystemColors.ControlText
+        Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
         ' 
         ' Guna2HtmlLabel3
         ' 
         Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        resources.ApplyResources(Guna2HtmlLabel3, "Guna2HtmlLabel3")
         Guna2HtmlLabel3.ForeColor = SystemColors.ActiveCaptionText
-        Guna2HtmlLabel3.Location = New Point(33, 3)
         Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(70, 39)
-        Guna2HtmlLabel3.TabIndex = 15
-        Guna2HtmlLabel3.Text = "IMG"
         ' 
         ' signinlabel
         ' 
         signinlabel.ActiveLinkColor = SystemColors.Highlight
-        signinlabel.AutoSize = True
+        resources.ApplyResources(signinlabel, "signinlabel")
         signinlabel.BackColor = Color.White
         signinlabel.DisabledLinkColor = SystemColors.Highlight
-        signinlabel.Font = New Font("Segoe UI Variable Text Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         signinlabel.LinkBehavior = LinkBehavior.NeverUnderline
         signinlabel.LinkColor = SystemColors.Highlight
-        signinlabel.Location = New Point(238, 266)
         signinlabel.Name = "signinlabel"
-        signinlabel.Size = New Size(56, 20)
-        signinlabel.TabIndex = 14
         signinlabel.TabStop = True
-        signinlabel.Text = "Sign in"
         signinlabel.VisitedLinkColor = SystemColors.Highlight
         ' 
         ' supPasstoggle
@@ -130,200 +155,179 @@ Partial Class Form2
         supPasstoggle.BorderColor = Color.White
         supPasstoggle.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton
         supPasstoggle.CausesValidation = False
+        supPasstoggle.Checked = True
         supPasstoggle.CheckedState.BorderColor = Color.White
         supPasstoggle.CheckedState.CustomBorderColor = Color.White
         supPasstoggle.CheckedState.FillColor = Color.White
         supPasstoggle.CheckedState.ForeColor = Color.White
         supPasstoggle.CustomImages.CheckedImage = CType(resources.GetObject("resource.CheckedImage"), Image)
         supPasstoggle.CustomImages.ImageAlign = HorizontalAlignment.Center
-        supPasstoggle.CustomImages.ImageSize = New Size(30, 30)
-        supPasstoggle.CustomizableEdges = CustomizableEdges3
+        supPasstoggle.CustomImages.ImageSize = New Size(23, 23)
+        supPasstoggle.CustomizableEdges = CustomizableEdges5
         supPasstoggle.DisabledState.BorderColor = Color.DarkGray
         supPasstoggle.DisabledState.CustomBorderColor = Color.DarkGray
         supPasstoggle.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         supPasstoggle.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         supPasstoggle.FillColor = Color.White
-        supPasstoggle.Font = New Font("Segoe UI", 9F)
+        resources.ApplyResources(supPasstoggle, "supPasstoggle")
         supPasstoggle.ForeColor = Color.White
         supPasstoggle.HoverState.BorderColor = Color.White
         supPasstoggle.HoverState.CustomBorderColor = Color.White
         supPasstoggle.HoverState.FillColor = Color.White
         supPasstoggle.HoverState.ForeColor = Color.White
         supPasstoggle.Image = CType(resources.GetObject("supPasstoggle.Image"), Image)
-        supPasstoggle.ImageSize = New Size(30, 30)
-        supPasstoggle.Location = New Point(293, 216)
+        supPasstoggle.ImageSize = New Size(23, 23)
         supPasstoggle.Name = "supPasstoggle"
         supPasstoggle.PressedColor = Color.White
         supPasstoggle.PressedDepth = 0
         supPasstoggle.ShadowDecoration.BorderRadius = 0
         supPasstoggle.ShadowDecoration.Color = Color.Transparent
-        CustomizableEdges4.BottomLeft = False
-        CustomizableEdges4.BottomRight = False
-        CustomizableEdges4.TopLeft = False
-        CustomizableEdges4.TopRight = False
-        supPasstoggle.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        CustomizableEdges6.BottomLeft = False
+        CustomizableEdges6.BottomRight = False
+        CustomizableEdges6.TopLeft = False
+        CustomizableEdges6.TopRight = False
+        supPasstoggle.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         supPasstoggle.ShadowDecoration.Depth = 0
         supPasstoggle.ShadowDecoration.Shadow = New Padding(0)
-        supPasstoggle.Size = New Size(39, 26)
-        supPasstoggle.TabIndex = 13
         supPasstoggle.UseTransparentBackground = True
         ' 
         ' Guna2HtmlLabel2
         ' 
         Guna2HtmlLabel2.BackColor = Color.Transparent
-        Guna2HtmlLabel2.Font = New Font("Segoe UI Variable Text Semibold", 9F, FontStyle.Bold)
+        resources.ApplyResources(Guna2HtmlLabel2, "Guna2HtmlLabel2")
         Guna2HtmlLabel2.ForeColor = SystemColors.ControlDarkDark
-        Guna2HtmlLabel2.Location = New Point(59, 265)
         Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
-        Guna2HtmlLabel2.Size = New Size(179, 22)
-        Guna2HtmlLabel2.TabIndex = 11
-        Guna2HtmlLabel2.Text = "Already have an account? "
         ' 
-        ' Guna2Button1
+        ' btncreate
         ' 
-        Guna2Button1.BackColor = SystemColors.Window
-        Guna2Button1.BorderColor = Color.Transparent
-        Guna2Button1.BorderRadius = 20
-        Guna2Button1.BorderThickness = 1
-        Guna2Button1.CustomizableEdges = CustomizableEdges5
-        Guna2Button1.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button1.Font = New Font("Segoe UI", 9F)
-        Guna2Button1.ForeColor = Color.White
-        Guna2Button1.Location = New Point(122, 338)
-        Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2Button1.Size = New Size(115, 38)
-        Guna2Button1.TabIndex = 10
-        Guna2Button1.Text = "Create "
+        btncreate.BackColor = SystemColors.Window
+        btncreate.BorderColor = Color.Transparent
+        btncreate.BorderRadius = 20
+        btncreate.BorderThickness = 1
+        btncreate.CustomizableEdges = CustomizableEdges7
+        btncreate.DisabledState.BorderColor = Color.DarkGray
+        btncreate.DisabledState.CustomBorderColor = Color.DarkGray
+        btncreate.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btncreate.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        resources.ApplyResources(btncreate, "btncreate")
+        btncreate.ForeColor = Color.White
+        btncreate.Name = "btncreate"
+        btncreate.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         ' 
         ' Guna2HtmlLabel5
         ' 
         Guna2HtmlLabel5.BackColor = Color.Transparent
-        Guna2HtmlLabel5.Font = New Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        resources.ApplyResources(Guna2HtmlLabel5, "Guna2HtmlLabel5")
         Guna2HtmlLabel5.ForeColor = SystemColors.ControlText
-        Guna2HtmlLabel5.Location = New Point(33, 181)
         Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
-        Guna2HtmlLabel5.Size = New Size(104, 19)
-        Guna2HtmlLabel5.TabIndex = 7
-        Guna2HtmlLabel5.Text = "Create Password"
         ' 
-        ' supPass
+        ' txtpassword
         ' 
-        supPass.BackColor = SystemColors.Control
-        supPass.BorderColor = Color.Gray
-        supPass.BorderRadius = 3
-        supPass.CustomizableEdges = CustomizableEdges7
-        supPass.DefaultText = ""
-        supPass.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        supPass.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        supPass.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        supPass.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        supPass.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        supPass.Font = New Font("Segoe UI", 9F)
-        supPass.ForeColor = Color.Black
-        supPass.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        supPass.Location = New Point(33, 207)
-        supPass.Margin = New Padding(20, 20, 30, 20)
-        supPass.Name = "supPass"
-        supPass.Padding = New Padding(20)
-        supPass.PasswordChar = ChrW(0)
-        supPass.PlaceholderText = ""
-        supPass.SelectedText = ""
-        supPass.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        supPass.Size = New Size(302, 40)
-        supPass.TabIndex = 6
+        txtpassword.BackColor = SystemColors.Control
+        txtpassword.BorderColor = Color.Gray
+        txtpassword.BorderRadius = 3
+        txtpassword.CustomizableEdges = CustomizableEdges9
+        txtpassword.DefaultText = ""
+        txtpassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txtpassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txtpassword.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtpassword.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtpassword.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        resources.ApplyResources(txtpassword, "txtpassword")
+        txtpassword.ForeColor = Color.Black
+        txtpassword.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txtpassword.IconLeft = My.Resources.Resources.icons8_password_30
+        txtpassword.IconLeftSize = New Size(30, 30)
+        txtpassword.Name = "txtpassword"
+        txtpassword.PasswordChar = "*"c
+        txtpassword.PlaceholderText = ""
+        txtpassword.SelectedText = ""
+        txtpassword.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         ' 
         ' Guna2HtmlLabel4
         ' 
         Guna2HtmlLabel4.BackColor = Color.Transparent
-        Guna2HtmlLabel4.Font = New Font("Segoe UI Variable Display", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        resources.ApplyResources(Guna2HtmlLabel4, "Guna2HtmlLabel4")
         Guna2HtmlLabel4.ForeColor = SystemColors.ActiveCaptionText
-        Guna2HtmlLabel4.Location = New Point(33, 48)
         Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
-        Guna2HtmlLabel4.Size = New Size(84, 33)
-        Guna2HtmlLabel4.TabIndex = 5
-        Guna2HtmlLabel4.Text = "Sign up"
         ' 
         ' Guna2HtmlLabel1
         ' 
         Guna2HtmlLabel1.BackColor = Color.Transparent
-        Guna2HtmlLabel1.Font = New Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        resources.ApplyResources(Guna2HtmlLabel1, "Guna2HtmlLabel1")
         Guna2HtmlLabel1.ForeColor = SystemColors.ControlText
-        Guna2HtmlLabel1.Location = New Point(33, 97)
         Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Guna2HtmlLabel1.Size = New Size(94, 19)
-        Guna2HtmlLabel1.TabIndex = 2
-        Guna2HtmlLabel1.Text = "New username"
         ' 
-        ' supuser
+        ' txtusername
         ' 
-        supuser.BackColor = SystemColors.Control
-        supuser.BorderColor = Color.Gray
-        supuser.BorderRadius = 3
-        supuser.CustomizableEdges = CustomizableEdges9
-        supuser.DefaultText = ""
-        supuser.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
-        supuser.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
-        supuser.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        supuser.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
-        supuser.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        supuser.Font = New Font("Segoe UI", 9F)
-        supuser.ForeColor = Color.Black
-        supuser.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        supuser.Location = New Point(33, 123)
-        supuser.Margin = New Padding(20, 20, 30, 20)
-        supuser.Name = "supuser"
-        supuser.Padding = New Padding(20)
-        supuser.PasswordChar = ChrW(0)
-        supuser.PlaceholderText = ""
-        supuser.SelectedText = ""
-        supuser.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        supuser.Size = New Size(302, 40)
-        supuser.TabIndex = 0
+        txtusername.BackColor = SystemColors.Control
+        txtusername.BorderColor = Color.Gray
+        txtusername.BorderRadius = 3
+        txtusername.CustomizableEdges = CustomizableEdges11
+        txtusername.DefaultText = ""
+        txtusername.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        txtusername.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        txtusername.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtusername.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        txtusername.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        resources.ApplyResources(txtusername, "txtusername")
+        txtusername.ForeColor = Color.Black
+        txtusername.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        txtusername.IconLeft = My.Resources.Resources.icons8_username_32
+        txtusername.IconLeftSize = New Size(30, 30)
+        txtusername.Name = "txtusername"
+        txtusername.PasswordChar = ChrW(0)
+        txtusername.PlaceholderText = ""
+        txtusername.SelectedText = ""
+        txtusername.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         ' 
         ' Guna2Panel1
         ' 
+        Guna2Panel1.Controls.Add(Guna2ControlBox2)
         Guna2Panel1.Controls.Add(Guna2ControlBox1)
-        Guna2Panel1.CustomizableEdges = CustomizableEdges13
-        Guna2Panel1.Dock = DockStyle.Top
-        Guna2Panel1.Location = New Point(20, 0)
+        Guna2Panel1.CustomizableEdges = CustomizableEdges17
+        resources.ApplyResources(Guna2Panel1, "Guna2Panel1")
         Guna2Panel1.Name = "Guna2Panel1"
-        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        Guna2Panel1.Size = New Size(810, 41)
-        Guna2Panel1.TabIndex = 8
+        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        ' 
+        ' Guna2ControlBox2
+        ' 
+        resources.ApplyResources(Guna2ControlBox2, "Guna2ControlBox2")
+        Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
+        Guna2ControlBox2.CustomizableEdges = CustomizableEdges15
+        Guna2ControlBox2.FillColor = Color.Black
+        Guna2ControlBox2.IconColor = Color.White
+        Guna2ControlBox2.Name = "Guna2ControlBox2"
+        Guna2ControlBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         ' 
         ' Guna2Panel3
         ' 
-        Guna2Panel3.AutoSize = True
-        Guna2Panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        resources.ApplyResources(Guna2Panel3, "Guna2Panel3")
         Guna2Panel3.BackColor = SystemColors.ActiveCaptionText
         Guna2Panel3.BorderColor = Color.Transparent
         Guna2Panel3.Controls.Add(Guna2Panel2)
-        Guna2Panel3.CustomizableEdges = CustomizableEdges15
-        Guna2Panel3.Dock = DockStyle.Fill
-        Guna2Panel3.Location = New Point(20, 41)
+        Guna2Panel3.CustomizableEdges = CustomizableEdges19
         Guna2Panel3.Name = "Guna2Panel3"
-        Guna2Panel3.Padding = New Padding(0, 5, 20, 30)
-        Guna2Panel3.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        Guna2Panel3.Size = New Size(810, 500)
-        Guna2Panel3.TabIndex = 0
+        Guna2Panel3.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        ' 
+        ' Guna2Elipse1
+        ' 
+        Guna2Elipse1.BorderRadius = 60
+        Guna2Elipse1.TargetControl = Me
         ' 
         ' Form2
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AllowDrop = True
+        resources.ApplyResources(Me, "$this")
         AutoScaleMode = AutoScaleMode.Font
+        AutoValidate = AutoValidate.EnableAllowFocusChange
         BackColor = SystemColors.ActiveCaptionText
-        ClientSize = New Size(830, 561)
+        ControlBox = False
         Controls.Add(Guna2Panel3)
         Controls.Add(Guna2Panel1)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        MaximizeBox = False
         Name = "Form2"
-        Padding = New Padding(20, 0, 0, 20)
-        StartPosition = FormStartPosition.CenterScreen
-        Text = "Form2"
         Guna2Panel2.ResumeLayout(False)
         Guna2Panel2.PerformLayout()
         Guna2Panel1.ResumeLayout(False)
@@ -335,14 +339,18 @@ Partial Class Form2
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents supuser As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents txtusername As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents supPass As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents txtpassword As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents btncreate As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents supPasstoggle As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents signinlabel As LinkLabel
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents txtname As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
 End Class

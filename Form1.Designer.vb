@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -35,10 +36,15 @@ Partial Class Form1
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        lblincorrect = New Label()
         createacclabel = New LinkLabel()
         sinpasstoggle = New Guna.UI2.WinForms.Guna2Button()
-        Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        continuebtn = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -46,10 +52,14 @@ Partial Class Form1
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         passwordtxt = New Guna.UI2.WinForms.Guna2TextBox()
         usernametxt = New Guna.UI2.WinForms.Guna2TextBox()
-        Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Panel1 = New Panel()
+        Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Guna2Panel2.SuspendLayout()
         Panel1.SuspendLayout()
+        Guna2Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Guna2Panel2
@@ -58,9 +68,10 @@ Partial Class Form1
         Guna2Panel2.BorderColor = Color.White
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1
+        Guna2Panel2.Controls.Add(lblincorrect)
         Guna2Panel2.Controls.Add(createacclabel)
         Guna2Panel2.Controls.Add(sinpasstoggle)
-        Guna2Panel2.Controls.Add(Guna2Button1)
+        Guna2Panel2.Controls.Add(continuebtn)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel5)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel4)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel3)
@@ -70,11 +81,24 @@ Partial Class Form1
         Guna2Panel2.Controls.Add(usernametxt)
         Guna2Panel2.CustomizableEdges = CustomizableEdges9
         Guna2Panel2.FillColor = Color.White
-        Guna2Panel2.Location = New Point(184, 15)
+        Guna2Panel2.Location = New Point(213, 9)
         Guna2Panel2.Name = "Guna2Panel2"
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2Panel2.Size = New Size(365, 458)
         Guna2Panel2.TabIndex = 0
+        ' 
+        ' lblincorrect
+        ' 
+        lblincorrect.Anchor = AnchorStyles.None
+        lblincorrect.AutoSize = True
+        lblincorrect.BackColor = Color.White
+        lblincorrect.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        lblincorrect.Location = New Point(70, 327)
+        lblincorrect.Name = "lblincorrect"
+        lblincorrect.Size = New Size(220, 20)
+        lblincorrect.TabIndex = 16
+        lblincorrect.Text = "Incorrect username or password"
+        lblincorrect.Visible = False
         ' 
         ' createacclabel
         ' 
@@ -99,13 +123,14 @@ Partial Class Form1
         sinpasstoggle.BorderColor = Color.White
         sinpasstoggle.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.ToogleButton
         sinpasstoggle.CausesValidation = False
+        sinpasstoggle.Checked = True
         sinpasstoggle.CheckedState.BorderColor = Color.White
         sinpasstoggle.CheckedState.CustomBorderColor = Color.White
         sinpasstoggle.CheckedState.FillColor = Color.White
         sinpasstoggle.CheckedState.ForeColor = Color.White
         sinpasstoggle.CustomImages.CheckedImage = CType(resources.GetObject("resource.CheckedImage"), Image)
         sinpasstoggle.CustomImages.ImageAlign = HorizontalAlignment.Center
-        sinpasstoggle.CustomImages.ImageSize = New Size(30, 30)
+        sinpasstoggle.CustomImages.ImageSize = New Size(23, 23)
         sinpasstoggle.CustomizableEdges = CustomizableEdges1
         sinpasstoggle.DisabledState.BorderColor = Color.DarkGray
         sinpasstoggle.DisabledState.CustomBorderColor = Color.DarkGray
@@ -119,7 +144,7 @@ Partial Class Form1
         sinpasstoggle.HoverState.FillColor = Color.White
         sinpasstoggle.HoverState.ForeColor = Color.White
         sinpasstoggle.Image = CType(resources.GetObject("sinpasstoggle.Image"), Image)
-        sinpasstoggle.ImageSize = New Size(30, 30)
+        sinpasstoggle.ImageSize = New Size(23, 23)
         sinpasstoggle.Location = New Point(300, 275)
         sinpasstoggle.Name = "sinpasstoggle"
         sinpasstoggle.PressedColor = Color.White
@@ -133,29 +158,29 @@ Partial Class Form1
         sinpasstoggle.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         sinpasstoggle.ShadowDecoration.Depth = 0
         sinpasstoggle.ShadowDecoration.Shadow = New Padding(0)
-        sinpasstoggle.Size = New Size(39, 32)
+        sinpasstoggle.Size = New Size(30, 30)
         sinpasstoggle.TabIndex = 10
         sinpasstoggle.UseTransparentBackground = True
         ' 
-        ' Guna2Button1
+        ' continuebtn
         ' 
-        Guna2Button1.BackColor = SystemColors.Window
-        Guna2Button1.BorderColor = Color.Transparent
-        Guna2Button1.BorderRadius = 20
-        Guna2Button1.BorderThickness = 1
-        Guna2Button1.CustomizableEdges = CustomizableEdges3
-        Guna2Button1.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button1.Font = New Font("Segoe UI", 9F)
-        Guna2Button1.ForeColor = Color.White
-        Guna2Button1.Location = New Point(110, 350)
-        Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        Guna2Button1.Size = New Size(142, 47)
-        Guna2Button1.TabIndex = 9
-        Guna2Button1.Text = "Continue"
+        continuebtn.BackColor = SystemColors.Window
+        continuebtn.BorderColor = Color.Transparent
+        continuebtn.BorderRadius = 20
+        continuebtn.BorderThickness = 1
+        continuebtn.CustomizableEdges = CustomizableEdges3
+        continuebtn.DisabledState.BorderColor = Color.DarkGray
+        continuebtn.DisabledState.CustomBorderColor = Color.DarkGray
+        continuebtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        continuebtn.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        continuebtn.Font = New Font("Segoe UI", 9F)
+        continuebtn.ForeColor = Color.White
+        continuebtn.Location = New Point(108, 366)
+        continuebtn.Name = "continuebtn"
+        continuebtn.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        continuebtn.Size = New Size(142, 47)
+        continuebtn.TabIndex = 9
+        continuebtn.Text = "Continue"
         ' 
         ' Guna2HtmlLabel5
         ' 
@@ -227,10 +252,12 @@ Partial Class Form1
         passwordtxt.Font = New Font("Segoe UI", 9F)
         passwordtxt.ForeColor = Color.Black
         passwordtxt.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        passwordtxt.IconLeft = My.Resources.Resources.icons8_password_30
+        passwordtxt.IconLeftSize = New Size(30, 30)
         passwordtxt.Location = New Point(21, 268)
         passwordtxt.Margin = New Padding(3, 4, 3, 4)
         passwordtxt.Name = "passwordtxt"
-        passwordtxt.PasswordChar = ChrW(0)
+        passwordtxt.PasswordChar = "*"c
         passwordtxt.PlaceholderText = ""
         passwordtxt.SelectedText = ""
         passwordtxt.ShadowDecoration.CustomizableEdges = CustomizableEdges6
@@ -252,6 +279,8 @@ Partial Class Form1
         usernametxt.Font = New Font("Segoe UI", 9F)
         usernametxt.ForeColor = Color.Black
         usernametxt.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        usernametxt.IconLeft = CType(resources.GetObject("usernametxt.IconLeft"), Image)
+        usernametxt.IconLeftSize = New Size(30, 30)
         usernametxt.Location = New Point(21, 189)
         usernametxt.Margin = New Padding(3, 4, 3, 4)
         usernametxt.Name = "usernametxt"
@@ -262,47 +291,81 @@ Partial Class Form1
         usernametxt.Size = New Size(321, 46)
         usernametxt.TabIndex = 0
         ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(Guna2Panel2)
+        Panel1.Dock = DockStyle.Fill
+        Panel1.Location = New Point(20, 41)
+        Panel1.Name = "Panel1"
+        Panel1.Padding = New Padding(0, 5, 20, 30)
+        Panel1.Size = New Size(808, 498)
+        Panel1.TabIndex = 5
+        ' 
         ' Guna2ControlBox1
         ' 
         Guna2ControlBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Guna2ControlBox1.CustomizableEdges = CustomizableEdges11
         Guna2ControlBox1.FillColor = Color.Black
         Guna2ControlBox1.IconColor = Color.White
-        Guna2ControlBox1.Location = New Point(780, -1)
+        Guna2ControlBox1.Location = New Point(755, 12)
         Guna2ControlBox1.Margin = New Padding(0)
         Guna2ControlBox1.Name = "Guna2ControlBox1"
         Guna2ControlBox1.RightToLeft = RightToLeft.Yes
         Guna2ControlBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        Guna2ControlBox1.Size = New Size(48, 30)
+        Guna2ControlBox1.Size = New Size(40, 25)
         Guna2ControlBox1.TabIndex = 1
         ' 
-        ' Panel1
+        ' Guna2Panel1
         ' 
-        Panel1.Controls.Add(Guna2Panel2)
-        Panel1.Dock = DockStyle.Fill
-        Panel1.Location = New Point(40, 20)
-        Panel1.Name = "Panel1"
-        Panel1.Padding = New Padding(0, 12, 0, 0)
-        Panel1.Size = New Size(788, 519)
-        Panel1.TabIndex = 5
+        Guna2Panel1.Controls.Add(Guna2ControlBox2)
+        Guna2Panel1.Controls.Add(Guna2ControlBox1)
+        Guna2Panel1.CustomizableEdges = CustomizableEdges15
+        Guna2Panel1.Dock = DockStyle.Top
+        Guna2Panel1.Location = New Point(20, 0)
+        Guna2Panel1.Name = "Guna2Panel1"
+        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        Guna2Panel1.Size = New Size(808, 41)
+        Guna2Panel1.TabIndex = 9
+        ' 
+        ' Guna2ControlBox2
+        ' 
+        Guna2ControlBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
+        Guna2ControlBox2.CustomizableEdges = CustomizableEdges13
+        Guna2ControlBox2.FillColor = Color.Black
+        Guna2ControlBox2.IconColor = Color.White
+        Guna2ControlBox2.Location = New Point(715, 12)
+        Guna2ControlBox2.Margin = New Padding(0)
+        Guna2ControlBox2.Name = "Guna2ControlBox2"
+        Guna2ControlBox2.RightToLeft = RightToLeft.Yes
+        Guna2ControlBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        Guna2ControlBox2.Size = New Size(40, 25)
+        Guna2ControlBox2.TabIndex = 2
+        ' 
+        ' Guna2BorderlessForm1
+        ' 
+        Guna2BorderlessForm1.BorderRadius = 60
+        Guna2BorderlessForm1.ContainerControl = Me
+        Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
+        Guna2BorderlessForm1.TransparentWhileDrag = True
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleDimensions = New SizeF(120F, 120F)
+        AutoScaleMode = AutoScaleMode.Dpi
         BackColor = SystemColors.ActiveCaptionText
         ClientSize = New Size(828, 559)
         ControlBox = False
-        Controls.Add(Guna2ControlBox1)
         Controls.Add(Panel1)
+        Controls.Add(Guna2Panel1)
         ForeColor = SystemColors.ActiveCaptionText
-        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form1"
-        Padding = New Padding(40, 20, 0, 20)
+        Padding = New Padding(20, 0, 0, 20)
         StartPosition = FormStartPosition.CenterScreen
         Guna2Panel2.ResumeLayout(False)
         Guna2Panel2.PerformLayout()
         Panel1.ResumeLayout(False)
+        Guna2Panel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
@@ -313,12 +376,15 @@ Partial Class Form1
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
-
-    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents continuebtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents sinpasstoggle As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents createacclabel As LinkLabel
+    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents lblincorrect As Label
+    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
 
 
 End Class

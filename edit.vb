@@ -71,6 +71,7 @@ Public Class edit
 
 
     Private Sub btnrotateright_Click(sender As Object, e As EventArgs) Handles btnrotateright.Click
+        btncrop.Checked = False
         If editedImage IsNot Nothing Then
             editedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
             PictureBox1.Image = editedImage
@@ -205,8 +206,14 @@ Public Class edit
         editedImage = croppedImage
     End Sub
 
+    Private Sub btncrop_Click(sender As Object, e As EventArgs) Handles btncrop.Click
+        If btncrop.Checked = False Then
+            btncrop.Checked = True
+        Else
+            btncrop.Checked = False
+        End If
 
-
+    End Sub
 End Class
 
 

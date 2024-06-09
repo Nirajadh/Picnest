@@ -2,7 +2,14 @@
 Imports System.Data.SqlClient
 Public Class Form2
 
-
+    Public Sub New()
+        InitializeComponent()
+        Me.DoubleBuffered = True
+        Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or
+                ControlStyles.UserPaint Or
+                ControlStyles.OptimizedDoubleBuffer, True)
+        Me.UpdateStyles()
+    End Sub
 
     Private db As New sqlcontrol()
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles supPasstoggle.Click
@@ -17,8 +24,9 @@ Public Class Form2
 
 
     Private Sub signinlabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles signinlabel.LinkClicked
-        Form1.Show()
         Me.Hide()
+        Form1.Show()
+
     End Sub
 
 
@@ -109,5 +117,8 @@ Public Class Form2
         txtname.Focus()
     End Sub
 
+    Private Sub Guna2ControlBox1_Click(sender As Object, e As EventArgs) Handles Guna2ControlBox1.Click
+        Application.Exit()
 
+    End Sub
 End Class

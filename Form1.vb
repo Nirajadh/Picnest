@@ -2,6 +2,16 @@
 Imports System.Data.SqlClient
 
 Public Class Form1
+
+
+    Public Sub New()
+        InitializeComponent()
+        Me.DoubleBuffered = True
+        Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or
+                ControlStyles.UserPaint Or
+                ControlStyles.OptimizedDoubleBuffer, True)
+        Me.UpdateStyles()
+    End Sub
     Private db As New sqlcontrol()
 
 
@@ -19,8 +29,9 @@ Public Class Form1
     Private Sub createacclabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles createacclabel.LinkClicked
         usernametxt.Clear()
         passwordtxt.Clear()
-        Form2.Show()
         Me.Hide()
+        Form2.Show()
+
 
     End Sub
 
@@ -29,7 +40,7 @@ Public Class Form1
         Dim password As String = passwordtxt.Text
 
         ' Define the query to check the username and password
-        Dim query As String = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password"
+        Dim query As String = "SELECT UserID FROM Users WHERE Username = @Username AND Password = @Password"
 
         ' Add parameters to the query
         db.AddParam("@Username", username)
@@ -42,8 +53,10 @@ Public Class Form1
         If db.HasException(True) Then Exit Sub
 
         ' Check if the user exists
-        If db.DBDT.Rows.Count > 0 AndAlso Convert.ToInt32(db.DBDT.Rows(0)(0)) > 0 Then
+        If db.DBDT.Rows.Count > 0 Then
+            GlobalVariables.userid = Convert.ToInt32(db.DBDT.Rows(0)("UserID"))
             MessageBox.Show("Sign in successful")
+
 
 
             ' Proceed to the next step or open the main form of your application
@@ -80,5 +93,10 @@ Public Class Form1
             continuebtn.PerformClick()
 
         End If
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
     End Sub
 End Class

@@ -325,7 +325,8 @@ Partial Class Form2
         ControlBox = False
         Controls.Add(Guna2Panel3)
         Controls.Add(Guna2Panel1)
-        FormBorderStyle = FormBorderStyle.FixedSingle
+        DoubleBuffered = True
+        FormBorderStyle = FormBorderStyle.None
         MaximizeBox = False
         Name = "Form2"
         Guna2Panel2.ResumeLayout(False)

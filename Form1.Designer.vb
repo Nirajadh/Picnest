@@ -25,7 +25,6 @@ Partial Class Form1
         components = New ComponentModel.Container()
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -40,6 +39,8 @@ Partial Class Form1
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         lblincorrect = New Label()
         createacclabel = New LinkLabel()
@@ -57,6 +58,7 @@ Partial Class Form1
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
+        Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
         Guna2Panel2.SuspendLayout()
         Panel1.SuspendLayout()
         Guna2Panel1.SuspendLayout()
@@ -80,6 +82,7 @@ Partial Class Form1
         Guna2Panel2.Controls.Add(passwordtxt)
         Guna2Panel2.Controls.Add(usernametxt)
         Guna2Panel2.CustomizableEdges = CustomizableEdges9
+        Guna2Transition1.SetDecoration(Guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2Panel2.FillColor = Color.White
         Guna2Panel2.Location = New Point(213, 9)
         Guna2Panel2.Name = "Guna2Panel2"
@@ -92,6 +95,7 @@ Partial Class Form1
         lblincorrect.Anchor = AnchorStyles.None
         lblincorrect.AutoSize = True
         lblincorrect.BackColor = Color.White
+        Guna2Transition1.SetDecoration(lblincorrect, Guna.UI2.AnimatorNS.DecorationType.None)
         lblincorrect.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         lblincorrect.Location = New Point(70, 327)
         lblincorrect.Name = "lblincorrect"
@@ -105,6 +109,7 @@ Partial Class Form1
         createacclabel.ActiveLinkColor = SystemColors.Highlight
         createacclabel.AutoSize = True
         createacclabel.BackColor = Color.White
+        Guna2Transition1.SetDecoration(createacclabel, Guna.UI2.AnimatorNS.DecorationType.None)
         createacclabel.DisabledLinkColor = SystemColors.Highlight
         createacclabel.Font = New Font("Segoe UI Variable Text Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         createacclabel.LinkBehavior = LinkBehavior.NeverUnderline
@@ -132,6 +137,7 @@ Partial Class Form1
         sinpasstoggle.CustomImages.ImageAlign = HorizontalAlignment.Center
         sinpasstoggle.CustomImages.ImageSize = New Size(23, 23)
         sinpasstoggle.CustomizableEdges = CustomizableEdges1
+        Guna2Transition1.SetDecoration(sinpasstoggle, Guna.UI2.AnimatorNS.DecorationType.None)
         sinpasstoggle.DisabledState.BorderColor = Color.DarkGray
         sinpasstoggle.DisabledState.CustomBorderColor = Color.DarkGray
         sinpasstoggle.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -169,6 +175,7 @@ Partial Class Form1
         continuebtn.BorderRadius = 20
         continuebtn.BorderThickness = 1
         continuebtn.CustomizableEdges = CustomizableEdges3
+        Guna2Transition1.SetDecoration(continuebtn, Guna.UI2.AnimatorNS.DecorationType.None)
         continuebtn.DisabledState.BorderColor = Color.DarkGray
         continuebtn.DisabledState.CustomBorderColor = Color.DarkGray
         continuebtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -185,6 +192,7 @@ Partial Class Form1
         ' Guna2HtmlLabel5
         ' 
         Guna2HtmlLabel5.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(Guna2HtmlLabel5, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2HtmlLabel5.Font = New Font("Segoe UI Variable Text Semibold", 9F, FontStyle.Bold)
         Guna2HtmlLabel5.ForeColor = SystemColors.ControlDarkDark
         Guna2HtmlLabel5.Location = New Point(21, 109)
@@ -196,6 +204,7 @@ Partial Class Form1
         ' Guna2HtmlLabel4
         ' 
         Guna2HtmlLabel4.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(Guna2HtmlLabel4, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2HtmlLabel4.Font = New Font("Segoe UI Variable Display", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel4.ForeColor = SystemColors.ActiveCaptionText
         Guna2HtmlLabel4.Location = New Point(21, 61)
@@ -207,6 +216,7 @@ Partial Class Form1
         ' Guna2HtmlLabel3
         ' 
         Guna2HtmlLabel3.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(Guna2HtmlLabel3, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2HtmlLabel3.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel3.ForeColor = SystemColors.ActiveCaptionText
         Guna2HtmlLabel3.Location = New Point(21, 16)
@@ -218,6 +228,7 @@ Partial Class Form1
         ' Guna2HtmlLabel2
         ' 
         Guna2HtmlLabel2.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(Guna2HtmlLabel2, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2HtmlLabel2.Font = New Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel2.ForeColor = SystemColors.ButtonShadow
         Guna2HtmlLabel2.Location = New Point(21, 242)
@@ -229,6 +240,7 @@ Partial Class Form1
         ' Guna2HtmlLabel1
         ' 
         Guna2HtmlLabel1.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(Guna2HtmlLabel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2HtmlLabel1.Font = New Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel1.ForeColor = SystemColors.ButtonShadow
         Guna2HtmlLabel1.Location = New Point(21, 163)
@@ -243,6 +255,7 @@ Partial Class Form1
         passwordtxt.BorderColor = Color.Gray
         passwordtxt.BorderRadius = 3
         passwordtxt.CustomizableEdges = CustomizableEdges5
+        Guna2Transition1.SetDecoration(passwordtxt, Guna.UI2.AnimatorNS.DecorationType.None)
         passwordtxt.DefaultText = ""
         passwordtxt.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         passwordtxt.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -270,6 +283,7 @@ Partial Class Form1
         usernametxt.BorderColor = Color.Gray
         usernametxt.BorderRadius = 3
         usernametxt.CustomizableEdges = CustomizableEdges7
+        Guna2Transition1.SetDecoration(usernametxt, Guna.UI2.AnimatorNS.DecorationType.None)
         usernametxt.DefaultText = ""
         usernametxt.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         usernametxt.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -294,6 +308,7 @@ Partial Class Form1
         ' Panel1
         ' 
         Panel1.Controls.Add(Guna2Panel2)
+        Guna2Transition1.SetDecoration(Panel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Panel1.Dock = DockStyle.Fill
         Panel1.Location = New Point(20, 41)
         Panel1.Name = "Panel1"
@@ -305,6 +320,7 @@ Partial Class Form1
         ' 
         Guna2ControlBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Guna2ControlBox1.CustomizableEdges = CustomizableEdges11
+        Guna2Transition1.SetDecoration(Guna2ControlBox1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2ControlBox1.FillColor = Color.Black
         Guna2ControlBox1.IconColor = Color.White
         Guna2ControlBox1.Location = New Point(755, 12)
@@ -320,6 +336,7 @@ Partial Class Form1
         Guna2Panel1.Controls.Add(Guna2ControlBox2)
         Guna2Panel1.Controls.Add(Guna2ControlBox1)
         Guna2Panel1.CustomizableEdges = CustomizableEdges15
+        Guna2Transition1.SetDecoration(Guna2Panel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2Panel1.Dock = DockStyle.Top
         Guna2Panel1.Location = New Point(20, 0)
         Guna2Panel1.Name = "Guna2Panel1"
@@ -332,6 +349,7 @@ Partial Class Form1
         Guna2ControlBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
         Guna2ControlBox2.CustomizableEdges = CustomizableEdges13
+        Guna2Transition1.SetDecoration(Guna2ControlBox2, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2ControlBox2.FillColor = Color.Black
         Guna2ControlBox2.IconColor = Color.White
         Guna2ControlBox2.Location = New Point(715, 12)
@@ -349,6 +367,27 @@ Partial Class Form1
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Guna2BorderlessForm1.TransparentWhileDrag = True
         ' 
+        ' Guna2Transition1
+        ' 
+        Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Particles
+        Guna2Transition1.Cursor = Nothing
+        Animation1.AnimateOnlyDifferences = True
+        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), PointF)
+        Animation1.LeafCoeff = 0F
+        Animation1.MaxTime = 1F
+        Animation1.MinTime = 0F
+        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), PointF)
+        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), PointF)
+        Animation1.MosaicSize = 1
+        Animation1.Padding = New Padding(100, 50, 100, 150)
+        Animation1.RotateCoeff = 0F
+        Animation1.RotateLimit = 0F
+        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), PointF)
+        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), PointF)
+        Animation1.TimeCoeff = 2F
+        Animation1.TransparencyCoeff = 0F
+        Guna2Transition1.DefaultAnimation = Animation1
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(120F, 120F)
@@ -358,7 +397,10 @@ Partial Class Form1
         ControlBox = False
         Controls.Add(Panel1)
         Controls.Add(Guna2Panel1)
+        Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
+        DoubleBuffered = True
         ForeColor = SystemColors.ActiveCaptionText
+        FormBorderStyle = FormBorderStyle.None
         Name = "Form1"
         Padding = New Padding(20, 0, 0, 20)
         StartPosition = FormStartPosition.CenterScreen
@@ -385,6 +427,7 @@ Partial Class Form1
     Friend WithEvents lblincorrect As Label
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
+    Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
 
 
 End Class

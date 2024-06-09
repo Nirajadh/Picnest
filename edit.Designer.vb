@@ -25,45 +25,45 @@ Partial Class edit
         components = New ComponentModel.Container()
         Dim CustomizableEdges39 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges40 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(edit))
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         paneltools = New Guna.UI2.WinForms.Guna2Panel()
@@ -102,9 +102,9 @@ Partial Class edit
         ' 
         ' Guna2Panel1
         ' 
-        Guna2Panel1.Controls.Add(PictureBox1)
         Guna2Panel1.Controls.Add(paneltools)
         Guna2Panel1.Controls.Add(Guna2Panel2)
+        Guna2Panel1.Controls.Add(PictureBox1)
         Guna2Panel1.CustomizableEdges = CustomizableEdges39
         Guna2Panel1.Dock = DockStyle.Fill
         Guna2Panel1.Location = New Point(0, 0)
@@ -119,11 +119,11 @@ Partial Class edit
         paneltools.Controls.Add(panelfilters)
         paneltools.Controls.Add(panelcrop)
         paneltools.Controls.Add(paneladjust)
-        paneltools.CustomizableEdges = CustomizableEdges27
+        paneltools.CustomizableEdges = CustomizableEdges25
         paneltools.FillColor = Color.Transparent
         paneltools.Location = New Point(79, 232)
         paneltools.Name = "paneltools"
-        paneltools.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        paneltools.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         paneltools.Size = New Size(1006, 430)
         paneltools.TabIndex = 2
         ' 
@@ -135,12 +135,12 @@ Partial Class edit
         panelfilters.Controls.Add(btnapply)
         panelfilters.Controls.Add(btnfiltergray)
         panelfilters.Controls.Add(btnfiltersepia)
-        panelfilters.CustomizableEdges = CustomizableEdges9
+        panelfilters.CustomizableEdges = CustomizableEdges7
         panelfilters.Dock = DockStyle.Bottom
         panelfilters.FillColor = Color.FromArgb(CByte(26), CByte(26), CByte(26))
         panelfilters.Location = New Point(0, 24)
         panelfilters.Name = "panelfilters"
-        panelfilters.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        panelfilters.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         panelfilters.Size = New Size(1006, 137)
         panelfilters.TabIndex = 5
         ' 
@@ -152,7 +152,7 @@ Partial Class edit
         btnapply.CustomImages.ImageAlign = HorizontalAlignment.Center
         btnapply.CustomImages.ImageOffset = New Point(0, -2)
         btnapply.CustomImages.ImageSize = New Size(26, 26)
-        btnapply.CustomizableEdges = CustomizableEdges3
+        btnapply.CustomizableEdges = CustomizableEdges1
         btnapply.DisabledState.BorderColor = Color.DarkGray
         btnapply.DisabledState.CustomBorderColor = Color.DarkGray
         btnapply.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -164,13 +164,13 @@ Partial Class edit
         btnapply.HoverState.FillColor = Color.Transparent
         btnapply.Location = New Point(949, 49)
         btnapply.Name = "btnapply"
-        btnapply.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnapply.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btnapply.Size = New Size(45, 35)
         btnapply.TabIndex = 6
         ' 
         ' btnfiltergray
         ' 
-        btnfiltergray.CustomizableEdges = CustomizableEdges5
+        btnfiltergray.CustomizableEdges = CustomizableEdges3
         btnfiltergray.DisabledState.BorderColor = Color.DarkGray
         btnfiltergray.DisabledState.CustomBorderColor = Color.DarkGray
         btnfiltergray.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -179,14 +179,14 @@ Partial Class edit
         btnfiltergray.ForeColor = Color.White
         btnfiltergray.Location = New Point(515, 43)
         btnfiltergray.Name = "btnfiltergray"
-        btnfiltergray.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnfiltergray.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnfiltergray.Size = New Size(112, 48)
         btnfiltergray.TabIndex = 1
         btnfiltergray.Text = "GRAYSCALE"
         ' 
         ' btnfiltersepia
         ' 
-        btnfiltersepia.CustomizableEdges = CustomizableEdges7
+        btnfiltersepia.CustomizableEdges = CustomizableEdges5
         btnfiltersepia.DisabledState.BorderColor = Color.DarkGray
         btnfiltersepia.DisabledState.CustomBorderColor = Color.DarkGray
         btnfiltersepia.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -195,7 +195,7 @@ Partial Class edit
         btnfiltersepia.ForeColor = Color.White
         btnfiltersepia.Location = New Point(363, 43)
         btnfiltersepia.Name = "btnfiltersepia"
-        btnfiltersepia.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btnfiltersepia.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btnfiltersepia.Size = New Size(112, 48)
         btnfiltersepia.TabIndex = 0
         btnfiltersepia.Text = "SEPIA"
@@ -208,12 +208,12 @@ Partial Class edit
         panelcrop.Controls.Add(Guna2Button1)
         panelcrop.Controls.Add(btnrotateright)
         panelcrop.Controls.Add(btncrop)
-        panelcrop.CustomizableEdges = CustomizableEdges17
+        panelcrop.CustomizableEdges = CustomizableEdges15
         panelcrop.Dock = DockStyle.Bottom
         panelcrop.FillColor = Color.FromArgb(CByte(26), CByte(26), CByte(26))
         panelcrop.Location = New Point(0, 161)
         panelcrop.Name = "panelcrop"
-        panelcrop.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        panelcrop.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         panelcrop.Size = New Size(1006, 134)
         panelcrop.TabIndex = 4
         panelcrop.Visible = False
@@ -226,7 +226,7 @@ Partial Class edit
         Guna2Button1.CustomImages.ImageAlign = HorizontalAlignment.Center
         Guna2Button1.CustomImages.ImageOffset = New Point(0, -2)
         Guna2Button1.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button1.CustomizableEdges = CustomizableEdges11
+        Guna2Button1.CustomizableEdges = CustomizableEdges9
         Guna2Button1.DisabledState.BorderColor = Color.DarkGray
         Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -238,7 +238,7 @@ Partial Class edit
         Guna2Button1.HoverState.FillColor = Color.Transparent
         Guna2Button1.Location = New Point(949, 45)
         Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2Button1.Size = New Size(45, 35)
         Guna2Button1.TabIndex = 7
         ' 
@@ -246,11 +246,12 @@ Partial Class edit
         ' 
         btnrotateright.BorderColor = Color.Transparent
         btnrotateright.BorderRadius = 5
+        btnrotateright.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
         btnrotateright.CustomImages.Image = CType(resources.GetObject("resource.Image2"), Image)
         btnrotateright.CustomImages.ImageAlign = HorizontalAlignment.Center
         btnrotateright.CustomImages.ImageOffset = New Point(0, -2)
         btnrotateright.CustomImages.ImageSize = New Size(26, 26)
-        btnrotateright.CustomizableEdges = CustomizableEdges13
+        btnrotateright.CustomizableEdges = CustomizableEdges11
         btnrotateright.DisabledState.BorderColor = Color.DarkGray
         btnrotateright.DisabledState.CustomBorderColor = Color.DarkGray
         btnrotateright.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -262,7 +263,7 @@ Partial Class edit
         btnrotateright.HoverState.FillColor = Color.Transparent
         btnrotateright.Location = New Point(505, 57)
         btnrotateright.Name = "btnrotateright"
-        btnrotateright.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        btnrotateright.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         btnrotateright.Size = New Size(45, 35)
         btnrotateright.TabIndex = 5
         ' 
@@ -270,11 +271,12 @@ Partial Class edit
         ' 
         btncrop.BorderColor = Color.Transparent
         btncrop.BorderRadius = 5
+        btncrop.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
         btncrop.CustomImages.Image = CType(resources.GetObject("resource.Image3"), Image)
         btncrop.CustomImages.ImageAlign = HorizontalAlignment.Center
         btncrop.CustomImages.ImageOffset = New Point(0, -2)
         btncrop.CustomImages.ImageSize = New Size(26, 26)
-        btncrop.CustomizableEdges = CustomizableEdges15
+        btncrop.CustomizableEdges = CustomizableEdges13
         btncrop.DisabledState.BorderColor = Color.DarkGray
         btncrop.DisabledState.CustomBorderColor = Color.DarkGray
         btncrop.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -286,7 +288,7 @@ Partial Class edit
         btncrop.HoverState.FillColor = Color.Transparent
         btncrop.Location = New Point(409, 45)
         btncrop.Name = "btncrop"
-        btncrop.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btncrop.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btncrop.Size = New Size(66, 47)
         btncrop.TabIndex = 3
         ' 
@@ -298,19 +300,19 @@ Partial Class edit
         paneladjust.Controls.Add(txtcaption)
         paneladjust.Controls.Add(Guna2Button3)
         paneladjust.Controls.Add(Guna2Button2)
-        paneladjust.CustomizableEdges = CustomizableEdges25
+        paneladjust.CustomizableEdges = CustomizableEdges23
         paneladjust.Dock = DockStyle.Bottom
         paneladjust.FillColor = Color.FromArgb(CByte(26), CByte(26), CByte(26))
         paneladjust.Location = New Point(0, 295)
         paneladjust.Name = "paneladjust"
-        paneladjust.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        paneladjust.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         paneladjust.Size = New Size(1006, 135)
         paneladjust.TabIndex = 3
         paneladjust.Visible = False
         ' 
         ' txtcaption
         ' 
-        txtcaption.CustomizableEdges = CustomizableEdges19
+        txtcaption.CustomizableEdges = CustomizableEdges17
         txtcaption.DefaultText = ""
         txtcaption.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtcaption.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -325,7 +327,7 @@ Partial Class edit
         txtcaption.PasswordChar = ChrW(0)
         txtcaption.PlaceholderText = ""
         txtcaption.SelectedText = ""
-        txtcaption.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        txtcaption.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         txtcaption.Size = New Size(286, 60)
         txtcaption.TabIndex = 9
         ' 
@@ -337,7 +339,7 @@ Partial Class edit
         Guna2Button3.CustomImages.ImageAlign = HorizontalAlignment.Center
         Guna2Button3.CustomImages.ImageOffset = New Point(0, -2)
         Guna2Button3.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button3.CustomizableEdges = CustomizableEdges21
+        Guna2Button3.CustomizableEdges = CustomizableEdges19
         Guna2Button3.DisabledState.BorderColor = Color.DarkGray
         Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -349,13 +351,13 @@ Partial Class edit
         Guna2Button3.HoverState.FillColor = Color.Transparent
         Guna2Button3.Location = New Point(949, 46)
         Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         Guna2Button3.Size = New Size(45, 35)
         Guna2Button3.TabIndex = 8
         ' 
         ' Guna2Button2
         ' 
-        Guna2Button2.CustomizableEdges = CustomizableEdges23
+        Guna2Button2.CustomizableEdges = CustomizableEdges21
         Guna2Button2.DisabledState.BorderColor = Color.DarkGray
         Guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -364,7 +366,7 @@ Partial Class edit
         Guna2Button2.ForeColor = Color.White
         Guna2Button2.Location = New Point(3, 183)
         Guna2Button2.Name = "Guna2Button2"
-        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         Guna2Button2.Size = New Size(107, 49)
         Guna2Button2.TabIndex = 1
         Guna2Button2.Text = "Guna2Button2"
@@ -376,11 +378,11 @@ Partial Class edit
         Guna2Panel2.Controls.Add(btnadjust)
         Guna2Panel2.Controls.Add(btncropopen)
         Guna2Panel2.Controls.Add(filterbtn)
-        Guna2Panel2.CustomizableEdges = CustomizableEdges37
+        Guna2Panel2.CustomizableEdges = CustomizableEdges35
         Guna2Panel2.Dock = DockStyle.Left
         Guna2Panel2.Location = New Point(0, 0)
         Guna2Panel2.Name = "Guna2Panel2"
-        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges38
+        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges36
         Guna2Panel2.Size = New Size(79, 662)
         Guna2Panel2.TabIndex = 2
         ' 
@@ -395,7 +397,7 @@ Partial Class edit
         btnsave.CustomImages.ImageAlign = HorizontalAlignment.Center
         btnsave.CustomImages.ImageOffset = New Point(0, -2)
         btnsave.CustomImages.ImageSize = New Size(26, 26)
-        btnsave.CustomizableEdges = CustomizableEdges29
+        btnsave.CustomizableEdges = CustomizableEdges27
         btnsave.DisabledState.BorderColor = Color.DarkGray
         btnsave.DisabledState.CustomBorderColor = Color.DarkGray
         btnsave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -408,7 +410,7 @@ Partial Class edit
         btnsave.Location = New Point(7, 605)
         btnsave.Name = "btnsave"
         btnsave.PressedDepth = 10
-        btnsave.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnsave.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         btnsave.Size = New Size(66, 28)
         btnsave.TabIndex = 4
         btnsave.Text = "SAVE"
@@ -426,7 +428,7 @@ Partial Class edit
         btnadjust.CustomImages.ImageAlign = HorizontalAlignment.Center
         btnadjust.CustomImages.ImageOffset = New Point(0, -2)
         btnadjust.CustomImages.ImageSize = New Size(26, 26)
-        btnadjust.CustomizableEdges = CustomizableEdges31
+        btnadjust.CustomizableEdges = CustomizableEdges29
         btnadjust.DisabledState.BorderColor = Color.DarkGray
         btnadjust.DisabledState.CustomBorderColor = Color.DarkGray
         btnadjust.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -439,7 +441,7 @@ Partial Class edit
         btnadjust.Location = New Point(7, 328)
         btnadjust.Name = "btnadjust"
         btnadjust.PressedDepth = 10
-        btnadjust.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        btnadjust.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         btnadjust.Size = New Size(66, 47)
         btnadjust.TabIndex = 3
         ' 
@@ -454,7 +456,7 @@ Partial Class edit
         btncropopen.CustomImages.ImageAlign = HorizontalAlignment.Center
         btncropopen.CustomImages.ImageOffset = New Point(0, -2)
         btncropopen.CustomImages.ImageSize = New Size(26, 26)
-        btncropopen.CustomizableEdges = CustomizableEdges33
+        btncropopen.CustomizableEdges = CustomizableEdges31
         btncropopen.DisabledState.BorderColor = Color.DarkGray
         btncropopen.DisabledState.CustomBorderColor = Color.DarkGray
         btncropopen.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -467,7 +469,7 @@ Partial Class edit
         btncropopen.Location = New Point(7, 232)
         btncropopen.Name = "btncropopen"
         btncropopen.PressedDepth = 40
-        btncropopen.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        btncropopen.ShadowDecoration.CustomizableEdges = CustomizableEdges32
         btncropopen.Size = New Size(66, 47)
         btncropopen.TabIndex = 2
         ' 
@@ -482,7 +484,7 @@ Partial Class edit
         filterbtn.CustomImages.ImageAlign = HorizontalAlignment.Center
         filterbtn.CustomImages.ImageOffset = New Point(0, -2)
         filterbtn.CustomImages.ImageSize = New Size(26, 26)
-        filterbtn.CustomizableEdges = CustomizableEdges35
+        filterbtn.CustomizableEdges = CustomizableEdges33
         filterbtn.DisabledState.BorderColor = Color.DarkGray
         filterbtn.DisabledState.CustomBorderColor = Color.DarkGray
         filterbtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -495,17 +497,17 @@ Partial Class edit
         filterbtn.Location = New Point(7, 138)
         filterbtn.Name = "filterbtn"
         filterbtn.PressedDepth = 40
-        filterbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        filterbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         filterbtn.Size = New Size(66, 47)
         filterbtn.TabIndex = 1
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.CustomizableEdges = CustomizableEdges1
+        PictureBox1.CustomizableEdges = CustomizableEdges37
         PictureBox1.ImageRotate = 0F
         PictureBox1.Location = New Point(79, 0)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges38
         PictureBox1.Size = New Size(1006, 527)
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         PictureBox1.TabIndex = 0

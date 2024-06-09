@@ -136,7 +136,7 @@ Public Class edit
         End If
     End Sub
     Private Sub PictureBox1_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseDown
-        If originalImage IsNot Nothing AndAlso e.Button = MouseButtons.Left Then
+        If originalImage IsNot Nothing AndAlso e.Button = MouseButtons.Left AndAlso btncropopen.Checked = True AndAlso btncrop.Checked = True Then
             isCropping = True
             cropStartPoint = e.Location
         End If
@@ -152,9 +152,9 @@ Public Class edit
 
     Private Sub PictureBox1_MouseUp(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseUp
         If isCropping Then
-            isCropping = False
+
             CropImage(cropStartPoint, cropEndPoint)
-            ' Invalidate to refresh the picture box
+            isCropping = False
         End If
     End Sub
 
@@ -166,7 +166,8 @@ Public Class edit
                 Math.Abs(cropStartPoint.X - cropEndPoint.X),
                 Math.Abs(cropStartPoint.Y - cropEndPoint.Y)
             )
-            e.Graphics.DrawRectangle(Pens.Red, cropRect) ' Draw selection rectangle
+
+            e.Graphics.DrawRectangle(Pens.WhiteSmoke, cropRect) ' Draw selection rectangle
         End If
     End Sub
 
@@ -199,9 +200,13 @@ Public Class edit
 
 
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        isCropping = False
         PictureBox1.Image = croppedImage
         editedImage = croppedImage
     End Sub
+
+
+
 End Class
 
 

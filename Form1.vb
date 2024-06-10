@@ -57,8 +57,8 @@ Public Class Form1
             GlobalVariables.userid = Convert.ToInt32(db.DBDT.Rows(0)("UserID"))
             MessageBox.Show("Sign in successful")
 
-
-
+            Me.Hide()
+            edit.Show()
             ' Proceed to the next step or open the main form of your application
         Else
             lblincorrect.Visible = True

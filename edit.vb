@@ -14,8 +14,9 @@ Public Class edit
     Private isCropping As Boolean = False
     Private cropStartPoint As Point
     Private cropEndPoint As Point
-
+    Private currentRotation As RotateFlipType = RotateFlipType.RotateNoneFlipNone
     Private db As New sqlcontrol("Server=NIRAJ;Database=imgdatabase;Integrated Security=True")
+    Private rev As Boolean = False
 
 
     Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick
@@ -53,6 +54,7 @@ Public Class edit
         panelfilters.Visible = False
         panelcrop.Visible = False
         paneladjust.Visible = True
+
     End Sub
 
     Private Sub btnfiltergray_Click(sender As Object, e As EventArgs) Handles btnfiltergray.Click
@@ -74,6 +76,7 @@ Public Class edit
         btncrop.Checked = False
         If editedImage IsNot Nothing Then
             editedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
+            currentRotation = CType((currentRotation + 1) Mod 4, RotateFlipType) ' Adjust the rotation tracker
             PictureBox1.Image = editedImage
         End If
     End Sub
@@ -190,20 +193,27 @@ Public Class edit
         Math.Abs(startPoint.X - endPoint.X),
         Math.Abs(startPoint.Y - endPoint.Y)
     )
-
+        cropRect = AdjustCropRectForRotation(cropRect)
         If cropRect.Width > 0 AndAlso cropRect.Height > 0 Then
             croppedImage = New Bitmap(cropRect.Width, cropRect.Height)
             Using g As Graphics = Graphics.FromImage(croppedImage)
                 g.DrawImage(editedImage, New Rectangle(0, 0, cropRect.Width, cropRect.Height), cropRect, GraphicsUnit.Pixel)
             End Using
         End If
+        rev = False
     End Sub
 
 
-    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles btncropapply.Click
         isCropping = False
-        PictureBox1.Image = croppedImage
-        editedImage = croppedImage
+        If rev = True Then
+            PictureBox1.Image = editedImage
+        Else
+            PictureBox1.Image = croppedImage
+
+        End If
+
+
     End Sub
 
     Private Sub btncrop_Click(sender As Object, e As EventArgs) Handles btncrop.Click
@@ -213,6 +223,37 @@ Public Class edit
             btncrop.Checked = False
         End If
 
+    End Sub
+
+    Private Sub btnapply_Click(sender As Object, e As EventArgs) Handles btnapply.Click
+
+    End Sub
+
+    Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
+        PictureBox1.Image = editedImage
+
+
+        rev = True
+
+    End Sub
+    Private Function AdjustCropRectForRotation(cropRect As Rectangle) As Rectangle
+        ' Adjust the crop rectangle based on the current rotation
+        Dim adjustedRect As Rectangle
+        Select Case currentRotation
+            Case RotateFlipType.Rotate90FlipNone
+                adjustedRect = New Rectangle(cropRect.Y, editedImage.Width - cropRect.X - cropRect.Width, cropRect.Height, cropRect.Width)
+            Case RotateFlipType.Rotate180FlipNone
+                adjustedRect = New Rectangle(editedImage.Width - cropRect.X - cropRect.Width, editedImage.Height - cropRect.Y - cropRect.Height, cropRect.Width, cropRect.Height)
+            Case RotateFlipType.Rotate270FlipNone
+                adjustedRect = New Rectangle(editedImage.Height - cropRect.Y - cropRect.Height, cropRect.X, cropRect.Height, cropRect.Width)
+            Case Else
+                adjustedRect = cropRect
+        End Select
+        Return adjustedRect
+    End Function
+
+    Private Sub btncropopen_Leave(sender As Object, e As EventArgs) Handles btncropopen.Leave
+        editedImage = PictureBox1.Image
     End Sub
 End Class
 

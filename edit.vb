@@ -3,6 +3,7 @@ Imports System.Drawing
 Imports System.Drawing.Imaging
 Imports System.IO
 Imports System.Net
+Imports System.Windows.Media.Imaging
 Imports AForge.Imaging.Filters
 
 
@@ -10,13 +11,15 @@ Public Class edit
 
     Private originalImage As Bitmap
     Private editedImage As Bitmap = originalImage
-    Private croppedImage As Bitmap ' Use croppedImage instead of editedImage for cropping
+    Private croppedImage As Bitmap = editedImage
+    Private filteredImage As Bitmap
+    Private adjustedImage As Bitmap ' Use croppedImage instead of editedImage for cropping
     Private isCropping As Boolean = False
     Private cropStartPoint As Point
     Private cropEndPoint As Point
     Private currentRotation As RotateFlipType = RotateFlipType.RotateNoneFlipNone
     Private db As New sqlcontrol("Server=NIRAJ;Database=imgdatabase;Integrated Security=True")
-    Private rev As Boolean = False
+
 
 
     Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick
@@ -42,12 +45,15 @@ Public Class edit
         panelfilters.Visible = True
         panelcrop.Visible = False
         paneladjust.Visible = False
+        PictureBox1.Image = editedImage
+        filteredImage = PictureBox1.Image
     End Sub
 
     Private Sub btncropopen_Click(sender As Object, e As EventArgs) Handles btncropopen.Click
         panelfilters.Visible = False
         panelcrop.Visible = True
         paneladjust.Visible = False
+        PictureBox1.Image = editedImage
     End Sub
 
     Private Sub btnadjust_Click(sender As Object, e As EventArgs) Handles btnadjust.Click
@@ -55,15 +61,17 @@ Public Class edit
         panelcrop.Visible = False
         paneladjust.Visible = True
 
+        PictureBox1.Image = editedImage
+        adjustedImage = PictureBox1.Image
     End Sub
 
     Private Sub btnfiltergray_Click(sender As Object, e As EventArgs) Handles btnfiltergray.Click
         If editedImage IsNot Nothing Then
             Try
-                editedImage = ConvertTo24bppRgb(editedImage)
+
                 Dim grayscaleFilter As New Grayscale(0.2125, 0.7154, 0.0721)
-                editedImage = grayscaleFilter.Apply(editedImage)
-                PictureBox1.Image = editedImage
+                filteredImage = grayscaleFilter.Apply(editedImage)
+                PictureBox1.Image = filteredImage
             Catch ex As Exception
                 MessageBox.Show("Error applying grayscale filter: " & ex.Message)
             End Try
@@ -128,12 +136,12 @@ Public Class edit
     End Function
 
     Private Sub btnfiltersepia_Click(sender As Object, e As EventArgs) Handles btnfiltersepia.Click
-        If editedImage IsNot Nothing Then
+        If filteredImage IsNot Nothing Then
             Try
-                editedImage = ConvertTo24bppRgb(editedImage)
+
                 Dim sepiaFilter As New Sepia()
-                editedImage = sepiaFilter.Apply(editedImage)
-                PictureBox1.Image = editedImage
+                filteredImage = sepiaFilter.Apply(editedImage)
+                PictureBox1.Image = filteredImage
             Catch ex As Exception
                 MessageBox.Show("Error applying sepia filter: " & ex.Message)
             End Try
@@ -200,18 +208,16 @@ Public Class edit
                 g.DrawImage(editedImage, New Rectangle(0, 0, cropRect.Width, cropRect.Height), cropRect, GraphicsUnit.Pixel)
             End Using
         End If
-        rev = False
+        PictureBox1.Image = croppedImage
     End Sub
 
 
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles btncropapply.Click
         isCropping = False
-        If rev = True Then
-            PictureBox1.Image = editedImage
-        Else
-            PictureBox1.Image = croppedImage
 
-        End If
+
+        editedImage = croppedImage
+
 
 
     End Sub
@@ -226,14 +232,14 @@ Public Class edit
     End Sub
 
     Private Sub btnapply_Click(sender As Object, e As EventArgs) Handles btnapply.Click
-
+        editedImage = filteredImage
     End Sub
 
     Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
         PictureBox1.Image = editedImage
 
+        croppedImage = editedImage
 
-        rev = True
 
     End Sub
     Private Function AdjustCropRectForRotation(cropRect As Rectangle) As Rectangle
@@ -254,6 +260,43 @@ Public Class edit
 
     Private Sub btncropopen_Leave(sender As Object, e As EventArgs) Handles btncropopen.Leave
         editedImage = PictureBox1.Image
+    End Sub
+
+    Private Sub trackbarbrightness_ValueChanged(sender As Object, e As EventArgs) Handles trackbarbrightness.ValueChanged
+        If editedImage IsNot Nothing Then
+            Dim brightnessValue As Integer = trackbarbrightness.Value
+            ApplyBrightness(brightnessValue)
+        End If
+
+    End Sub
+
+    Private Sub ApplyBrightness(brightnessValue As Integer)
+        Try
+            Dim brightnessFilter As New BrightnessCorrection(brightnessValue)
+
+
+            adjustedImage = brightnessFilter.Apply(editedImage)
+            PictureBox1.Image = adjustedImage
+        Catch ex As Exception
+            MessageBox.Show("Error applying brightness adjustment: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnadjustapply_Click(sender As Object, e As EventArgs) Handles btnadjustapply.Click
+        editedImage = adjustedImage
+    End Sub
+
+    Private Sub btnadjustrevert_Click(sender As Object, e As EventArgs) Handles btnadjustrevert.Click
+        PictureBox1.Image = editedImage
+        adjustedImage = editedImage
+    End Sub
+
+    Private Sub btnfilterrevert_Click(sender As Object, e As EventArgs) Handles btnfilterrevert.Click
+        PictureBox1.Image = editedImage
+        filteredImage = editedImage
+        trackbarbrightness.Value = 0
+        trackbarcontrast.Value = 0
+        trackbarsaturation.Value = 0
     End Sub
 End Class
 

@@ -41,6 +41,16 @@ Public Class edit
         Return bmp
     End Function
 
+    Private Function GetEncoder(format As ImageFormat) As ImageCodecInfo
+        Dim codecs As ImageCodecInfo() = ImageCodecInfo.GetImageDecoders()
+        For Each codec As ImageCodecInfo In codecs
+            If codec.FormatID = format.Guid Then
+                Return codec
+            End If
+        Next
+        Return Nothing
+    End Function
+    'filter
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles filterbtn.Click
         panelfilters.Visible = True
         panelcrop.Visible = False
@@ -48,23 +58,6 @@ Public Class edit
         PictureBox1.Image = editedImage
         filteredImage = PictureBox1.Image
     End Sub
-
-    Private Sub btncropopen_Click(sender As Object, e As EventArgs) Handles btncropopen.Click
-        panelfilters.Visible = False
-        panelcrop.Visible = True
-        paneladjust.Visible = False
-        PictureBox1.Image = editedImage
-    End Sub
-
-    Private Sub btnadjust_Click(sender As Object, e As EventArgs) Handles btnadjust.Click
-        panelfilters.Visible = False
-        panelcrop.Visible = False
-        paneladjust.Visible = True
-
-        PictureBox1.Image = editedImage
-        adjustedImage = PictureBox1.Image
-    End Sub
-
     Private Sub btnfiltergray_Click(sender As Object, e As EventArgs) Handles btnfiltergray.Click
         If editedImage IsNot Nothing Then
             Try
@@ -77,64 +70,6 @@ Public Class edit
             End Try
         End If
     End Sub
-
-
-
-    Private Sub btnrotateright_Click(sender As Object, e As EventArgs) Handles btnrotateright.Click
-        btncrop.Checked = False
-        If editedImage IsNot Nothing Then
-            editedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
-            currentRotation = CType((currentRotation + 1) Mod 4, RotateFlipType) ' Adjust the rotation tracker
-            PictureBox1.Image = editedImage
-        End If
-    End Sub
-
-
-
-    Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-        If editedImage IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(txtcaption.Text) AndAlso Not String.IsNullOrWhiteSpace(userid) Then
-            Try
-
-
-
-                Using ms As New MemoryStream()
-                    Dim codecInfo As ImageCodecInfo = GetEncoder(ImageFormat.Jpeg)
-                    Dim encoder As System.Drawing.Imaging.Encoder = System.Drawing.Imaging.Encoder.Quality
-                    Dim encoderParams As New EncoderParameters(1)
-                    encoderParams.Param(0) = New EncoderParameter(encoder, 100L)
-
-                    editedImage.Save(ms, codecInfo, encoderParams)
-                    Dim imageData As Byte() = ms.ToArray()
-
-                    db.AddParam("@UserID", Convert.ToInt32(userid))
-                    db.AddParam("@ImageData", imageData)
-                    db.AddParam("@Caption", txtcaption.Text)
-                    db.AddParam("@UploadDate", DateTime.Now)
-
-                    db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
-
-                    If db.HasException(True) Then Exit Sub
-
-                    MessageBox.Show("Image uploaded successfully!")
-                End Using
-            Catch ex As Exception
-                MessageBox.Show("Error saving image: " & ex.Message)
-            End Try
-        Else
-            MessageBox.Show("Please select an image, enter a caption, and provide a valid user ID.")
-        End If
-    End Sub
-
-    Private Function GetEncoder(format As ImageFormat) As ImageCodecInfo
-        Dim codecs As ImageCodecInfo() = ImageCodecInfo.GetImageDecoders()
-        For Each codec As ImageCodecInfo In codecs
-            If codec.FormatID = format.Guid Then
-                Return codec
-            End If
-        Next
-        Return Nothing
-    End Function
-
     Private Sub btnfiltersepia_Click(sender As Object, e As EventArgs) Handles btnfiltersepia.Click
         If filteredImage IsNot Nothing Then
             Try
@@ -147,6 +82,21 @@ Public Class edit
             End Try
         End If
     End Sub
+
+    Private Sub btnapply_Click(sender As Object, e As EventArgs) Handles btnapply.Click
+        editedImage = filteredImage
+    End Sub
+
+    Private Sub btnfilterrevert_Click(sender As Object, e As EventArgs) Handles btnfilterrevert.Click
+        PictureBox1.Image = editedImage
+        filteredImage = editedImage
+        trackbarbrightness.Value = 0
+        trackbarcontrast.Value = 0
+        trackbarsaturation.Value = 0
+    End Sub
+    'filter end
+
+    'crop
     Private Sub PictureBox1_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseDown
         If originalImage IsNot Nothing AndAlso e.Button = MouseButtons.Left AndAlso btncropopen.Checked = True AndAlso btncrop.Checked = True Then
             isCropping = True
@@ -182,9 +132,21 @@ Public Class edit
             e.Graphics.DrawRectangle(Pens.WhiteSmoke, cropRect) ' Draw selection rectangle
         End If
     End Sub
+    Private Sub btncropopen_Click(sender As Object, e As EventArgs) Handles btncropopen.Click
+        panelfilters.Visible = False
+        panelcrop.Visible = True
+        paneladjust.Visible = False
+        PictureBox1.Image = editedImage
+    End Sub
 
-
-
+    Private Sub btnrotateright_Click(sender As Object, e As EventArgs) Handles btnrotateright.Click
+        btncrop.Checked = False
+        If editedImage IsNot Nothing Then
+            editedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
+            currentRotation = CType((currentRotation + 1) Mod 4, RotateFlipType) ' Adjust the rotation tracker
+            PictureBox1.Image = editedImage
+        End If
+    End Sub
     Private Sub CropImage(startPoint As Point, endPoint As Point)
         ' Adjust coordinates if the image size is smaller than the picture box size
         Dim scaleX As Double = editedImage.Width / PictureBox1.Width
@@ -214,14 +176,16 @@ Public Class edit
 
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles btncropapply.Click
         isCropping = False
-
-
         editedImage = croppedImage
 
+    End Sub
+    Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
+        PictureBox1.Image = editedImage
+
+        croppedImage = editedImage
 
 
     End Sub
-
     Private Sub btncrop_Click(sender As Object, e As EventArgs) Handles btncrop.Click
         If btncrop.Checked = False Then
             btncrop.Checked = True
@@ -231,16 +195,9 @@ Public Class edit
 
     End Sub
 
-    Private Sub btnapply_Click(sender As Object, e As EventArgs) Handles btnapply.Click
-        editedImage = filteredImage
-    End Sub
 
-    Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
-        PictureBox1.Image = editedImage
-
-        croppedImage = editedImage
-
-
+    Private Sub btncropopen_Leave(sender As Object, e As EventArgs) Handles btncropopen.Leave
+        editedImage = PictureBox1.Image
     End Sub
     Private Function AdjustCropRectForRotation(cropRect As Rectangle) As Rectangle
         ' Adjust the crop rectangle based on the current rotation
@@ -257,9 +214,17 @@ Public Class edit
         End Select
         Return adjustedRect
     End Function
+    'endcrop
 
-    Private Sub btncropopen_Leave(sender As Object, e As EventArgs) Handles btncropopen.Leave
-        editedImage = PictureBox1.Image
+
+    'adjust
+    Private Sub btnadjust_Click(sender As Object, e As EventArgs) Handles btnadjust.Click
+        panelfilters.Visible = False
+        panelcrop.Visible = False
+        paneladjust.Visible = True
+
+        PictureBox1.Image = editedImage
+        adjustedImage = PictureBox1.Image
     End Sub
 
     Private Sub trackbarbrightness_ValueChanged(sender As Object, e As EventArgs) Handles trackbarbrightness.ValueChanged
@@ -290,14 +255,44 @@ Public Class edit
         PictureBox1.Image = editedImage
         adjustedImage = editedImage
     End Sub
+    'adjust end
 
-    Private Sub btnfilterrevert_Click(sender As Object, e As EventArgs) Handles btnfilterrevert.Click
-        PictureBox1.Image = editedImage
-        filteredImage = editedImage
-        trackbarbrightness.Value = 0
-        trackbarcontrast.Value = 0
-        trackbarsaturation.Value = 0
+
+    'save
+    Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
+        If editedImage IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(txtcaption.Text) AndAlso Not String.IsNullOrWhiteSpace(userid) Then
+            Try
+
+
+
+                Using ms As New MemoryStream()
+                    Dim codecInfo As ImageCodecInfo = GetEncoder(ImageFormat.Jpeg)
+                    Dim encoder As System.Drawing.Imaging.Encoder = System.Drawing.Imaging.Encoder.Quality
+                    Dim encoderParams As New EncoderParameters(1)
+                    encoderParams.Param(0) = New EncoderParameter(encoder, 100L)
+
+                    editedImage.Save(ms, codecInfo, encoderParams)
+                    Dim imageData As Byte() = ms.ToArray()
+
+                    db.AddParam("@UserID", Convert.ToInt32(userid))
+                    db.AddParam("@ImageData", imageData)
+                    db.AddParam("@Caption", txtcaption.Text)
+                    db.AddParam("@UploadDate", DateTime.Now)
+
+                    db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
+
+                    If db.HasException(True) Then Exit Sub
+
+                    MessageBox.Show("Image uploaded successfully!")
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error saving image: " & ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Please select an image, enter a caption, and provide a valid user ID.")
+        End If
     End Sub
+
 End Class
 
 

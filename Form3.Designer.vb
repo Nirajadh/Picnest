@@ -40,17 +40,21 @@ Partial Class Form3
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         pnlcontent = New Guna.UI2.WinForms.Guna2Panel()
+        Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Panel2.SuspendLayout()
+        Guna2Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Guna2BorderlessForm1
@@ -62,49 +66,37 @@ Partial Class Form3
         ' 
         ' Guna2ControlBox2
         ' 
-        Guna2ControlBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Guna2ControlBox2.BackColor = SystemColors.ActiveCaptionText
         Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
         Guna2ControlBox2.CustomizableEdges = CustomizableEdges13
-        Guna2ControlBox2.FillColor = SystemColors.Control
+        Guna2ControlBox2.Dock = DockStyle.Right
+        Guna2ControlBox2.FillColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
         Guna2ControlBox2.ForeColor = SystemColors.Control
-        Guna2ControlBox2.IconColor = Color.Black
-        Guna2ControlBox2.Location = New Point(1047, 0)
+        Guna2ControlBox2.IconColor = Color.White
+        Guna2ControlBox2.Location = New Point(1031, 0)
         Guna2ControlBox2.Name = "Guna2ControlBox2"
         Guna2ControlBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges14
-        Guna2ControlBox2.Size = New Size(37, 24)
+        Guna2ControlBox2.Size = New Size(45, 40)
         Guna2ControlBox2.TabIndex = 1
         ' 
         ' Guna2Panel2
         ' 
         Guna2Panel2.Anchor = AnchorStyles.Left
-        Guna2Panel2.BackColor = Color.White
+        Guna2Panel2.BackColor = SystemColors.ControlLightLight
         Guna2Panel2.BorderColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
         Guna2Panel2.BorderRadius = 12
         Guna2Panel2.BorderThickness = 1
-        Guna2Panel2.Controls.Add(Guna2HtmlLabel3)
         Guna2Panel2.Controls.Add(Guna2Button4)
         Guna2Panel2.Controls.Add(Guna2Button3)
         Guna2Panel2.Controls.Add(Guna2Button2)
         Guna2Panel2.Controls.Add(Guna2Button1)
         Guna2Panel2.CustomizableEdges = CustomizableEdges11
         Guna2Panel2.FillColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
-        Guna2Panel2.Location = New Point(3, 33)
+        Guna2Panel2.Location = New Point(3, 47)
         Guna2Panel2.Name = "Guna2Panel2"
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        Guna2Panel2.Size = New Size(81, 663)
+        Guna2Panel2.Size = New Size(64, 648)
         Guna2Panel2.TabIndex = 0
-        ' 
-        ' Guna2HtmlLabel3
-        ' 
-        Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight
-        Guna2HtmlLabel3.Location = New Point(9, 13)
-        Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(55, 30)
-        Guna2HtmlLabel3.TabIndex = 5
-        Guna2HtmlLabel3.Text = "IMG"
         ' 
         ' Guna2Button4
         ' 
@@ -114,7 +106,6 @@ Partial Class Form3
         Guna2Button4.BorderColor = Color.White
         Guna2Button4.BorderRadius = 20
         Guna2Button4.BorderThickness = 1
-        Guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
         Guna2Button4.CustomImages.HoveredImage = CType(resources.GetObject("resource.HoveredImage"), Image)
         Guna2Button4.CustomImages.Image = CType(resources.GetObject("resource.Image"), Image)
         Guna2Button4.CustomImages.ImageAlign = HorizontalAlignment.Center
@@ -130,7 +121,7 @@ Partial Class Form3
         Guna2Button4.ForeColor = Color.White
         Guna2Button4.HoverState.BorderColor = Color.Black
         Guna2Button4.HoverState.FillColor = Color.White
-        Guna2Button4.Location = New Point(20, 611)
+        Guna2Button4.Location = New Point(11, 596)
         Guna2Button4.Name = "Guna2Button4"
         Guna2Button4.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2Button4.Size = New Size(40, 40)
@@ -156,10 +147,10 @@ Partial Class Form3
         Guna2Button3.Font = New Font("Segoe UI", 9F)
         Guna2Button3.ForeColor = Color.White
         Guna2Button3.HoverState.BorderColor = Color.Black
-        Guna2Button3.Location = New Point(3, 366)
+        Guna2Button3.Location = New Point(3, 385)
         Guna2Button3.Name = "Guna2Button3"
         Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2Button3.Size = New Size(74, 41)
+        Guna2Button3.Size = New Size(59, 41)
         Guna2Button3.TabIndex = 8
         ' 
         ' Guna2Button2
@@ -182,10 +173,10 @@ Partial Class Form3
         Guna2Button2.Font = New Font("Segoe UI", 9F)
         Guna2Button2.ForeColor = Color.White
         Guna2Button2.HoverState.BorderColor = Color.Black
-        Guna2Button2.Location = New Point(3, 286)
+        Guna2Button2.Location = New Point(3, 304)
         Guna2Button2.Name = "Guna2Button2"
         Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        Guna2Button2.Size = New Size(74, 41)
+        Guna2Button2.Size = New Size(59, 41)
         Guna2Button2.TabIndex = 7
         ' 
         ' Guna2Button1
@@ -210,51 +201,81 @@ Partial Class Form3
         Guna2Button1.Font = New Font("Segoe UI", 9F)
         Guna2Button1.ForeColor = Color.White
         Guna2Button1.HoverState.BorderColor = Color.Black
-        Guna2Button1.Location = New Point(3, 204)
+        Guna2Button1.Location = New Point(3, 223)
         Guna2Button1.Name = "Guna2Button1"
         Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        Guna2Button1.Size = New Size(74, 41)
+        Guna2Button1.Size = New Size(59, 41)
         Guna2Button1.TabIndex = 6
+        ' 
+        ' Guna2HtmlLabel3
+        ' 
+        Guna2HtmlLabel3.BackColor = Color.Transparent
+        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight
+        Guna2HtmlLabel3.Location = New Point(12, 3)
+        Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Guna2HtmlLabel3.Size = New Size(55, 30)
+        Guna2HtmlLabel3.TabIndex = 5
+        Guna2HtmlLabel3.Text = "IMG"
         ' 
         ' Guna2ControlBox1
         ' 
-        Guna2ControlBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Guna2ControlBox1.BackColor = SystemColors.ActiveCaptionText
         Guna2ControlBox1.CustomizableEdges = CustomizableEdges15
-        Guna2ControlBox1.FillColor = SystemColors.Control
+        Guna2ControlBox1.Dock = DockStyle.Right
+        Guna2ControlBox1.FillColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
         Guna2ControlBox1.ForeColor = SystemColors.Control
         Guna2ControlBox1.HoverState.FillColor = Color.Red
-        Guna2ControlBox1.IconColor = Color.Black
-        Guna2ControlBox1.Location = New Point(1083, 0)
+        Guna2ControlBox1.IconColor = Color.White
+        Guna2ControlBox1.Location = New Point(1076, 0)
         Guna2ControlBox1.Name = "Guna2ControlBox1"
         Guna2ControlBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges16
-        Guna2ControlBox1.Size = New Size(37, 24)
+        Guna2ControlBox1.Size = New Size(45, 40)
         Guna2ControlBox1.TabIndex = 0
         ' 
         ' pnlcontent
         ' 
+        pnlcontent.BackColor = SystemColors.ActiveCaptionText
+        pnlcontent.BorderColor = Color.White
+        pnlcontent.BorderThickness = 1
         pnlcontent.CustomizableEdges = CustomizableEdges1
-        pnlcontent.Location = New Point(86, 33)
+        pnlcontent.Location = New Point(70, 44)
         pnlcontent.Name = "pnlcontent"
         pnlcontent.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        pnlcontent.Size = New Size(1032, 639)
+        pnlcontent.Size = New Size(1045, 654)
         pnlcontent.TabIndex = 2
+        ' 
+        ' Guna2Panel1
+        ' 
+        Guna2Panel1.BackColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
+        Guna2Panel1.Controls.Add(Guna2HtmlLabel3)
+        Guna2Panel1.Controls.Add(Guna2ControlBox2)
+        Guna2Panel1.Controls.Add(Guna2ControlBox1)
+        Guna2Panel1.CustomizableEdges = CustomizableEdges17
+        Guna2Panel1.Dock = DockStyle.Top
+        Guna2Panel1.Location = New Point(0, 0)
+        Guna2Panel1.Name = "Guna2Panel1"
+        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        Guna2Panel1.Size = New Size(1121, 40)
+        Guna2Panel1.TabIndex = 3
         ' 
         ' Form3
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = SystemColors.ControlLightLight
         ClientSize = New Size(1121, 704)
         Controls.Add(pnlcontent)
         Controls.Add(Guna2Panel2)
-        Controls.Add(Guna2ControlBox2)
-        Controls.Add(Guna2ControlBox1)
+        Controls.Add(Guna2Panel1)
         DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
         Name = "Form3"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Form3"
         Guna2Panel2.ResumeLayout(False)
-        Guna2Panel2.PerformLayout()
+        Guna2Panel1.ResumeLayout(False)
+        Guna2Panel1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -268,4 +289,5 @@ Partial Class Form3
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents pnlcontent As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
 End Class

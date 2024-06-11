@@ -10,8 +10,9 @@ Imports AForge.Imaging.Filters
 Public Class edit1
     Inherits UserControl
     Private originalImage As Bitmap
-    Private editedImage As Bitmap = originalImage
-    Private croppedImage As Bitmap = editedImage
+    Private editedImage As Bitmap
+    Private croppedImage As Bitmap
+    Private croppedtempImage As Bitmap
     Private filteredImage As Bitmap
     Private filtersbtnimage As Bitmap
     Private adjustedImage As Bitmap
@@ -32,7 +33,7 @@ Public Class edit1
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
             If openFileDialog.ShowDialog = DialogResult.OK Then
                 originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                editedImage = ConvertTo24bppRgb(originalImage)
+                editedImage = ConvertTo24bppRgb(originalImage).Clone()
                 PictureBox1.Image = editedImage
             End If
         End Using
@@ -43,7 +44,7 @@ Public Class edit1
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
             If openFileDialog.ShowDialog = DialogResult.OK Then
                 originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                editedImage = ConvertTo24bppRgb(originalImage)
+                editedImage = ConvertTo24bppRgb(originalImage).Clone()
                 PictureBox1.Image = editedImage
             End If
 
@@ -160,12 +161,12 @@ Public Class edit1
     End Sub
 
     Private Sub btnapply_Click(sender As Object, e As EventArgs) Handles btnapply.Click
-        editedImage = filteredImage
+        editedImage = filteredImage.Clone()
     End Sub
 
     Private Sub btnfilterrevert_Click(sender As Object, e As EventArgs) Handles btnfilterrevert.Click
         PictureBox1.Image = editedImage
-        filteredImage = editedImage
+        filteredImage = editedImage.Clone()
 
     End Sub
     'filter end
@@ -188,7 +189,7 @@ Public Class edit1
 
     Private Sub PictureBox1_MouseUp(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseUp
         If isCropping Then
-
+            croppedtempImage = croppedImage.Clone()
             CropImage(cropStartPoint, cropEndPoint)
             isCropping = False
         End If
@@ -211,20 +212,24 @@ Public Class edit1
         panelcrop.Visible = True
         paneladjust.Visible = False
         PictureBox1.Image = editedImage
+        croppedImage = editedImage.Clone()
     End Sub
+
+
 
     Private Sub btnrotateright_Click(sender As Object, e As EventArgs) Handles btnrotateright.Click
         btncrop.Checked = False
         If editedImage IsNot Nothing Then
-            editedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
-            currentRotation = CType((currentRotation + 1) Mod 4, RotateFlipType) ' Adjust the rotation tracker
-            PictureBox1.Image = editedImage
+            croppedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
+
+
+            PictureBox1.Image = croppedImage
         End If
     End Sub
     Private Sub CropImage(startPoint As Point, endPoint As Point)
         ' Adjust coordinates if the image size is smaller than the picture box size
-        Dim scaleX As Double = editedImage.Width / PictureBox1.Width
-        Dim scaleY As Double = editedImage.Height / PictureBox1.Height
+        Dim scaleX As Double = croppedImage.Width / PictureBox1.Width
+        Dim scaleY As Double = croppedImage.Height / PictureBox1.Height
 
         startPoint.X = CInt(startPoint.X * scaleX)
         startPoint.Y = CInt(startPoint.Y * scaleY)
@@ -237,11 +242,11 @@ Public Class edit1
         Math.Abs(startPoint.X - endPoint.X),
         Math.Abs(startPoint.Y - endPoint.Y)
     )
-        cropRect = AdjustCropRectForRotation(cropRect)
+
         If cropRect.Width > 0 AndAlso cropRect.Height > 0 Then
             croppedImage = New Bitmap(cropRect.Width, cropRect.Height)
             Using g As Graphics = Graphics.FromImage(croppedImage)
-                g.DrawImage(editedImage, New Rectangle(0, 0, cropRect.Width, cropRect.Height), cropRect, GraphicsUnit.Pixel)
+                g.DrawImage(croppedtempImage, New Rectangle(0, 0, cropRect.Width, cropRect.Height), cropRect, GraphicsUnit.Pixel)
             End Using
         End If
         PictureBox1.Image = croppedImage
@@ -250,13 +255,15 @@ Public Class edit1
 
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles btncropapply.Click
         isCropping = False
-        editedImage = croppedImage
+        editedImage = croppedImage.Clone()
 
     End Sub
     Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
+        editedImage.RotateFlip(RotateFlipType.RotateNoneFlipNone)
+
         PictureBox1.Image = editedImage
 
-        croppedImage = editedImage
+        croppedImage = editedImage.Clone()
 
 
     End Sub
@@ -273,21 +280,7 @@ Public Class edit1
     Private Sub btncropopen_Leave(sender As Object, e As EventArgs) Handles btncropopen.Leave
         editedImage = PictureBox1.Image
     End Sub
-    Private Function AdjustCropRectForRotation(cropRect As Rectangle) As Rectangle
-        ' Adjust the crop rectangle based on the current rotation
-        Dim adjustedRect As Rectangle
-        Select Case currentRotation
-            Case RotateFlipType.Rotate90FlipNone
-                adjustedRect = New Rectangle(cropRect.Y, editedImage.Width - cropRect.X - cropRect.Width, cropRect.Height, cropRect.Width)
-            Case RotateFlipType.Rotate180FlipNone
-                adjustedRect = New Rectangle(editedImage.Width - cropRect.X - cropRect.Width, editedImage.Height - cropRect.Y - cropRect.Height, cropRect.Width, cropRect.Height)
-            Case RotateFlipType.Rotate270FlipNone
-                adjustedRect = New Rectangle(editedImage.Height - cropRect.Y - cropRect.Height, cropRect.X, cropRect.Height, cropRect.Width)
-            Case Else
-                adjustedRect = cropRect
-        End Select
-        Return adjustedRect
-    End Function
+
     'endcrop
 
 
@@ -300,6 +293,9 @@ Public Class edit1
         PictureBox1.Image = editedImage
         adjustedImage = PictureBox1.Image
         adjustedtempImage = PictureBox1.Image
+        trackbarbrightness.Value = 0
+        trackbarcontrast.Value = 0
+        trackbarsaturation.Value = 0
     End Sub
 
     Private Sub trackbarbrightness_ValueChanged(sender As Object, e As EventArgs) Handles trackbarbrightness.ValueChanged
@@ -326,13 +322,13 @@ Public Class edit1
     End Sub
 
     Private Sub btnadjustapply_Click(sender As Object, e As EventArgs) Handles btnadjustapply.Click
-        editedImage = adjustedImage
+        editedImage = adjustedImage.Clone()
     End Sub
 
     Private Sub btnadjustrevert_Click(sender As Object, e As EventArgs) Handles btnadjustrevert.Click
         PictureBox1.Image = editedImage
-        adjustedImage = editedImage
-        adjustedtempImage = editedImage
+        adjustedImage = editedImage.Clone()
+        adjustedtempImage = editedImage.Clone()
         trackbarbrightness.Value = 0
         trackbarcontrast.Value = 0
         trackbarsaturation.Value = 0
@@ -417,18 +413,20 @@ Public Class edit1
 
 
     Private Sub trackbarbrightness_Leave(sender As Object, e As EventArgs) Handles trackbarbrightness.Leave
-        adjustedtempImage = adjustedImage
+        adjustedtempImage = adjustedImage.Clone()
     End Sub
 
     Private Sub trackbarcontrast_Leave(sender As Object, e As EventArgs) Handles trackbarcontrast.Leave
-        adjustedtempImage = adjustedImage
+        adjustedtempImage = adjustedImage.Clone()
     End Sub
 
 
 
     Private Sub trackbarsaturation_Leave(sender As Object, e As EventArgs) Handles trackbarsaturation.Leave
-        adjustedtempImage = adjustedImage
+        adjustedtempImage = adjustedImage.Clone()
     End Sub
+
+
 End Class
 
 

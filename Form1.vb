@@ -58,7 +58,8 @@ Public Class Form1
             MessageBox.Show("Sign in successful")
 
             Me.Hide()
-            edit.Show()
+            Form3.Show()
+
             ' Proceed to the next step or open the main form of your application
         Else
             lblincorrect.Visible = True

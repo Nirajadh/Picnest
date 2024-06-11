@@ -7,21 +7,25 @@ Imports System.Windows.Media.Imaging
 Imports AForge.Imaging.Filters
 
 
-Public Class edit
-
+Public Class edit1
+    Inherits UserControl
     Private originalImage As Bitmap
     Private editedImage As Bitmap = originalImage
     Private croppedImage As Bitmap = editedImage
     Private filteredImage As Bitmap
     Private filtersbtnimage As Bitmap
-    Private adjustedImage As Bitmap ' Use croppedImage instead of editedImage for cropping
+    Private adjustedImage As Bitmap
+    Private adjustedtempImage As Bitmap
+    ' Use croppedImage instead of editedImage for cropping
     Private isCropping As Boolean = False
     Private cropStartPoint As Point
     Private cropEndPoint As Point
     Private currentRotation As RotateFlipType = RotateFlipType.RotateNoneFlipNone
     Private db As New sqlcontrol("Server=NIRAJ;Database=imgdatabase;Integrated Security=True")
 
-
+    Public Sub New()
+        InitializeComponent()
+    End Sub
 
     Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick, Guna2PictureBox1.Click
         Using openFileDialog As New OpenFileDialog
@@ -295,9 +299,12 @@ Public Class edit
 
         PictureBox1.Image = editedImage
         adjustedImage = PictureBox1.Image
+        adjustedtempImage = PictureBox1.Image
     End Sub
 
     Private Sub trackbarbrightness_ValueChanged(sender As Object, e As EventArgs) Handles trackbarbrightness.ValueChanged
+
+
         If editedImage IsNot Nothing Then
             Dim brightnessValue As Integer = trackbarbrightness.Value
             ApplyBrightness(brightnessValue)
@@ -307,10 +314,11 @@ Public Class edit
 
     Private Sub ApplyBrightness(brightnessValue As Integer)
         Try
+
             Dim brightnessFilter As New BrightnessCorrection(brightnessValue)
 
 
-            adjustedImage = brightnessFilter.Apply(editedImage)
+            adjustedImage = brightnessFilter.Apply(adjustedtempImage)
             PictureBox1.Image = adjustedImage
         Catch ex As Exception
             MessageBox.Show("Error applying brightness adjustment: " & ex.Message)
@@ -324,6 +332,7 @@ Public Class edit
     Private Sub btnadjustrevert_Click(sender As Object, e As EventArgs) Handles btnadjustrevert.Click
         PictureBox1.Image = editedImage
         adjustedImage = editedImage
+        adjustedtempImage = editedImage
         trackbarbrightness.Value = 0
         trackbarcontrast.Value = 0
         trackbarsaturation.Value = 0
@@ -385,8 +394,9 @@ Public Class edit
     End Function
     Private Sub ApplyContrast(contrastValue As Single)
         Try
+
             Dim contrastFilter As New ContrastCorrection(contrastValue)
-            adjustedImage = contrastFilter.Apply(editedImage)
+            adjustedImage = contrastFilter.Apply(adjustedtempImage)
             PictureBox1.Image = adjustedImage
         Catch ex As Exception
             MessageBox.Show("Error applying contrast adjustment: " & ex.Message)
@@ -394,12 +404,30 @@ Public Class edit
     End Sub
     Private Sub ApplySaturation(saturationValue As Single)
         Try
+
             Dim saturationFilter As New SaturationCorrection(saturationValue)
-            adjustedImage = saturationFilter.Apply(editedImage)
+            adjustedImage = saturationFilter.Apply(adjustedtempImage)
             PictureBox1.Image = adjustedImage
         Catch ex As Exception
             MessageBox.Show("Error applying saturation adjustment: " & ex.Message)
         End Try
+    End Sub
+
+
+
+
+    Private Sub trackbarbrightness_Leave(sender As Object, e As EventArgs) Handles trackbarbrightness.Leave
+        adjustedtempImage = adjustedImage
+    End Sub
+
+    Private Sub trackbarcontrast_Leave(sender As Object, e As EventArgs) Handles trackbarcontrast.Leave
+        adjustedtempImage = adjustedImage
+    End Sub
+
+
+
+    Private Sub trackbarsaturation_Leave(sender As Object, e As EventArgs) Handles trackbarsaturation.Leave
+        adjustedtempImage = adjustedImage
     End Sub
 End Class
 

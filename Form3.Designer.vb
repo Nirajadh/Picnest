@@ -49,7 +49,7 @@ Partial Class Form3
         Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        pnlcontent = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Panel2.SuspendLayout()
         SuspendLayout()
         ' 
@@ -89,10 +89,10 @@ Partial Class Form3
         Guna2Panel2.Controls.Add(Guna2Button1)
         Guna2Panel2.CustomizableEdges = CustomizableEdges11
         Guna2Panel2.FillColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
-        Guna2Panel2.Location = New Point(3, 10)
+        Guna2Panel2.Location = New Point(3, 33)
         Guna2Panel2.Name = "Guna2Panel2"
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        Guna2Panel2.Size = New Size(81, 686)
+        Guna2Panel2.Size = New Size(81, 663)
         Guna2Panel2.TabIndex = 0
         ' 
         ' Guna2HtmlLabel3
@@ -130,7 +130,7 @@ Partial Class Form3
         Guna2Button4.ForeColor = Color.White
         Guna2Button4.HoverState.BorderColor = Color.Black
         Guna2Button4.HoverState.FillColor = Color.White
-        Guna2Button4.Location = New Point(20, 634)
+        Guna2Button4.Location = New Point(20, 611)
         Guna2Button4.Name = "Guna2Button4"
         Guna2Button4.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2Button4.Size = New Size(40, 40)
@@ -231,21 +231,21 @@ Partial Class Form3
         Guna2ControlBox1.Size = New Size(37, 24)
         Guna2ControlBox1.TabIndex = 0
         ' 
-        ' Guna2Panel3
+        ' pnlcontent
         ' 
-        Guna2Panel3.CustomizableEdges = CustomizableEdges1
-        Guna2Panel3.Location = New Point(86, 33)
-        Guna2Panel3.Name = "Guna2Panel3"
-        Guna2Panel3.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2Panel3.Size = New Size(1032, 639)
-        Guna2Panel3.TabIndex = 2
+        pnlcontent.CustomizableEdges = CustomizableEdges1
+        pnlcontent.Location = New Point(86, 33)
+        pnlcontent.Name = "pnlcontent"
+        pnlcontent.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        pnlcontent.Size = New Size(1032, 639)
+        pnlcontent.TabIndex = 2
         ' 
         ' Form3
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1121, 704)
-        Controls.Add(Guna2Panel3)
+        Controls.Add(pnlcontent)
         Controls.Add(Guna2Panel2)
         Controls.Add(Guna2ControlBox2)
         Controls.Add(Guna2ControlBox1)
@@ -267,5 +267,5 @@ Partial Class Form3
     Friend WithEvents Guna2Button4 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
-    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents pnlcontent As Guna.UI2.WinForms.Guna2Panel
 End Class

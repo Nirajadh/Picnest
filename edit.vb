@@ -13,6 +13,7 @@ Public Class edit
     Private editedImage As Bitmap = originalImage
     Private croppedImage As Bitmap = editedImage
     Private filteredImage As Bitmap
+    Private filtersbtnimage As Bitmap
     Private adjustedImage As Bitmap ' Use croppedImage instead of editedImage for cropping
     Private isCropping As Boolean = False
     Private cropStartPoint As Point
@@ -22,15 +23,29 @@ Public Class edit
 
 
 
-    Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick
-        Using openFileDialog As New OpenFileDialog()
+    Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick, Guna2PictureBox1.Click
+        Using openFileDialog As New OpenFileDialog
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-            If openFileDialog.ShowDialog() = DialogResult.OK Then
+            If openFileDialog.ShowDialog = DialogResult.OK Then
                 originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
                 editedImage = ConvertTo24bppRgb(originalImage)
                 PictureBox1.Image = editedImage
             End If
         End Using
+        Guna2PictureBox1.Visible = False
+    End Sub
+    Private Sub Guna2PictureBox1_DoubleClick(sender As Object, e As EventArgs) Handles Guna2PictureBox1.DoubleClick
+        Using openFileDialog As New OpenFileDialog
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
+            If openFileDialog.ShowDialog = DialogResult.OK Then
+                originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
+                editedImage = ConvertTo24bppRgb(originalImage)
+                PictureBox1.Image = editedImage
+            End If
+
+
+        End Using
+        Guna2PictureBox1.Visible = False
     End Sub
 
     Private Function ConvertTo24bppRgb(img As Bitmap) As Bitmap
@@ -52,11 +67,30 @@ Public Class edit
     End Function
     'filter
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles filterbtn.Click
-        panelfilters.Visible = True
-        panelcrop.Visible = False
-        paneladjust.Visible = False
-        PictureBox1.Image = editedImage
-        filteredImage = PictureBox1.Image
+        If PictureBox1.Image IsNot Nothing Then
+
+
+            panelfilters.Visible = True
+            panelcrop.Visible = False
+            paneladjust.Visible = False
+            PictureBox1.Image = editedImage
+            filteredImage = PictureBox1.Image
+            Dim sepiaFilter As New Sepia()
+            Dim grayscaleFilter As New Grayscale(0.2125, 0.7154, 0.0721)
+            Dim sharpenFilter As New Sharpen()
+            Dim gaussianBlurFilter As New GaussianBlur(4.0, 7)
+            Dim invertFilter As New Invert()
+            filtersbtnimage = sepiaFilter.Apply(editedImage)
+            btnfiltersepia.Image = filtersbtnimage
+            filtersbtnimage = grayscaleFilter.Apply(editedImage)
+            btnfiltergray.Image = filtersbtnimage
+            filtersbtnimage = gaussianBlurFilter.Apply(editedImage)
+            btnfilterblur.Image = filtersbtnimage
+            filtersbtnimage = invertFilter.Apply(editedImage)
+            btnfilterinvert.Image = filtersbtnimage
+            filtersbtnimage = sharpenFilter.Apply(editedImage)
+            btnfiltersharpen.Image = filtersbtnimage
+        End If
     End Sub
     Private Sub btnfiltergray_Click(sender As Object, e As EventArgs) Handles btnfiltergray.Click
         If editedImage IsNot Nothing Then
@@ -70,11 +104,49 @@ Public Class edit
             End Try
         End If
     End Sub
+    Private Sub btnfilterinvert_Click(sender As Object, e As EventArgs) Handles btnfilterinvert.Click
+        If editedImage IsNot Nothing Then
+            Try
+                Dim invertFilter As New Invert()
+                filteredImage = invertFilter.Apply(editedImage)
+                PictureBox1.Image = filteredImage
+            Catch ex As Exception
+                MessageBox.Show("Error applying invert filter: " & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnfiltersharpen_Click(sender As Object, e As EventArgs) Handles btnfiltersharpen.Click
+        If editedImage IsNot Nothing Then
+            Try
+                Dim sharpenFilter As New Sharpen()
+                filteredImage = sharpenFilter.Apply(editedImage)
+                PictureBox1.Image = filteredImage
+            Catch ex As Exception
+                MessageBox.Show("Error applying sharpen filter: " & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnfilterblur_Click(sender As Object, e As EventArgs) Handles btnfilterblur.Click
+        If editedImage IsNot Nothing Then
+            Try
+                Dim gaussianBlurFilter As New GaussianBlur(4.0, 7)
+                filteredImage = gaussianBlurFilter.Apply(editedImage)
+                PictureBox1.Image = filteredImage
+            Catch ex As Exception
+                MessageBox.Show("Error applying blur filter: " & ex.Message)
+            End Try
+        End If
+    End Sub
+
     Private Sub btnfiltersepia_Click(sender As Object, e As EventArgs) Handles btnfiltersepia.Click
+
+
         If filteredImage IsNot Nothing Then
             Try
-
                 Dim sepiaFilter As New Sepia()
+                Dim a As New Invert
                 filteredImage = sepiaFilter.Apply(editedImage)
                 PictureBox1.Image = filteredImage
             Catch ex As Exception
@@ -90,9 +162,7 @@ Public Class edit
     Private Sub btnfilterrevert_Click(sender As Object, e As EventArgs) Handles btnfilterrevert.Click
         PictureBox1.Image = editedImage
         filteredImage = editedImage
-        trackbarbrightness.Value = 0
-        trackbarcontrast.Value = 0
-        trackbarsaturation.Value = 0
+
     End Sub
     'filter end
 
@@ -254,6 +324,9 @@ Public Class edit
     Private Sub btnadjustrevert_Click(sender As Object, e As EventArgs) Handles btnadjustrevert.Click
         PictureBox1.Image = editedImage
         adjustedImage = editedImage
+        trackbarbrightness.Value = 0
+        trackbarcontrast.Value = 0
+        trackbarsaturation.Value = 0
     End Sub
     'adjust end
 
@@ -293,6 +366,41 @@ Public Class edit
         End If
     End Sub
 
+    Private Sub trackbarcontrast_ValueChanged(sender As Object, e As EventArgs) Handles trackbarcontrast.ValueChanged
+        If editedImage IsNot Nothing Then
+            Dim contrastValue As Single = trackbarcontrast.Value
+            ApplyContrast(contrastValue)
+        End If
+    End Sub
+    Private Sub trackbarsaturation_ValueChanged(sender As Object, e As EventArgs) Handles trackbarsaturation.ValueChanged
+        If editedImage IsNot Nothing Then
+            Dim saturationValue As Single = MapSaturationValue(trackbarsaturation.Value)
+            ApplySaturation(saturationValue)
+        End If
+    End Sub
+    Private Function MapSaturationValue(trackbarValue As Integer) As Single
+        ' Assuming the trackbar ranges from -100 to 100
+        ' Map -100 to 0, 0 to 1, and 100 to 2
+        Return (trackbarValue + 1) / 100.0F
+    End Function
+    Private Sub ApplyContrast(contrastValue As Single)
+        Try
+            Dim contrastFilter As New ContrastCorrection(contrastValue)
+            adjustedImage = contrastFilter.Apply(editedImage)
+            PictureBox1.Image = adjustedImage
+        Catch ex As Exception
+            MessageBox.Show("Error applying contrast adjustment: " & ex.Message)
+        End Try
+    End Sub
+    Private Sub ApplySaturation(saturationValue As Single)
+        Try
+            Dim saturationFilter As New SaturationCorrection(saturationValue)
+            adjustedImage = saturationFilter.Apply(editedImage)
+            PictureBox1.Image = adjustedImage
+        Catch ex As Exception
+            MessageBox.Show("Error applying saturation adjustment: " & ex.Message)
+        End Try
+    End Sub
 End Class
 
 

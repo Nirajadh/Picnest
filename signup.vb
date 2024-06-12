@@ -1,16 +1,12 @@
-﻿
-Imports System.Data.SqlClient
-Public Class Form2
+﻿Imports System.Security.Cryptography.Pkcs
 
+Imports System.Threading.Tasks
+Public Class signup
+    Inherits UserControl
     Public Sub New()
         InitializeComponent()
-        Me.DoubleBuffered = True
-        Me.SetStyle(ControlStyles.AllPaintingInWmPaint Or
-                ControlStyles.UserPaint Or
-                ControlStyles.OptimizedDoubleBuffer, True)
-        Me.UpdateStyles()
+        btncreate.Text = "Create"
     End Sub
-
     Private db As New sqlcontrol()
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles supPasstoggle.Click
         If supPasstoggle.Checked = True Then
@@ -24,14 +20,16 @@ Public Class Form2
 
 
     Private Sub signinlabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles signinlabel.LinkClicked
-        Me.Hide()
-        Form1.Show()
+        Dim sin As New signin()
+        Me.Controls.Clear()
+        Me.Controls.Add(sin)
+        sin.Dock = DockStyle.Fill
 
     End Sub
 
 
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btncreate.Click
+    Private Async Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btncreate.Click
 
 
 
@@ -85,9 +83,15 @@ Public Class Form2
 
         ' If the insertion was successful, display a success message
         ' Note: For an INSERT query, RecordCount will not be set, so we should rely on exceptions or other logic
-        MsgBox("Sign-up successful!")
-        Form1.Show()
-        Me.Hide()
+        btncreate.Text = " "
+        btncreate.Text = "Created"
+        Await Task.Delay(2000)
+        Dim sin As New signin()
+        Me.Controls.Clear()
+        Me.Controls.Add(sin)
+        sin.Dock = DockStyle.Fill
+
+
 
 
         ' Optionally, clear the text boxes after successful sign-up
@@ -113,12 +117,7 @@ Public Class Form2
         End If
     End Sub
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub signup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtname.Focus()
-    End Sub
-
-    Private Sub Guna2ControlBox1_Click(sender As Object, e As EventArgs) Handles Guna2ControlBox1.Click
-        Application.Exit()
-
     End Sub
 End Class

@@ -733,6 +733,16 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
+  <data name="resource.Image10" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAOlJREFUSEvt1bEOwVAUh/HuxDsIL8GEjfcRq7fAUxArHgMbAxsGYec7ocnJzU30
+        NLc3hn7JL7rwT5u2krJ/a/z9jJqMvj6H8UpHow7r0WjD7ugvT+wxQw+5so76bNCAqRDD4oo2TI3g+zGr
+        G5owZbm5KuhgDv0dsYY5PZ61IfSw6MJcOm5pAT08Ra5k3JKcoR6WRy1KVejhB6JUgx6+I0rupd4hSkvo
+        4QkKz/fykWe8kORmkj8H90zFCkEa4Ah3wOeCOoJ0hm/EJaMtBOsE35AmlzfYmab1cYAekhfEFvJqLOxG
+        KivLUJK8AdOoqIznjj8qAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="Guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>226, 17</value>
   </metadata>

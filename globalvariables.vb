@@ -1,5 +1,10 @@
 ﻿Module globalvariables
-    Public userid As Integer = 1
+
+
+
+
+    Public userid As Integer
+
 
 
 End Module

@@ -34,7 +34,9 @@ Public Class edit1
             If openFileDialog.ShowDialog = DialogResult.OK Then
                 originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
                 editedImage = ConvertTo24bppRgb(originalImage).Clone()
+                adjustedtempImage = editedImage.Clone()
                 PictureBox1.Image = editedImage
+
             End If
         End Using
         Guna2PictureBox1.Visible = False
@@ -71,13 +73,13 @@ Public Class edit1
         Return Nothing
     End Function
     'filter
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles filterbtn.Click
+    Private Sub filterbtn_Click(sender As Object, e As EventArgs) Handles filterbtn.Click
+
         If PictureBox1.Image IsNot Nothing Then
-
-
-            panelfilters.Visible = True
             panelcrop.Visible = False
             paneladjust.Visible = False
+            panelfilters.Visible = True
+
             PictureBox1.Image = editedImage
             filteredImage = PictureBox1.Image
             Dim sepiaFilter As New Sepia()
@@ -208,11 +210,15 @@ Public Class edit1
         End If
     End Sub
     Private Sub btncropopen_Click(sender As Object, e As EventArgs) Handles btncropopen.Click
-        panelfilters.Visible = False
-        panelcrop.Visible = True
-        paneladjust.Visible = False
-        PictureBox1.Image = editedImage
-        croppedImage = editedImage.Clone()
+        If PictureBox1.Image IsNot Nothing Then
+            panelfilters.Visible = False
+            paneladjust.Visible = False
+            panelcrop.Visible = True
+
+            PictureBox1.Image = editedImage
+            croppedImage = editedImage.Clone()
+        End If
+
     End Sub
 
 
@@ -248,12 +254,13 @@ Public Class edit1
             Using g As Graphics = Graphics.FromImage(croppedImage)
                 g.DrawImage(croppedtempImage, New Rectangle(0, 0, cropRect.Width, cropRect.Height), cropRect, GraphicsUnit.Pixel)
             End Using
+            croppedImage = ConvertTo24bppRgb(croppedImage)
         End If
         PictureBox1.Image = croppedImage
     End Sub
 
 
-    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles btncropapply.Click
+    Private Sub btncropapply_Click(sender As Object, e As EventArgs) Handles btncropapply.Click
         isCropping = False
         editedImage = croppedImage.Clone()
 
@@ -286,16 +293,17 @@ Public Class edit1
 
     'adjust
     Private Sub btnadjust_Click(sender As Object, e As EventArgs) Handles btnadjust.Click
-        panelfilters.Visible = False
-        panelcrop.Visible = False
-        paneladjust.Visible = True
+        If PictureBox1.Image IsNot Nothing Then
+            panelfilters.Visible = False
+            panelcrop.Visible = False
+            paneladjust.Visible = True
 
-        PictureBox1.Image = editedImage
-        adjustedImage = PictureBox1.Image
-        adjustedtempImage = PictureBox1.Image
-        trackbarbrightness.Value = 0
-        trackbarcontrast.Value = 0
-        trackbarsaturation.Value = 0
+            PictureBox1.Image = editedImage
+            adjustedImage = PictureBox1.Image
+            adjustedtempImage = PictureBox1.Image
+            trackbardefault()
+        End If
+
     End Sub
 
     Private Sub trackbarbrightness_ValueChanged(sender As Object, e As EventArgs) Handles trackbarbrightness.ValueChanged
@@ -327,18 +335,22 @@ Public Class edit1
 
     Private Sub btnadjustrevert_Click(sender As Object, e As EventArgs) Handles btnadjustrevert.Click
         PictureBox1.Image = editedImage
-        adjustedImage = editedImage.Clone()
-        adjustedtempImage = editedImage.Clone()
+        adjustedImage = editedImage.Clone
+        adjustedtempImage = editedImage.Clone
+        trackbardefault()
+
+    End Sub
+    'adjust end
+    Private Sub trackbardefault()
         trackbarbrightness.Value = 0
         trackbarcontrast.Value = 0
         trackbarsaturation.Value = 0
     End Sub
-    'adjust end
 
 
     'save
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-        If editedImage IsNot Nothing AndAlso Not String.IsNullOrWhiteSpace(txtcaption.Text) AndAlso Not String.IsNullOrWhiteSpace(userid) Then
+        If editedImage IsNot Nothing Then
             Try
 
 
@@ -360,14 +372,15 @@ Public Class edit1
                     db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
 
                     If db.HasException(True) Then Exit Sub
-
+                    ''''1
                     MessageBox.Show("Image uploaded successfully!")
+                    Form3.Guna2Button3.PerformClick()
                 End Using
             Catch ex As Exception
                 MessageBox.Show("Error saving image: " & ex.Message)
             End Try
         Else
-            MessageBox.Show("Please select an image, enter a caption, and provide a valid user ID.")
+            MessageBox.Show("Please select an image")
         End If
     End Sub
 
@@ -426,7 +439,12 @@ Public Class edit1
         adjustedtempImage = adjustedImage.Clone()
     End Sub
 
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        trackbardefault()
+        editedImage = originalImage.Clone()
+        PictureBox1.Image = editedImage.Clone()
 
+    End Sub
 End Class
 
 

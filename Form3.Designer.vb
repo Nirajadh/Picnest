@@ -92,10 +92,10 @@ Partial Class Form3
         Guna2Panel2.Controls.Add(Guna2Button1)
         Guna2Panel2.CustomizableEdges = CustomizableEdges11
         Guna2Panel2.FillColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
-        Guna2Panel2.Location = New Point(3, 47)
+        Guna2Panel2.Location = New Point(3, 44)
         Guna2Panel2.Name = "Guna2Panel2"
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges12
-        Guna2Panel2.Size = New Size(64, 648)
+        Guna2Panel2.Size = New Size(64, 654)
         Guna2Panel2.TabIndex = 0
         ' 
         ' Guna2Button4
@@ -121,7 +121,7 @@ Partial Class Form3
         Guna2Button4.ForeColor = Color.White
         Guna2Button4.HoverState.BorderColor = Color.Black
         Guna2Button4.HoverState.FillColor = Color.White
-        Guna2Button4.Location = New Point(11, 596)
+        Guna2Button4.Location = New Point(11, 602)
         Guna2Button4.Name = "Guna2Button4"
         Guna2Button4.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2Button4.Size = New Size(40, 40)

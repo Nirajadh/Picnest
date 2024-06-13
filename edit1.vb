@@ -32,6 +32,8 @@ Public Class edit1
             adjustedtempImage = editedImage.Clone()
             PictureBox1.Image = editedImage
             Guna2PictureBox1.Visible = False
+            filterbtn.PerformClick()
+
         End If
 
     End Sub
@@ -459,10 +461,12 @@ Public Class edit1
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        trackbardefault()
-        editedImage = originalImage.Clone()
-        PictureBox1.Image = editedImage.Clone()
 
+        If PictureBox1.Image IsNot Nothing Then
+            trackbardefault()
+            editedImage = ConvertTo24bppRgb(originalImage).Clone()
+            PictureBox1.Image = editedImage.Clone()
+        End If
     End Sub
 
 
@@ -470,12 +474,9 @@ Public Class edit1
 
 
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
-        If Imageedit IsNot Nothing Then
 
 
-        Else
-
-            Using openFileDialog As New OpenFileDialog
+        Using openFileDialog As New OpenFileDialog
                 openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
                 If openFileDialog.ShowDialog = DialogResult.OK Then
                     originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
@@ -487,7 +488,7 @@ Public Class edit1
                 End If
             End Using
 
-        End If
+
         Guna2PictureBox1.Visible = False
     End Sub
 End Class

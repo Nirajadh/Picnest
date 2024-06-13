@@ -40,10 +40,9 @@ Partial Class home
         Guna2CustomGradientPanel1.Controls.Add(Guna2TextBox1)
         Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges3
         Guna2CustomGradientPanel1.Dock = DockStyle.Fill
-        Guna2CustomGradientPanel1.FillColor = Color.Black
-        Guna2CustomGradientPanel1.FillColor2 = Color.Black
-        Guna2CustomGradientPanel1.FillColor3 = Color.Black
-        Guna2CustomGradientPanel1.FillColor4 = Color.Black
+        Guna2CustomGradientPanel1.FillColor = SystemColors.GradientInactiveCaption
+        Guna2CustomGradientPanel1.FillColor2 = SystemColors.Highlight
+        Guna2CustomGradientPanel1.FillColor4 = SystemColors.GradientActiveCaption
         Guna2CustomGradientPanel1.ForeColor = Color.Transparent
         Guna2CustomGradientPanel1.Location = New Point(0, 0)
         Guna2CustomGradientPanel1.Margin = New Padding(30, 3, 3, 3)
@@ -56,7 +55,7 @@ Partial Class home
         ' 
         lblusernotfound.Anchor = AnchorStyles.None
         lblusernotfound.AutoSize = True
-        lblusernotfound.BackColor = Color.Black
+        lblusernotfound.BackColor = Color.Transparent
         lblusernotfound.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         lblusernotfound.ForeColor = Color.White
         lblusernotfound.Location = New Point(451, 367)
@@ -68,8 +67,8 @@ Partial Class home
         ' 
         ' Guna2TextBox1
         ' 
-        Guna2TextBox1.BackColor = Color.Black
-        Guna2TextBox1.BorderColor = Color.Black
+        Guna2TextBox1.BackColor = Color.Transparent
+        Guna2TextBox1.BorderColor = SystemColors.InactiveCaption
         Guna2TextBox1.BorderRadius = 25
         Guna2TextBox1.CustomizableEdges = CustomizableEdges1
         Guna2TextBox1.DefaultText = ""

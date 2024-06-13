@@ -5,7 +5,7 @@ Public Class Form3
         Dim ed As New edit1()
 
         ed.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
-        pnlcontent.Controls.Add(ed)
+        pnlcontent1.Controls.Add(ed)
         ed.BringToFront()
     End Sub
 
@@ -21,7 +21,7 @@ Public Class Form3
         Dim g As New gallery1(userid)
 
         g.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
-        pnlcontent.Controls.Add(g)
+        pnlcontent1.Controls.Add(g)
         g.BringToFront()
     End Sub
 
@@ -30,12 +30,12 @@ Public Class Form3
         Dim h As New Home()
 
         h.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
-        pnlcontent.Controls.Add(h)
+        pnlcontent1.Controls.Add(h)
         h.BringToFront()
     End Sub
 
     Private Sub Guna2Button4_Click(sender As Object, e As EventArgs) Handles Guna2Button4.Click
-        pnlcontent.Controls.Clear()
+        pnlcontent1.Controls.Clear()
         Me.Hide()
         Form1.Show()
 
@@ -52,7 +52,5 @@ Public Class Form3
         End If
     End Sub
 
-    Private Sub pnlcontent_Paint(sender As Object, e As PaintEventArgs) Handles pnlcontent.Paint
 
-    End Sub
 End Class

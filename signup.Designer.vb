@@ -53,7 +53,7 @@ Partial Class signup
         ' 
         ' Guna2Panel2
         ' 
-        Guna2Panel2.BackColor = SystemColors.ActiveCaptionText
+        Guna2Panel2.BackColor = Color.Transparent
         Guna2Panel2.BorderColor = Color.White
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1

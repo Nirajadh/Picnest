@@ -94,7 +94,7 @@ Public Class edit1
             panelcrop.Visible = False
             paneladjust.Visible = False
             panelfilters.Visible = True
-
+            pnlupload.Visible = False
             PictureBox1.Image = editedImage
             filteredImage = PictureBox1.Image
             Dim sepiaFilter As New Sepia()
@@ -228,7 +228,10 @@ Public Class edit1
         If PictureBox1.Image IsNot Nothing Then
             panelfilters.Visible = False
             paneladjust.Visible = False
+            pnlupload.Visible = False
             panelcrop.Visible = True
+
+
 
             PictureBox1.Image = editedImage
             croppedImage = editedImage.Clone()
@@ -311,6 +314,7 @@ Public Class edit1
         If PictureBox1.Image IsNot Nothing Then
             panelfilters.Visible = False
             panelcrop.Visible = False
+            pnlupload.Visible = False
             paneladjust.Visible = True
 
             PictureBox1.Image = editedImage
@@ -325,7 +329,7 @@ Public Class edit1
 
 
         If editedImage IsNot Nothing Then
-            Dim brightnessValue As Integer = trackbarbrightness.Value
+            Dim brightnessValue = trackbarbrightness.Value
             ApplyBrightness(brightnessValue)
         End If
 
@@ -345,14 +349,14 @@ Public Class edit1
     End Sub
 
     Private Sub btnadjustapply_Click(sender As Object, e As EventArgs) Handles btnadjustapply.Click
-        editedImage = adjustedImage.Clone()
+        editedImage = adjustedImage.Clone
     End Sub
 
     Private Sub btnadjustrevert_Click(sender As Object, e As EventArgs) Handles btnadjustrevert.Click
         PictureBox1.Image = editedImage
         adjustedImage = editedImage.Clone
         adjustedtempImage = editedImage.Clone
-        trackbardefault()
+        trackbardefault
 
     End Sub
     'adjust end
@@ -407,7 +411,7 @@ Public Class edit1
     End Sub
     Private Sub trackbarsaturation_ValueChanged(sender As Object, e As EventArgs) Handles trackbarsaturation.ValueChanged
         If editedImage IsNot Nothing Then
-            Dim saturationValue As Single = MapSaturationValue(trackbarsaturation.Value)
+            Dim saturationValue = MapSaturationValue(trackbarsaturation.Value)
             ApplySaturation(saturationValue)
         End If
     End Sub
@@ -441,17 +445,17 @@ Public Class edit1
 
 
     Private Sub trackbarbrightness_Leave(sender As Object, e As EventArgs) Handles trackbarbrightness.Leave
-        adjustedtempImage = adjustedImage.Clone()
+        adjustedtempImage = adjustedImage.Clone
     End Sub
 
     Private Sub trackbarcontrast_Leave(sender As Object, e As EventArgs) Handles trackbarcontrast.Leave
-        adjustedtempImage = adjustedImage.Clone()
+        adjustedtempImage = adjustedImage.Clone
     End Sub
 
 
 
     Private Sub trackbarsaturation_Leave(sender As Object, e As EventArgs) Handles trackbarsaturation.Leave
-        adjustedtempImage = adjustedImage.Clone()
+        adjustedtempImage = adjustedImage.Clone
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
@@ -461,8 +465,30 @@ Public Class edit1
 
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
+
+
+
+    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
+        If Imageedit IsNot Nothing Then
+
+
+        Else
+
+            Using openFileDialog As New OpenFileDialog
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
+                If openFileDialog.ShowDialog = DialogResult.OK Then
+                    originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
+                    editedImage = ConvertTo24bppRgb(originalImage).Clone()
+                    adjustedtempImage = editedImage.Clone()
+                    PictureBox1.Image = editedImage
+                    filterbtn.PerformClick()
+
+                End If
+            End Using
+
+        End If
+        Guna2PictureBox1.Visible = False
     End Sub
 End Class
 

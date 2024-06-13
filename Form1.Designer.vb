@@ -158,7 +158,7 @@ Partial Class Form1
         Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
         DoubleBuffered = True
         ForeColor = SystemColors.ActiveCaptionText
-        FormBorderStyle = FormBorderStyle.FixedSingle
+        FormBorderStyle = FormBorderStyle.None
         Name = "Form1"
         Padding = New Padding(20, 0, 0, 20)
         StartPosition = FormStartPosition.CenterScreen

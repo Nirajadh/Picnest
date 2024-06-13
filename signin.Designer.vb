@@ -54,8 +54,8 @@ Partial Class signin
         ' 
         ' Guna2Panel2
         ' 
-        Guna2Panel2.BackColor = SystemColors.ActiveCaptionText
-        Guna2Panel2.BorderColor = Color.White
+        Guna2Panel2.BackColor = Color.Transparent
+        Guna2Panel2.BorderColor = Color.Transparent
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1
         Guna2Panel2.Controls.Add(progressind)
@@ -84,7 +84,7 @@ Partial Class signin
         ' 
         progressind.BackColor = Color.Transparent
         Guna2Transition1.SetDecoration(progressind, Guna.UI2.AnimatorNS.DecorationType.None)
-        progressind.Location = New Point(173, 47)
+        progressind.Location = New Point(169, 51)
         progressind.Name = "progressind"
         progressind.ShadowDecoration.CustomizableEdges = CustomizableEdges1
         progressind.Size = New Size(53, 60)
@@ -280,7 +280,7 @@ Partial Class signin
         ' 
         ' usernametxt
         ' 
-        usernametxt.BackColor = SystemColors.Control
+        usernametxt.BackColor = Color.Transparent
         usernametxt.BorderColor = Color.Gray
         usernametxt.BorderRadius = 3
         usernametxt.CustomizableEdges = CustomizableEdges8
@@ -330,6 +330,7 @@ Partial Class signin
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.Transparent
         Controls.Add(Guna2Panel2)
         Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
         Name = "signin"

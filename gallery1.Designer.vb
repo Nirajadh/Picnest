@@ -22,11 +22,13 @@ Partial Class gallery1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         lblusername = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2CustomGradientPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         SuspendLayout()
@@ -38,9 +40,10 @@ Partial Class gallery1
         Guna2CustomGradientPanel1.Controls.Add(FlowLayoutPanel1)
         Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges1
         Guna2CustomGradientPanel1.Dock = DockStyle.Fill
-        Guna2CustomGradientPanel1.FillColor = Color.Black
-        Guna2CustomGradientPanel1.FillColor2 = Color.Black
-        Guna2CustomGradientPanel1.FillColor4 = Color.Black
+        Guna2CustomGradientPanel1.FillColor = SystemColors.ControlLightLight
+        Guna2CustomGradientPanel1.FillColor2 = SystemColors.ButtonHighlight
+        Guna2CustomGradientPanel1.FillColor3 = SystemColors.Highlight
+        Guna2CustomGradientPanel1.FillColor4 = SystemColors.ButtonHighlight
         Guna2CustomGradientPanel1.ForeColor = Color.Transparent
         Guna2CustomGradientPanel1.Location = New Point(0, 0)
         Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
@@ -54,9 +57,9 @@ Partial Class gallery1
         FlowLayoutPanel1.BackColor = Color.White
         FlowLayoutPanel1.Controls.Add(lblusername)
         FlowLayoutPanel1.ForeColor = Color.Transparent
-        FlowLayoutPanel1.Location = New Point(281, 18)
+        FlowLayoutPanel1.Location = New Point(281, 7)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Size = New Size(482, 636)
+        FlowLayoutPanel1.Size = New Size(482, 664)
         FlowLayoutPanel1.TabIndex = 0
         ' 
         ' lblusername
@@ -70,6 +73,11 @@ Partial Class gallery1
         lblusername.Size = New Size(3, 2)
         lblusername.TabIndex = 0
         lblusername.Text = Nothing
+        ' 
+        ' Guna2Elipse1
+        ' 
+        Guna2Elipse1.BorderRadius = 30
+        Guna2Elipse1.TargetControl = FlowLayoutPanel1
         ' 
         ' gallery1
         ' 
@@ -88,5 +96,6 @@ Partial Class gallery1
     Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents lblusername As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
 
 End Class

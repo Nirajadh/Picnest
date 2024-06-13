@@ -22,19 +22,19 @@ Partial Class signup
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(signup))
-        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2HtmlLabel7 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel8 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -69,12 +69,12 @@ Partial Class signup
         Guna2Panel2.Controls.Add(txtpassword)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel1)
         Guna2Panel2.Controls.Add(txtusername)
-        Guna2Panel2.CustomizableEdges = CustomizableEdges35
+        Guna2Panel2.CustomizableEdges = CustomizableEdges11
         Guna2Panel2.Dock = DockStyle.Fill
         Guna2Panel2.FillColor = Color.White
         Guna2Panel2.Location = New Point(0, 0)
         Guna2Panel2.Name = "Guna2Panel2"
-        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         Guna2Panel2.Size = New Size(365, 458)
         Guna2Panel2.TabIndex = 5
         ' 
@@ -92,11 +92,11 @@ Partial Class signup
         ' Guna2HtmlLabel8
         ' 
         Guna2HtmlLabel8.BackColor = Color.Transparent
-        Guna2HtmlLabel8.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel8.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel8.ForeColor = SystemColors.ActiveCaptionText
         Guna2HtmlLabel8.Location = New Point(22, 16)
         Guna2HtmlLabel8.Name = "Guna2HtmlLabel8"
-        Guna2HtmlLabel8.Size = New Size(70, 39)
+        Guna2HtmlLabel8.Size = New Size(62, 38)
         Guna2HtmlLabel8.TabIndex = 18
         Guna2HtmlLabel8.Text = "IMG"
         ' 
@@ -105,7 +105,7 @@ Partial Class signup
         txtname.BackColor = SystemColors.Control
         txtname.BorderColor = Color.Gray
         txtname.BorderRadius = 3
-        txtname.CustomizableEdges = CustomizableEdges25
+        txtname.CustomizableEdges = CustomizableEdges1
         txtname.DefaultText = ""
         txtname.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtname.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -124,7 +124,7 @@ Partial Class signup
         txtname.PasswordChar = ChrW(0)
         txtname.PlaceholderText = ""
         txtname.SelectedText = ""
-        txtname.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        txtname.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txtname.Size = New Size(321, 46)
         txtname.TabIndex = 0
         ' 
@@ -171,7 +171,7 @@ Partial Class signup
         supPasstoggle.CustomImages.CheckedImage = CType(resources.GetObject("resource.CheckedImage"), Image)
         supPasstoggle.CustomImages.ImageAlign = HorizontalAlignment.Center
         supPasstoggle.CustomImages.ImageSize = New Size(23, 23)
-        supPasstoggle.CustomizableEdges = CustomizableEdges27
+        supPasstoggle.CustomizableEdges = CustomizableEdges3
         supPasstoggle.DisabledState.BorderColor = Color.DarkGray
         supPasstoggle.DisabledState.CustomBorderColor = Color.DarkGray
         supPasstoggle.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -191,11 +191,11 @@ Partial Class signup
         supPasstoggle.PressedDepth = 0
         supPasstoggle.ShadowDecoration.BorderRadius = 0
         supPasstoggle.ShadowDecoration.Color = Color.Transparent
-        CustomizableEdges28.BottomLeft = False
-        CustomizableEdges28.BottomRight = False
-        CustomizableEdges28.TopLeft = False
-        CustomizableEdges28.TopRight = False
-        supPasstoggle.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        CustomizableEdges4.BottomLeft = False
+        CustomizableEdges4.BottomRight = False
+        CustomizableEdges4.TopLeft = False
+        CustomizableEdges4.TopRight = False
+        supPasstoggle.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         supPasstoggle.ShadowDecoration.Depth = 0
         supPasstoggle.ShadowDecoration.Shadow = New Padding(0)
         supPasstoggle.Size = New Size(30, 30)
@@ -219,7 +219,7 @@ Partial Class signup
         btncreate.BorderColor = Color.Transparent
         btncreate.BorderRadius = 20
         btncreate.BorderThickness = 1
-        btncreate.CustomizableEdges = CustomizableEdges29
+        btncreate.CustomizableEdges = CustomizableEdges5
         btncreate.DisabledState.BorderColor = Color.DarkGray
         btncreate.DisabledState.CustomBorderColor = Color.DarkGray
         btncreate.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -228,7 +228,7 @@ Partial Class signup
         btncreate.ForeColor = Color.White
         btncreate.Location = New Point(120, 401)
         btncreate.Name = "btncreate"
-        btncreate.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btncreate.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btncreate.Size = New Size(115, 38)
         btncreate.TabIndex = 3
         btncreate.Text = "Create "
@@ -249,7 +249,7 @@ Partial Class signup
         txtpassword.BackColor = SystemColors.Control
         txtpassword.BorderColor = Color.Gray
         txtpassword.BorderRadius = 3
-        txtpassword.CustomizableEdges = CustomizableEdges31
+        txtpassword.CustomizableEdges = CustomizableEdges7
         txtpassword.DefaultText = ""
         txtpassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtpassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -268,7 +268,7 @@ Partial Class signup
         txtpassword.PasswordChar = "*"c
         txtpassword.PlaceholderText = ""
         txtpassword.SelectedText = ""
-        txtpassword.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        txtpassword.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         txtpassword.Size = New Size(321, 46)
         txtpassword.TabIndex = 2
         ' 
@@ -288,7 +288,7 @@ Partial Class signup
         txtusername.BackColor = SystemColors.Control
         txtusername.BorderColor = Color.Gray
         txtusername.BorderRadius = 3
-        txtusername.CustomizableEdges = CustomizableEdges33
+        txtusername.CustomizableEdges = CustomizableEdges9
         txtusername.DefaultText = ""
         txtusername.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtusername.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -307,7 +307,7 @@ Partial Class signup
         txtusername.PasswordChar = ChrW(0)
         txtusername.PlaceholderText = ""
         txtusername.SelectedText = ""
-        txtusername.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        txtusername.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         txtusername.Size = New Size(321, 46)
         txtusername.TabIndex = 1
         ' 

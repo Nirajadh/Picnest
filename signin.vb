@@ -38,7 +38,7 @@ Public Class signin
         Dim password As String = passwordtxt.Text
 
         ' Define the query to check the username and password
-        Dim query As String = "SELECT UserID FROM Users WHERE Username = @Username AND Password = @Password"
+        Dim query As String = "SELECT UserID FROM Users WHERE Username = @Username COLLATE SQL_LATIN1_GENERAL_CP1_CS_AS AND Password = @Password COLLATE SQL_LATIN1_GENERAL_CP1_CS_AS"
 
         ' Add parameters to the query
         db.AddParam("@Username", username)
@@ -55,16 +55,23 @@ Public Class signin
             userid = Convert.ToInt32(db.DBDT.Rows(0)("UserID"))
             lblsignin.Text = " "
             lblsignin.Text = "Signing in"
+            progressind.Visible = True
+
+
+
             progressind.Start()
 
             Await Task.Delay(2000)
             progressind.Stop()
+            progressind.Visible = False
+            lblsignin.Text = "Sign in"
 
 
 
             usernametxt.Clear()
             passwordtxt.Clear()
-            Me.Hide()
+
+            Form1.Hide()
             Form3.Show()
 
 

@@ -22,7 +22,7 @@ Public Class edit1
     Private cropStartPoint As Point
     Private cropEndPoint As Point
     Private currentRotation As RotateFlipType = RotateFlipType.RotateNoneFlipNone
-    Private db As New sqlcontrol("Server=NIRAJ;Database=imgdatabase;Integrated Security=True")
+    Private db As New sqlcontrol()
 
     Public Sub New()
         InitializeComponent()
@@ -443,6 +443,10 @@ Public Class edit1
         trackbardefault()
         editedImage = originalImage.Clone()
         PictureBox1.Image = editedImage.Clone()
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
 End Class

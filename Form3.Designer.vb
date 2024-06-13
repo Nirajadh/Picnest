@@ -210,11 +210,11 @@ Partial Class Form3
         ' Guna2HtmlLabel3
         ' 
         Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel3.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight
         Guna2HtmlLabel3.Location = New Point(12, 3)
         Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(55, 30)
+        Guna2HtmlLabel3.Size = New Size(50, 31)
         Guna2HtmlLabel3.TabIndex = 5
         Guna2HtmlLabel3.Text = "IMG"
         ' 

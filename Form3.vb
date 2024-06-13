@@ -48,5 +48,7 @@
         End If
     End Sub
 
+    Private Sub pnlcontent_Paint(sender As Object, e As PaintEventArgs) Handles pnlcontent.Paint
 
+    End Sub
 End Class

@@ -5,7 +5,7 @@ Imports System.IO
 Public Class Gallery1
     Inherits UserControl
     Dim userid As Integer
-    Private db As New sqlcontrol("Server=NIRAJ;Database=imgdatabase;Integrated Security=True")
+    Private db As New sqlcontrol()
 
     Public Sub New(uid As Integer)
         InitializeComponent()
@@ -87,5 +87,7 @@ Public Class Gallery1
         FlowLayoutPanel1.Controls.Add(panel)
     End Sub
 
+    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 
+    End Sub
 End Class

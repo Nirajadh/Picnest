@@ -4,6 +4,7 @@ Public Class Form3
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles btnedit.Click
         Dim ed As New edit1()
 
+        updatecheck = False
         ed.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
         pnlcontent1.Controls.Add(ed)
         ed.BringToFront()

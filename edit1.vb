@@ -389,9 +389,13 @@ Public Class edit1
                     db.AddParam("@ImageData", imageData)
                     db.AddParam("@Caption", txtcaption.Text)
                     db.AddParam("@UploadDate", DateTime.Now)
+                    db.AddParam("@UploadID", useruploadid)
+                    If updatecheck = False Then
 
-                    db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
-
+                        db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
+                    Else
+                        db.ExecQuery("UPDATE UserUploads SET UserID=@UserID,ImageData=@ImageData,UploadDate=@UploadDate,Caption = @Caption WHERE UploadID = @UploadID")
+                    End If
                     If db.HasException(True) Then Exit Sub
                     ''''1
                     MessageBox.Show("Image uploaded successfully!")

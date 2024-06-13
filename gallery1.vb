@@ -113,7 +113,11 @@ Public Class Gallery1
             Dim imageData As Byte() = CType(row("ImageData"), Byte())
             Imageedit = ByteArrayToImage(imageData)
         Next
-        Form3.btnedit.PerformClick()
+        updatecheck = True
+        useruploadid = uploadID
+        Dim ed As New edit1()
+        Me.Controls.Clear()
+        Me.Controls.Add(ed)
 
 
     End Sub

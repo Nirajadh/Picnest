@@ -166,11 +166,11 @@ Partial Class edit1
         btnsave.HoverState.BorderColor = SystemColors.Control
         btnsave.HoverState.FillColor = Color.White
         btnsave.HoverState.ForeColor = SystemColors.Highlight
-        btnsave.Location = New Point(1, 601)
+        btnsave.Location = New Point(2, 471)
         btnsave.Name = "btnsave"
         btnsave.PressedDepth = 10
         btnsave.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        btnsave.Size = New Size(67, 32)
+        btnsave.Size = New Size(66, 32)
         btnsave.TabIndex = 4
         btnsave.Text = "SAVE"
         ' 

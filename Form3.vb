@@ -1,5 +1,7 @@
-﻿Public Class Form3
-    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+﻿Imports Guna.UI2.WinForms
+
+Public Class Form3
+    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles btnedit.Click
         Dim ed As New edit1()
 
         ed.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
@@ -14,7 +16,8 @@
 
 
 
-    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
+    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles btngallery.Click
+        homecheck = False
         Dim g As New gallery1(userid)
 
         g.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
@@ -22,7 +25,8 @@
         g.BringToFront()
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btnhome.Click
+        homecheck = True
         Dim h As New Home()
 
         h.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
@@ -44,7 +48,7 @@
 
     Private Sub Form3_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Me.Visible = True Then
-            Guna2Button1.PerformClick()
+            btnhome.PerformClick()
         End If
     End Sub
 

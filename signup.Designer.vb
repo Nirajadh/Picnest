@@ -92,11 +92,11 @@ Partial Class signup
         ' Guna2HtmlLabel8
         ' 
         Guna2HtmlLabel8.BackColor = Color.Transparent
-        Guna2HtmlLabel8.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel8.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel8.ForeColor = SystemColors.ActiveCaptionText
         Guna2HtmlLabel8.Location = New Point(22, 16)
         Guna2HtmlLabel8.Name = "Guna2HtmlLabel8"
-        Guna2HtmlLabel8.Size = New Size(62, 38)
+        Guna2HtmlLabel8.Size = New Size(70, 39)
         Guna2HtmlLabel8.TabIndex = 18
         Guna2HtmlLabel8.Text = "IMG"
         ' 

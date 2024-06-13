@@ -2,8 +2,9 @@
 
 
 
-
-    Public userid As Integer
+    Public Imageedit As Bitmap
+    Public userid As Integer = 1
+    Public homecheck As Boolean
 
 
 

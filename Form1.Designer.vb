@@ -38,8 +38,8 @@ Partial Class Form1
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
+        Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Panel1.SuspendLayout()
         Guna2Panel1.SuspendLayout()
         SuspendLayout()
@@ -114,13 +114,6 @@ Partial Class Form1
         Guna2ControlBox2.Size = New Size(40, 25)
         Guna2ControlBox2.TabIndex = 2
         ' 
-        ' Guna2BorderlessForm1
-        ' 
-        Guna2BorderlessForm1.BorderRadius = 60
-        Guna2BorderlessForm1.ContainerControl = Me
-        Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
-        Guna2BorderlessForm1.TransparentWhileDrag = True
-        ' 
         ' Guna2Transition1
         ' 
         Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.Particles
@@ -142,6 +135,17 @@ Partial Class Form1
         Animation1.TransparencyCoeff = 0F
         Guna2Transition1.DefaultAnimation = Animation1
         ' 
+        ' Guna2BorderlessForm1
+        ' 
+        Guna2BorderlessForm1.AnimateWindow = True
+        Guna2BorderlessForm1.AnimationType = Guna.UI2.WinForms.Guna2BorderlessForm.AnimateWindowType.AW_CENTER
+        Guna2BorderlessForm1.BorderRadius = 60
+        Guna2BorderlessForm1.ContainerControl = Me
+        Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
+        Guna2BorderlessForm1.DragForm = False
+        Guna2BorderlessForm1.ResizeForm = False
+        Guna2BorderlessForm1.TransparentWhileDrag = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(120F, 120F)
@@ -154,7 +158,7 @@ Partial Class Form1
         Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
         DoubleBuffered = True
         ForeColor = SystemColors.ActiveCaptionText
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form1"
         Padding = New Padding(20, 0, 0, 20)
         StartPosition = FormStartPosition.CenterScreen
@@ -167,8 +171,8 @@ Partial Class Form1
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
-    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
+    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
 
 
 End Class

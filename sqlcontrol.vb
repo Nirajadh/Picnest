@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 
 Public Class sqlcontrol
-    Private DBCon As New SqlConnection("Server=MANDEEP\SQLEXPRESS;Database=imgdatabase;User=sa;Password=manjirosano12")
+    Private DBCon As New SqlConnection("Server=NIRAJ;Database=imgdatabase;Integrated Security=True")
     Private DBCmd As SqlCommand
 
     ' DB DATA

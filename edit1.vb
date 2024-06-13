@@ -26,19 +26,34 @@ Public Class edit1
 
     Public Sub New()
         InitializeComponent()
+        If Imageedit IsNot Nothing Then
+            originalImage = Imageedit
+            editedImage = ConvertTo24bppRgb(originalImage).Clone()
+            adjustedtempImage = editedImage.Clone()
+            PictureBox1.Image = editedImage
+            Guna2PictureBox1.Visible = False
+        End If
+
     End Sub
 
     Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick, Guna2PictureBox1.Click
-        Using openFileDialog As New OpenFileDialog
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-            If openFileDialog.ShowDialog = DialogResult.OK Then
-                originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                editedImage = ConvertTo24bppRgb(originalImage).Clone()
-                adjustedtempImage = editedImage.Clone()
-                PictureBox1.Image = editedImage
+        If Imageedit IsNot Nothing Then
 
-            End If
-        End Using
+
+        Else
+
+            Using openFileDialog As New OpenFileDialog
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
+                If openFileDialog.ShowDialog = DialogResult.OK Then
+                    originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
+                    editedImage = ConvertTo24bppRgb(originalImage).Clone()
+                    adjustedtempImage = editedImage.Clone()
+                    PictureBox1.Image = editedImage
+
+                End If
+            End Using
+
+        End If
         Guna2PictureBox1.Visible = False
     End Sub
     Private Sub Guna2PictureBox1_DoubleClick(sender As Object, e As EventArgs) Handles Guna2PictureBox1.DoubleClick
@@ -374,7 +389,7 @@ Public Class edit1
                     If db.HasException(True) Then Exit Sub
                     ''''1
                     MessageBox.Show("Image uploaded successfully!")
-                    Form3.Guna2Button3.PerformClick()
+                    Form3.btngallery.PerformClick()
                 End Using
             Catch ex As Exception
                 MessageBox.Show("Error saving image: " & ex.Message)

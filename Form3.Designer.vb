@@ -46,9 +46,9 @@ Partial Class Form3
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
-        Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
-        Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
-        Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        btngallery = New Guna.UI2.WinForms.Guna2Button()
+        btnedit = New Guna.UI2.WinForms.Guna2Button()
+        btnhome = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         pnlcontent = New Guna.UI2.WinForms.Guna2Panel()
@@ -62,6 +62,8 @@ Partial Class Form3
         Guna2BorderlessForm1.BorderRadius = 10
         Guna2BorderlessForm1.ContainerControl = Me
         Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
+        Guna2BorderlessForm1.DragForm = False
+        Guna2BorderlessForm1.ResizeForm = False
         Guna2BorderlessForm1.TransparentWhileDrag = True
         ' 
         ' Guna2ControlBox2
@@ -87,9 +89,9 @@ Partial Class Form3
         Guna2Panel2.BorderRadius = 12
         Guna2Panel2.BorderThickness = 1
         Guna2Panel2.Controls.Add(Guna2Button4)
-        Guna2Panel2.Controls.Add(Guna2Button3)
-        Guna2Panel2.Controls.Add(Guna2Button2)
-        Guna2Panel2.Controls.Add(Guna2Button1)
+        Guna2Panel2.Controls.Add(btngallery)
+        Guna2Panel2.Controls.Add(btnedit)
+        Guna2Panel2.Controls.Add(btnhome)
         Guna2Panel2.CustomizableEdges = CustomizableEdges11
         Guna2Panel2.FillColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
         Guna2Panel2.Location = New Point(3, 44)
@@ -127,85 +129,85 @@ Partial Class Form3
         Guna2Button4.Size = New Size(40, 40)
         Guna2Button4.TabIndex = 9
         ' 
-        ' Guna2Button3
+        ' btngallery
         ' 
-        Guna2Button3.AnimatedGIF = True
-        Guna2Button3.BackColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
-        Guna2Button3.BorderColor = Color.White
-        Guna2Button3.BorderRadius = 20
-        Guna2Button3.BorderThickness = 1
-        Guna2Button3.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
-        Guna2Button3.CustomImages.Image = My.Resources.Resources.icons8_image_gallery_48
-        Guna2Button3.CustomImages.ImageAlign = HorizontalAlignment.Center
-        Guna2Button3.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button3.CustomizableEdges = CustomizableEdges5
-        Guna2Button3.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button3.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button3.FillColor = Color.White
-        Guna2Button3.Font = New Font("Segoe UI", 9F)
-        Guna2Button3.ForeColor = Color.White
-        Guna2Button3.HoverState.BorderColor = Color.Black
-        Guna2Button3.Location = New Point(3, 385)
-        Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2Button3.Size = New Size(59, 41)
-        Guna2Button3.TabIndex = 8
+        btngallery.AnimatedGIF = True
+        btngallery.BackColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
+        btngallery.BorderColor = Color.White
+        btngallery.BorderRadius = 20
+        btngallery.BorderThickness = 1
+        btngallery.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        btngallery.CustomImages.Image = My.Resources.Resources.icons8_image_gallery_48
+        btngallery.CustomImages.ImageAlign = HorizontalAlignment.Center
+        btngallery.CustomImages.ImageSize = New Size(26, 26)
+        btngallery.CustomizableEdges = CustomizableEdges5
+        btngallery.DisabledState.BorderColor = Color.DarkGray
+        btngallery.DisabledState.CustomBorderColor = Color.DarkGray
+        btngallery.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btngallery.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btngallery.FillColor = Color.White
+        btngallery.Font = New Font("Segoe UI", 9F)
+        btngallery.ForeColor = Color.White
+        btngallery.HoverState.BorderColor = Color.Black
+        btngallery.Location = New Point(3, 385)
+        btngallery.Name = "btngallery"
+        btngallery.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btngallery.Size = New Size(59, 41)
+        btngallery.TabIndex = 8
         ' 
-        ' Guna2Button2
+        ' btnedit
         ' 
-        Guna2Button2.AnimatedGIF = True
-        Guna2Button2.BackColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
-        Guna2Button2.BorderColor = Color.White
-        Guna2Button2.BorderRadius = 20
-        Guna2Button2.BorderThickness = 1
-        Guna2Button2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
-        Guna2Button2.CustomImages.Image = CType(resources.GetObject("resource.Image1"), Image)
-        Guna2Button2.CustomImages.ImageAlign = HorizontalAlignment.Center
-        Guna2Button2.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button2.CustomizableEdges = CustomizableEdges7
-        Guna2Button2.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button2.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button2.FillColor = Color.White
-        Guna2Button2.Font = New Font("Segoe UI", 9F)
-        Guna2Button2.ForeColor = Color.White
-        Guna2Button2.HoverState.BorderColor = Color.Black
-        Guna2Button2.Location = New Point(3, 304)
-        Guna2Button2.Name = "Guna2Button2"
-        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        Guna2Button2.Size = New Size(59, 41)
-        Guna2Button2.TabIndex = 7
+        btnedit.AnimatedGIF = True
+        btnedit.BackColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
+        btnedit.BorderColor = Color.White
+        btnedit.BorderRadius = 20
+        btnedit.BorderThickness = 1
+        btnedit.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        btnedit.CustomImages.Image = CType(resources.GetObject("resource.Image1"), Image)
+        btnedit.CustomImages.ImageAlign = HorizontalAlignment.Center
+        btnedit.CustomImages.ImageSize = New Size(26, 26)
+        btnedit.CustomizableEdges = CustomizableEdges7
+        btnedit.DisabledState.BorderColor = Color.DarkGray
+        btnedit.DisabledState.CustomBorderColor = Color.DarkGray
+        btnedit.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnedit.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnedit.FillColor = Color.White
+        btnedit.Font = New Font("Segoe UI", 9F)
+        btnedit.ForeColor = Color.White
+        btnedit.HoverState.BorderColor = Color.Black
+        btnedit.Location = New Point(3, 304)
+        btnedit.Name = "btnedit"
+        btnedit.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        btnedit.Size = New Size(59, 41)
+        btnedit.TabIndex = 7
         ' 
-        ' Guna2Button1
+        ' btnhome
         ' 
-        Guna2Button1.AnimatedGIF = True
-        Guna2Button1.BackColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
-        Guna2Button1.BorderColor = Color.White
-        Guna2Button1.BorderRadius = 20
-        Guna2Button1.BorderThickness = 1
-        Guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
-        Guna2Button1.CustomImages.CheckedImage = My.Resources.Resources.icons8_home_48__1_
-        Guna2Button1.CustomImages.HoveredImage = My.Resources.Resources.icons8_home
-        Guna2Button1.CustomImages.Image = My.Resources.Resources.icons8_home_48
-        Guna2Button1.CustomImages.ImageAlign = HorizontalAlignment.Center
-        Guna2Button1.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button1.CustomizableEdges = CustomizableEdges9
-        Guna2Button1.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button1.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button1.FillColor = Color.White
-        Guna2Button1.Font = New Font("Segoe UI", 9F)
-        Guna2Button1.ForeColor = Color.White
-        Guna2Button1.HoverState.BorderColor = Color.Black
-        Guna2Button1.Location = New Point(3, 223)
-        Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
-        Guna2Button1.Size = New Size(59, 41)
-        Guna2Button1.TabIndex = 6
+        btnhome.AnimatedGIF = True
+        btnhome.BackColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
+        btnhome.BorderColor = Color.White
+        btnhome.BorderRadius = 20
+        btnhome.BorderThickness = 1
+        btnhome.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton
+        btnhome.CustomImages.CheckedImage = My.Resources.Resources.icons8_home_48__1_
+        btnhome.CustomImages.HoveredImage = My.Resources.Resources.icons8_home
+        btnhome.CustomImages.Image = My.Resources.Resources.icons8_home_48
+        btnhome.CustomImages.ImageAlign = HorizontalAlignment.Center
+        btnhome.CustomImages.ImageSize = New Size(26, 26)
+        btnhome.CustomizableEdges = CustomizableEdges9
+        btnhome.DisabledState.BorderColor = Color.DarkGray
+        btnhome.DisabledState.CustomBorderColor = Color.DarkGray
+        btnhome.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnhome.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnhome.FillColor = Color.White
+        btnhome.Font = New Font("Segoe UI", 9F)
+        btnhome.ForeColor = Color.White
+        btnhome.HoverState.BorderColor = Color.Black
+        btnhome.Location = New Point(3, 223)
+        btnhome.Name = "btnhome"
+        btnhome.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        btnhome.Size = New Size(59, 41)
+        btnhome.TabIndex = 6
         ' 
         ' Guna2HtmlLabel3
         ' 
@@ -271,6 +273,7 @@ Partial Class Form3
         DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
         Name = "Form3"
+        SizeGripStyle = SizeGripStyle.Hide
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form3"
         Guna2Panel2.ResumeLayout(False)
@@ -282,9 +285,9 @@ Partial Class Form3
     Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnhome As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btngallery As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnedit As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button4 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox

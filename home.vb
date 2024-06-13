@@ -19,7 +19,7 @@ Public Class Home
             End If
 
             Dim userIds As Integer = Convert.ToInt32(db.DBDT.Rows(0)("UserID"))
-            MsgBox(userIds)
+
             Dim gallery As New gallery1(userIds)
             Me.Controls.Clear()
             Me.Controls.Add(gallery)

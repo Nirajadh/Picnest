@@ -218,11 +218,11 @@ Partial Class signin
         ' 
         Guna2HtmlLabel3.BackColor = Color.Transparent
         Guna2Transition1.SetDecoration(Guna2HtmlLabel3, Guna.UI2.AnimatorNS.DecorationType.None)
-        Guna2HtmlLabel3.Font = New Font("Segoe Script", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel3.ForeColor = SystemColors.ActiveCaptionText
         Guna2HtmlLabel3.Location = New Point(22, 16)
         Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(66, 52)
+        Guna2HtmlLabel3.Size = New Size(70, 39)
         Guna2HtmlLabel3.TabIndex = 4
         Guna2HtmlLabel3.Text = "IMG"
         ' 

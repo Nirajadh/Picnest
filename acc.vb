@@ -17,7 +17,7 @@ Public Class acc
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             profileimage = CType(Image.FromFile(OpenFileDialog1.FileName), Bitmap)
             Guna2PictureBox1.Image = profileimage.Clone()
-
+            Form3.accountbutton.Image = profileimage.Clone()
             ' Convert image to byte array
             Dim imageData As Byte() = ImageToByteArray(profileimage)
 
@@ -48,6 +48,7 @@ Public Class acc
                 Dim imagedata As Byte() = CType(row("ProfilePic"), Byte())
                 profileimage = ByteArrayToImage(imagedata)
                 Guna2PictureBox1.Image = profileimage
+
             Else
                 ' Handle the case where ProfilePic is NULL (no image)
                 ' Optionally, you can set a default image or leave it blank
@@ -94,6 +95,7 @@ Public Class acc
         ' Provide feedback to the user
         MsgBox("User Deleted")
         Me.Hide()
+        Form3.Hide()
         Form1.Show()
     End Sub
 
@@ -138,5 +140,11 @@ Public Class acc
         txtnewname.Visible = False
 
         lblName.Visible = True
+    End Sub
+
+    Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs)
+        Form3.accountbutton.PerformClick()
+
+
     End Sub
 End Class

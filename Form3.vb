@@ -3,6 +3,8 @@ Imports Guna.UI2.WinForms
 
 Public Class Form3
     Private db As New sqlcontrol()
+    Dim profileimage As Bitmap
+
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles btnedit.Click
         Dim ed As New edit1()
         acc.Hide()
@@ -44,7 +46,6 @@ Public Class Form3
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Visible = True
-        Dim profileimage As Bitmap
 
         db.AddParam("@UserID", userid)
         db.ExecQuery("SELECT ProfilePic FROM Users WHERE UserID=@UserID")
@@ -60,6 +61,8 @@ Public Class Form3
                 Dim imagedata As Byte() = CType(row("ProfilePic"), Byte())
                 profileimage = ByteArrayToImage(imagedata)
                 accountbutton.Image = profileimage
+                profilePIC = profileimage.Clone()
+
             Else
                 ' Handle the case where ProfilePic is NULL (no image)
                 ' Optionally, you can set a default image or leave it blank
@@ -97,4 +100,21 @@ Public Class Form3
     End Sub
 
 
+    Private Sub pnlcontent1_MouseClick(sender As Object, e As MouseEventArgs) Handles pnlcontent1.MouseClick
+        accountbutton.PerformClick()
+
+    End Sub
+
+    Private Sub Guna2Panel2_MouseClick(sender As Object, e As MouseEventArgs) Handles Guna2Panel2.MouseClick
+        accountbutton.PerformClick()
+
+    End Sub
+
+    Private Sub panelcontent_MouseClick(sender As Object, e As MouseEventArgs) Handles panelcontent.MouseClick
+        accountbutton.PerformClick()
+    End Sub
+
+    Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs)
+        accountbutton.PerformClick()
+    End Sub
 End Class

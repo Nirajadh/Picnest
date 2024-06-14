@@ -13,4 +13,6 @@ Public Class Form1
         Guna2Panel2.Controls.Add(sin)
         sin.Dock = DockStyle.Fill
     End Sub
+
+
 End Class

@@ -30,8 +30,8 @@ Public Class Gallery1
         Try
             If homecheck = True Then
                 If searchuserid = 0 Then
-
-                    db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = UserUploads.UserID)  AS Username FROM UserUploads")
+                    db.AddParam("@UserID", userid)
+                    db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = UserUploads.UserID)  AS Username FROM UserUploads where UserID <> @UserID ORDER BY UploadID DESC")
 
                 Else
                     db.AddParam("@UserID", searchuserid)

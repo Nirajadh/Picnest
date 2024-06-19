@@ -100,7 +100,9 @@ Public Class acc
     End Sub
 
     Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
+        Form3.Dispose()
         Form3.Hide()
+        Me.Dispose()
         Me.Hide()
         Form1.Show()
     End Sub

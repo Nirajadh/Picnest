@@ -727,13 +727,21 @@
         hauFeu7C1UM9cfNkaSQpYZXqlcawOo4aVa/UMP6IcwcPGkPf1uw4kwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="resource.Image10" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAIpJREFUSEvtk0EKgCAQRb1EUfc/SauIalOLjlP/B4ZIxRiOEMyDRyjYZ3TGGYbx
+        kRrOsDtXhWDoCnc4cKMEFVwgQzfYQHUsVBULFdPDCXL2pIRzym/K2YsRpvwgSyiJr6yFT2R/U0m4WiO9
+        hauFeu7C1UM9cfNkaSQpYZXqlcawOo4aVa/UMP6IcwcPGkPf1uw4kwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="Guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>53</value>
   </metadata>
-  <data name="resource.Image10" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="resource.Image11" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAOlJREFUSEvt1bEOwVAUh/HuxDsIL8GEjfcRq7fAUxArHgMbAxsGYec7ocnJzU30

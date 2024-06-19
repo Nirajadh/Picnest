@@ -8,6 +8,7 @@
     Public homecheck As Boolean
     Public updatecheck As Boolean
     Public profilePIC As Bitmap
+    Public searchuserid As Integer = 0
 
 
 End Module

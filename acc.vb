@@ -17,7 +17,7 @@ Public Class acc
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             profileimage = CType(Image.FromFile(OpenFileDialog1.FileName), Bitmap)
             Guna2PictureBox1.Image = profileimage.Clone()
-            Form3.accountbutton.Image = profileimage.Clone()
+            Form3.accountbtn.Image = profileimage.Clone()
             ' Convert image to byte array
             Dim imageData As Byte() = ImageToByteArray(profileimage)
 
@@ -143,7 +143,7 @@ Public Class acc
     End Sub
 
     Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs)
-        Form3.accountbutton.PerformClick()
+        Form3.accountbtn.Tag = False
 
 
     End Sub

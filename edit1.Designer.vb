@@ -70,16 +70,20 @@ Partial Class edit1
         Dim CustomizableEdges44 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges45 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges46 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges53 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges54 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges57 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges58 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges47 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges48 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges51 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges52 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges49 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges50 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges55 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges56 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges49 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges50 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges51 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges52 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges53 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges54 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges59 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges60 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         btnsave = New Guna.UI2.WinForms.Guna2Button()
         btnadjust = New Guna.UI2.WinForms.Guna2Button()
@@ -112,11 +116,12 @@ Partial Class edit1
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         panelfilters = New Guna.UI2.WinForms.Guna2Panel()
         pnlupload = New Guna.UI2.WinForms.Guna2Panel()
-        Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
+        saveconfirmbtn = New Guna.UI2.WinForms.Guna2Button()
+        captiontxtbox = New Guna.UI2.WinForms.Guna2TextBox()
+        uploadbtn = New Guna.UI2.WinForms.Guna2Button()
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        txtcaption = New TextBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel2.SuspendLayout()
         panelcrop.SuspendLayout()
@@ -147,6 +152,7 @@ Partial Class edit1
         ' btnsave
         ' 
         btnsave.AnimatedGIF = True
+        btnsave.BackColor = Color.Transparent
         btnsave.BorderColor = Color.Transparent
         btnsave.BorderRadius = 10
         btnsave.BorderThickness = 2
@@ -160,9 +166,9 @@ Partial Class edit1
         btnsave.DisabledState.CustomBorderColor = Color.DarkGray
         btnsave.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnsave.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnsave.FillColor = Color.Transparent
+        btnsave.FillColor = Color.White
         btnsave.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnsave.ForeColor = Color.White
+        btnsave.ForeColor = Color.Black
         btnsave.HoverState.BorderColor = SystemColors.Control
         btnsave.HoverState.FillColor = Color.White
         btnsave.HoverState.ForeColor = SystemColors.Highlight
@@ -322,7 +328,7 @@ Partial Class edit1
         btncropapply.ForeColor = Color.White
         btncropapply.HoverState.BorderColor = Color.Transparent
         btncropapply.HoverState.FillColor = Color.Transparent
-        btncropapply.Location = New Point(917, 14)
+        btncropapply.Location = New Point(917, 17)
         btncropapply.Name = "btncropapply"
         btncropapply.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         btncropapply.Size = New Size(45, 35)
@@ -513,7 +519,7 @@ Partial Class edit1
         btnapply.ForeColor = Color.White
         btnapply.HoverState.BorderColor = Color.Transparent
         btnapply.HoverState.FillColor = Color.Transparent
-        btnapply.Location = New Point(917, 16)
+        btnapply.Location = New Point(917, 19)
         btnapply.Name = "btnapply"
         btnapply.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         btnapply.Size = New Size(45, 35)
@@ -654,7 +660,7 @@ Partial Class edit1
         btnadjustapply.ForeColor = Color.White
         btnadjustapply.HoverState.BorderColor = Color.Transparent
         btnadjustapply.HoverState.FillColor = Color.Transparent
-        btnadjustapply.Location = New Point(917, 20)
+        btnadjustapply.Location = New Point(917, 23)
         btnadjustapply.Name = "btnadjustapply"
         btnadjustapply.ShadowDecoration.CustomizableEdges = CustomizableEdges42
         btnadjustapply.Size = New Size(45, 35)
@@ -721,12 +727,12 @@ Partial Class edit1
         Guna2Panel1.Controls.Add(Guna2PictureBox1)
         Guna2Panel1.Controls.Add(PictureBox1)
         Guna2Panel1.Controls.Add(pnlupload)
-        Guna2Panel1.CustomizableEdges = CustomizableEdges53
+        Guna2Panel1.CustomizableEdges = CustomizableEdges57
         Guna2Panel1.FillColor = Color.Transparent
         Guna2Panel1.ForeColor = Color.Transparent
         Guna2Panel1.Location = New Point(70, 0)
         Guna2Panel1.Name = "Guna2Panel1"
-        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges54
+        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges58
         Guna2Panel1.Size = New Size(975, 654)
         Guna2Panel1.TabIndex = 1
         ' 
@@ -759,46 +765,97 @@ Partial Class edit1
         pnlupload.BorderColor = Color.Transparent
         pnlupload.BorderRadius = 15
         pnlupload.BorderThickness = 1
-        pnlupload.Controls.Add(Guna2Button3)
-        pnlupload.CustomizableEdges = CustomizableEdges51
+        pnlupload.Controls.Add(saveconfirmbtn)
+        pnlupload.Controls.Add(captiontxtbox)
+        pnlupload.Controls.Add(uploadbtn)
+        pnlupload.CustomizableEdges = CustomizableEdges55
         pnlupload.Dock = DockStyle.Bottom
         pnlupload.FillColor = Color.Black
         pnlupload.Location = New Point(0, 578)
         pnlupload.Name = "pnlupload"
-        pnlupload.ShadowDecoration.CustomizableEdges = CustomizableEdges52
+        pnlupload.ShadowDecoration.CustomizableEdges = CustomizableEdges56
         pnlupload.Size = New Size(975, 76)
         pnlupload.TabIndex = 7
         ' 
-        ' Guna2Button3
+        ' saveconfirmbtn
         ' 
-        Guna2Button3.BackColor = Color.Black
-        Guna2Button3.BorderColor = Color.White
-        Guna2Button3.BorderRadius = 20
-        Guna2Button3.BorderThickness = 2
-        Guna2Button3.CheckedState.FillColor = Color.Gray
-        Guna2Button3.CustomBorderColor = Color.White
-        Guna2Button3.CustomImages.Image = My.Resources.Resources.icons8_add_image_301
-        Guna2Button3.CustomImages.ImageAlign = HorizontalAlignment.Left
-        Guna2Button3.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button3.CustomizableEdges = CustomizableEdges49
-        Guna2Button3.DisabledState.BorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray
-        Guna2Button3.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        Guna2Button3.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        Guna2Button3.FillColor = Color.WhiteSmoke
-        Guna2Button3.Font = New Font("Segoe UI", 9F)
-        Guna2Button3.ForeColor = Color.Black
-        Guna2Button3.HoverState.BorderColor = Color.Black
-        Guna2Button3.HoverState.FillColor = Color.White
-        Guna2Button3.HoverState.ForeColor = Color.Black
-        Guna2Button3.ImageOffset = New Point(20, 10)
-        Guna2Button3.Location = New Point(409, 15)
-        Guna2Button3.Name = "Guna2Button3"
-        Guna2Button3.ShadowDecoration.CustomizableEdges = CustomizableEdges50
-        Guna2Button3.Size = New Size(156, 47)
-        Guna2Button3.TabIndex = 4
-        Guna2Button3.Text = "Upload image"
-        Guna2Button3.TextAlign = HorizontalAlignment.Right
+        saveconfirmbtn.BorderColor = Color.Transparent
+        saveconfirmbtn.BorderRadius = 5
+        saveconfirmbtn.CustomImages.Image = CType(resources.GetObject("resource.Image10"), Image)
+        saveconfirmbtn.CustomImages.ImageAlign = HorizontalAlignment.Center
+        saveconfirmbtn.CustomImages.ImageOffset = New Point(0, -2)
+        saveconfirmbtn.CustomImages.ImageSize = New Size(26, 26)
+        saveconfirmbtn.CustomizableEdges = CustomizableEdges49
+        saveconfirmbtn.DisabledState.BorderColor = Color.DarkGray
+        saveconfirmbtn.DisabledState.CustomBorderColor = Color.DarkGray
+        saveconfirmbtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        saveconfirmbtn.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        saveconfirmbtn.FillColor = Color.WhiteSmoke
+        saveconfirmbtn.Font = New Font("Segoe UI", 9F)
+        saveconfirmbtn.ForeColor = Color.White
+        saveconfirmbtn.HoverState.BorderColor = Color.Transparent
+        saveconfirmbtn.HoverState.FillColor = Color.Transparent
+        saveconfirmbtn.Location = New Point(917, 21)
+        saveconfirmbtn.Name = "saveconfirmbtn"
+        saveconfirmbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges50
+        saveconfirmbtn.Size = New Size(45, 35)
+        saveconfirmbtn.TabIndex = 9
+        saveconfirmbtn.Visible = False
+        ' 
+        ' captiontxtbox
+        ' 
+        captiontxtbox.CustomizableEdges = CustomizableEdges51
+        captiontxtbox.DefaultText = ""
+        captiontxtbox.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        captiontxtbox.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        captiontxtbox.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        captiontxtbox.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        captiontxtbox.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        captiontxtbox.Font = New Font("Segoe UI", 9F)
+        captiontxtbox.ForeColor = Color.Black
+        captiontxtbox.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        captiontxtbox.Location = New Point(322, 18)
+        captiontxtbox.Margin = New Padding(3, 4, 3, 4)
+        captiontxtbox.Name = "captiontxtbox"
+        captiontxtbox.PasswordChar = ChrW(0)
+        captiontxtbox.PlaceholderForeColor = Color.Black
+        captiontxtbox.PlaceholderText = "Enter Caption"
+        captiontxtbox.SelectedText = ""
+        captiontxtbox.ShadowDecoration.CustomizableEdges = CustomizableEdges52
+        captiontxtbox.Size = New Size(331, 41)
+        captiontxtbox.TabIndex = 5
+        captiontxtbox.Visible = False
+        ' 
+        ' uploadbtn
+        ' 
+        uploadbtn.BackColor = Color.Black
+        uploadbtn.BorderColor = Color.White
+        uploadbtn.BorderRadius = 20
+        uploadbtn.BorderThickness = 2
+        uploadbtn.CheckedState.FillColor = Color.Gray
+        uploadbtn.CustomBorderColor = Color.White
+        uploadbtn.CustomImages.Image = My.Resources.Resources.icons8_add_image_301
+        uploadbtn.CustomImages.ImageAlign = HorizontalAlignment.Left
+        uploadbtn.CustomImages.ImageSize = New Size(26, 26)
+        uploadbtn.CustomizableEdges = CustomizableEdges53
+        uploadbtn.DisabledState.BorderColor = Color.DarkGray
+        uploadbtn.DisabledState.CustomBorderColor = Color.DarkGray
+        uploadbtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        uploadbtn.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        uploadbtn.FillColor = Color.WhiteSmoke
+        uploadbtn.Font = New Font("Segoe UI", 9F)
+        uploadbtn.ForeColor = Color.Black
+        uploadbtn.HoverState.BorderColor = Color.Black
+        uploadbtn.HoverState.FillColor = Color.White
+        uploadbtn.HoverState.ForeColor = Color.Black
+        uploadbtn.ImageOffset = New Point(20, 10)
+        uploadbtn.Location = New Point(409, 15)
+        uploadbtn.Name = "uploadbtn"
+        uploadbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges54
+        uploadbtn.Size = New Size(156, 47)
+        uploadbtn.TabIndex = 4
+        uploadbtn.Text = "Upload image"
+        uploadbtn.TextAlign = HorizontalAlignment.Right
         ' 
         ' Guna2BorderlessForm1
         ' 
@@ -816,11 +873,11 @@ Partial Class edit1
         Guna2Button1.BackColor = Color.Transparent
         Guna2Button1.BorderColor = Color.Transparent
         Guna2Button1.BorderRadius = 5
-        Guna2Button1.CustomImages.Image = CType(resources.GetObject("resource.Image10"), Image)
+        Guna2Button1.CustomImages.Image = CType(resources.GetObject("resource.Image11"), Image)
         Guna2Button1.CustomImages.ImageAlign = HorizontalAlignment.Center
         Guna2Button1.CustomImages.ImageOffset = New Point(0, -2)
         Guna2Button1.CustomImages.ImageSize = New Size(26, 26)
-        Guna2Button1.CustomizableEdges = CustomizableEdges55
+        Guna2Button1.CustomizableEdges = CustomizableEdges59
         Guna2Button1.DisabledState.BorderColor = Color.DarkGray
         Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -832,18 +889,9 @@ Partial Class edit1
         Guna2Button1.HoverState.FillColor = Color.Transparent
         Guna2Button1.Location = New Point(10, 3)
         Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges56
+        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges60
         Guna2Button1.Size = New Size(45, 35)
         Guna2Button1.TabIndex = 18
-        ' 
-        ' txtcaption
-        ' 
-        txtcaption.BackColor = SystemColors.HighlightText
-        txtcaption.Location = New Point(1, 545)
-        txtcaption.Name = "txtcaption"
-        txtcaption.Size = New Size(64, 27)
-        txtcaption.TabIndex = 16
-        txtcaption.Visible = False
         ' 
         ' edit1
         ' 
@@ -851,7 +899,6 @@ Partial Class edit1
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Transparent
         Controls.Add(Guna2Button1)
-        Controls.Add(txtcaption)
         Controls.Add(btnsave)
         Controls.Add(Guna2Panel1)
         Controls.Add(Guna2Panel2)
@@ -869,7 +916,6 @@ Partial Class edit1
         panelfilters.ResumeLayout(False)
         pnlupload.ResumeLayout(False)
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
@@ -906,8 +952,9 @@ Partial Class edit1
     Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents txtcaption As TextBox
     Friend WithEvents pnlupload As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents uploadbtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents captiontxtbox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents saveconfirmbtn As Guna.UI2.WinForms.Guna2Button
 
 End Class

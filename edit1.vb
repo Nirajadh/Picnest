@@ -282,7 +282,7 @@ Public Class edit1
 
     Private Sub btncropapply_Click(sender As Object, e As EventArgs) Handles btncropapply.Click
         isCropping = False
-        editedImage = croppedImage.Clone()
+        editedImage = croppedImage.Clone
 
     End Sub
     Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
@@ -358,7 +358,7 @@ Public Class edit1
         PictureBox1.Image = editedImage
         adjustedImage = editedImage.Clone
         adjustedtempImage = editedImage.Clone
-        trackbardefault
+        trackbardefault()
 
     End Sub
     'adjust end
@@ -371,42 +371,15 @@ Public Class edit1
 
     'save
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-        If editedImage IsNot Nothing Then
-            Try
+        panelcrop.Visible = False
+        paneladjust.Visible = False
+        panelfilters.Visible = False
+        pnlupload.Visible = True
+        captiontxtbox.Visible = True
+        uploadbtn.Visible = False
+        saveconfirmbtn.Visible = True
 
 
-
-                Using ms As New MemoryStream()
-                    Dim codecInfo As ImageCodecInfo = GetEncoder(ImageFormat.Jpeg)
-                    Dim encoder As System.Drawing.Imaging.Encoder = System.Drawing.Imaging.Encoder.Quality
-                    Dim encoderParams As New EncoderParameters(1)
-                    encoderParams.Param(0) = New EncoderParameter(encoder, 100L)
-
-                    editedImage.Save(ms, codecInfo, encoderParams)
-                    Dim imageData As Byte() = ms.ToArray()
-
-                    db.AddParam("@UserID", Convert.ToInt32(userid))
-                    db.AddParam("@ImageData", imageData)
-                    db.AddParam("@Caption", txtcaption.Text)
-                    db.AddParam("@UploadDate", DateTime.Now)
-                    db.AddParam("@UploadID", useruploadid)
-                    If updatecheck = False Then
-
-                        db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
-                    Else
-                        db.ExecQuery("UPDATE UserUploads SET UserID=@UserID,ImageData=@ImageData,UploadDate=@UploadDate,Caption = @Caption WHERE UploadID = @UploadID")
-                    End If
-                    If db.HasException(True) Then Exit Sub
-                    ''''1
-                    MessageBox.Show("Image uploaded successfully!")
-                    Form3.btngallery.PerformClick()
-                End Using
-            Catch ex As Exception
-                MessageBox.Show("Error saving image: " & ex.Message)
-            End Try
-        Else
-            MessageBox.Show("Please select an image")
-        End If
     End Sub
 
     Private Sub trackbarcontrast_ValueChanged(sender As Object, e As EventArgs) Handles trackbarcontrast.ValueChanged
@@ -477,23 +450,71 @@ Public Class edit1
 
 
 
-    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
+    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles uploadbtn.Click
 
 
         Using openFileDialog As New OpenFileDialog
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-                If openFileDialog.ShowDialog = DialogResult.OK Then
-                    originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                    editedImage = ConvertTo24bppRgb(originalImage).Clone()
-                    adjustedtempImage = editedImage.Clone()
-                    PictureBox1.Image = editedImage
-                    filterbtn.PerformClick()
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
+            If openFileDialog.ShowDialog = DialogResult.OK Then
+                originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
+                editedImage = ConvertTo24bppRgb(originalImage).Clone()
+                adjustedtempImage = editedImage.Clone()
+                PictureBox1.Image = editedImage
+                filterbtn.PerformClick()
 
-                End If
-            End Using
+            End If
+        End Using
 
 
         Guna2PictureBox1.Visible = False
+    End Sub
+
+
+    Private Sub Guna2Button3_Click_1(sender As Object, e As EventArgs) Handles saveconfirmbtn.Click
+        If editedImage IsNot Nothing Then
+            Try
+
+
+
+                Using ms As New MemoryStream()
+                    Dim codecInfo As ImageCodecInfo = GetEncoder(ImageFormat.Jpeg)
+                    Dim encoder As System.Drawing.Imaging.Encoder = System.Drawing.Imaging.Encoder.Quality
+                    Dim encoderParams As New EncoderParameters(1)
+                    encoderParams.Param(0) = New EncoderParameter(encoder, 100L)
+
+                    editedImage.Save(ms, codecInfo, encoderParams)
+                    Dim imageData As Byte() = ms.ToArray()
+
+                    db.AddParam("@UserID", Convert.ToInt32(userid))
+                    db.AddParam("@ImageData", imageData)
+                    db.AddParam("@Caption", captiontxtbox.Text)
+                    db.AddParam("@UploadDate", DateTime.Now)
+                    db.AddParam("@UploadID", useruploadid)
+                    If updatecheck = False Then
+
+                        db.ExecQuery("INSERT INTO UserUploads (UserID, ImageData, Caption, UploadDate) VALUES (@UserID, @ImageData, @Caption, @UploadDate)")
+                    Else
+                        db.ExecQuery("UPDATE UserUploads SET UserID=@UserID,ImageData=@ImageData,UploadDate=@UploadDate,Caption = @Caption WHERE UploadID = @UploadID")
+                    End If
+                    If db.HasException(True) Then Exit Sub
+                    ''''1
+                    MessageBox.Show("Image uploaded successfully!")
+                    Form3.btngallery.PerformClick()
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error saving image: " & ex.Message)
+            End Try
+        Else
+            MessageBox.Show("Please select an image")
+        End If
+    End Sub
+
+    Private Sub captiontxtbox_KeyDown(sender As Object, e As KeyEventArgs) Handles captiontxtbox.KeyDown
+        If e.KeyValue = Keys.Enter Then
+            saveconfirmbtn.PerformClick()
+
+        End If
+
     End Sub
 End Class
 

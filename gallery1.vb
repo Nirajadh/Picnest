@@ -1,38 +1,66 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Drawing
 Imports System.IO
+Imports System.Windows.Controls.Primitives
+Imports Guna.UI2.WinForms
 
 Public Class Gallery1
     Inherits UserControl
-    Dim userid As Integer
+
+    Dim uid As Integer
     Private db As New sqlcontrol()
 
-    Public Sub New(uid As Integer)
+    Public Sub New()
         InitializeComponent()
-        userid = uid
 
+        If homecheck = True Then
+            searchpanel.Visible = True
+        Else
+            searchpanel.Visible = False
+        End If
         LoadUserImages()
     End Sub
 
     Private Sub LoadUserImages()
         Try
-            db.AddParam("@UserID", userid)
-            db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = @UserID) AS Username FROM UserUploads WHERE UserID = @UserID")
+            If homecheck = True Then
+                If searchuserid = 0 Then
 
+                    db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = UserUploads.UserID)  AS Username FROM UserUploads")
+
+                Else
+                    db.AddParam("@UserID", searchuserid)
+                    db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = @UserID) AS Username FROM UserUploads WHERE UserID = @UserID")
+                End If
+
+            Else
+                db.AddParam("@UserID", userid)
+                db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = @UserID) AS Username FROM UserUploads WHERE UserID = @UserID")
+
+            End If
             If db.HasException(True) Then Exit Sub
 
-            For Each row As DataRow In db.DBDT.Rows
-                Dim uploadID As Integer = CType(row("UploadID"), Integer)
-                Dim imageData As Byte() = CType(row("ImageData"), Byte())
-                Dim image As Bitmap = ByteArrayToImage(imageData)
-                Dim caption As String = row("Caption").ToString()
-                Dim uploadDate As DateTime = CType(row("UploadDate"), DateTime)
-                Dim username As String = row("Username").ToString()
-                AddImageToGallery(uploadID, image, caption, uploadDate, username)
-            Next
+                For Each row As DataRow In db.DBDT.Rows
+                    Dim uploadID As Integer = CType(row("UploadID"), Integer)
+                    Dim imageData As Byte() = CType(row("ImageData"), Byte())
+                    Dim image As Bitmap = ByteArrayToImage(imageData)
+                    Dim caption As String = row("Caption").ToString()
+                    Dim uploadDate As DateTime = CType(row("UploadDate"), DateTime)
+                    Dim username As String = row("Username").ToString()
+
+                    db.AddParam("@UploadID", uploadID)
+                    db.AddParam("@UserID", userid)
+                    db.ExecQuery("SELECT COUNT(*) FROM Liked WHERE UserID = @UserID AND UploadID = @UploadID")
+                    Dim alreadyLiked As Boolean = (CInt(db.DBDT.Rows(0).Item(0)) > 0)
+
+                    AddImageToGallery(uploadID, image, caption, uploadDate, username, alreadyLiked)
+                Next
+
         Catch ex As Exception
-            MessageBox.Show("Error loading images: " & ex.Message)
+            MessageBox.Show("Error loading i images: " & ex.Message)
+
         End Try
+
     End Sub
 
     Private Function ByteArrayToImage(byteArray As Byte()) As Bitmap
@@ -41,8 +69,14 @@ Public Class Gallery1
         End Using
     End Function
 
-    Private Sub AddImageToGallery(uploadID As Integer, image As Bitmap, caption As String, uploadDate As DateTime, username As String)
-        lblusername.Text = username
+    Private Sub AddImageToGallery(uploadID As Integer, image As Bitmap, caption As String, uploadDate As DateTime, username As String, alreadyLiked As Boolean)
+        If homecheck = True And searchuserid = 0 Then
+            lblusername.Visible = False
+        Else
+            lblusername.Visible = True
+            lblusername.Text = username
+        End If
+
         Dim panel As New Panel()
         panel.BorderStyle = BorderStyle.None
         panel.Size = New Size(461, 515)
@@ -50,6 +84,12 @@ Public Class Gallery1
         panel.Dock = DockStyle.Top
         panel.Tag = uploadID ' Store the UploadID in the panel's Tag property
 
+        Dim lbluname As New Label()
+        lbluname.Text = username
+        lbluname.TextAlign = ContentAlignment.MiddleLeft
+        lbluname.Dock = DockStyle.Top
+        lbluname.ForeColor = Color.Black
+        lbluname.Font = New Font("Segoe UI", 10, FontStyle.Bold) 
         Dim lblDate As New Label()
         lblDate.Text = uploadDate.ToString("MMM dd, yyyy") ' Format the date as "Jun 16, 2020"
         lblDate.AutoSize = True
@@ -60,7 +100,7 @@ Public Class Gallery1
         Dim pictureBox As New PictureBox()
         pictureBox.Image = image
         pictureBox.Dock = DockStyle.Top
-        pictureBox.Width = 461 'adjust width to fit within the panel with some margin
+        pictureBox.Width = 461 ' Adjust width to fit within the panel with some margin
         pictureBox.Height = CInt((image.Height / image.Width) * pictureBox.Width) ' Adjust height based on image aspect ratio
         pictureBox.SizeMode = PictureBoxSizeMode.Zoom
         pictureBox.Dock = DockStyle.Top
@@ -72,28 +112,66 @@ Public Class Gallery1
         lblCaption.Dock = DockStyle.Top
         lblCaption.ForeColor = Color.Black
 
+        Dim likepanel As New Panel()
+        likepanel.BorderStyle = BorderStyle.None
+        likepanel.Size = New Size(40, 45)
+        likepanel.Dock = DockStyle.Top
+        likepanel.Padding = New Padding(5, 5, 0, 0)
+
+        Dim likebtn As New Guna2Button()
+        AddHandler likebtn.Click, AddressOf likebtn_click
+        likebtn.BackColor = Color.Transparent
+        likebtn.FillColor = Color.Transparent
+        likebtn.PressedColor = Color.Transparent
+        likebtn.PressedDepth = 0
+        likebtn.Tag = uploadID
+        likebtn.CustomImages.Image = My.Resources.likee
+        likebtn.CustomImages.ImageAlign = HorizontalAlignment.Center
+        likebtn.CustomImages.ImageSize = New Size(35, 35)
+        likebtn.ImageSize = New Size(40, 40)
+        likebtn.UseTransparentBackground = True
+        likebtn.ImageAlign = HorizontalAlignment.Center
+        likebtn.HoverState.Image = My.Resources.liked
+        likebtn.HoverState.FillColor = Color.Transparent
+        likebtn.CustomImages.CheckedImage = My.Resources.liked
+        likebtn.ButtonMode = Enums.ButtonMode.ToogleButton
+        likebtn.CheckedState.Image = My.Resources.liked
+        likebtn.CheckedState.FillColor = Color.Transparent
+
+        If alreadyLiked Then
+            likebtn.Checked = True
+        End If
+
+        likebtn.Dock = DockStyle.Left
+        likebtn.Size = New Size(40, 40)
+
         panel.Controls.Add(lblCaption)
+        panel.Controls.Add(likepanel)
+        likepanel.Controls.Add(likebtn)
         panel.Controls.Add(pictureBox)
         panel.Controls.Add(lblDate)
-        panel.Height = pictureBox.Height + lblDate.Height + lblCaption.Height + panel.Padding.Top + panel.Padding.Bottom
+        If homecheck = True And searchuserid = 0 Then
+            panel.Controls.Add(lbluname)
+        End If
+
+        panel.Height = pictureBox.Height + lblDate.Height + lbluname.Height + lblCaption.Height + likebtn.Height + panel.Padding.Top + panel.Padding.Bottom + 5
 
         ' Add the context menu
-
         Dim contextMenu As New ContextMenuStrip()
-            AddHandler contextMenu.Opening, AddressOf ContextMenu_Opening
+        AddHandler contextMenu.Opening, AddressOf ContextMenu_Opening
 
-            Dim editMenuItem As New ToolStripMenuItem("Edit")
-            AddHandler editMenuItem.Click, AddressOf EditMenuItem_Click
-            contextMenu.Items.Add(editMenuItem)
+        Dim editMenuItem As New ToolStripMenuItem("Edit")
+        AddHandler editMenuItem.Click, AddressOf EditMenuItem_Click
+        contextMenu.Items.Add(editMenuItem)
 
-            Dim deleteMenuItem As New ToolStripMenuItem("Delete")
-            AddHandler deleteMenuItem.Click, AddressOf DeleteMenuItem_Click
-            contextMenu.Items.Add(deleteMenuItem)
+        Dim deleteMenuItem As New ToolStripMenuItem("Delete")
+        AddHandler deleteMenuItem.Click, AddressOf DeleteMenuItem_Click
+        contextMenu.Items.Add(deleteMenuItem)
 
         If homecheck = False Then
-
             panel.ContextMenuStrip = contextMenu
         End If
+
         FlowLayoutPanel1.Controls.Add(panel)
     End Sub
 
@@ -101,25 +179,56 @@ Public Class Gallery1
         ' Optionally add logic here if needed before the context menu opens
     End Sub
 
+    Private Sub likebtn_click(sender As Object, e As EventArgs)
+        Dim likebtn As Guna2Button = CType(sender, Guna2Button)
+        Dim uploadID As Integer = CType(likebtn.Tag, Integer)
+
+        Try
+            db.AddParam("@UploadID", uploadID)
+
+
+            If likebtn.Checked = True Then
+                db.ExecQuery("UPDATE UserUploads SET Likes = Likes + 1 WHERE UploadId = @UploadID")
+                db.AddParam("@UploadID", uploadID)
+                db.AddParam("@UserID", userid)
+                db.ExecQuery("INSERT INTO Liked (UserID, UploadID) VALUES (@UserID, @UploadID)")
+            Else
+                db.AddParam("@UploadID", uploadID)
+
+                db.ExecQuery("UPDATE UserUploads SET Likes = Likes - 1 WHERE UploadId = @UploadID")
+                db.AddParam("@UploadID", uploadID)
+                db.AddParam("@UserID", userid)
+                db.ExecQuery("DELETE FROM Liked WHERE UserID = @UserID AND UploadID = @UploadID")
+            End If
+
+            If db.HasException(True) Then Exit Sub
+        Catch ex As Exception
+            MessageBox.Show("Error updating likes: " & ex.Message)
+        End Try
+    End Sub
+
     Private Sub EditMenuItem_Click(sender As Object, e As EventArgs)
         Dim menuItem As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
         Dim contextMenu As ContextMenuStrip = CType(menuItem.Owner, ContextMenuStrip)
         Dim panel As Panel = CType(contextMenu.SourceControl, Panel)
         Dim uploadID As Integer = CType(panel.Tag, Integer)
+
         db.AddParam("@UploadID", uploadID)
         db.ExecQuery("SELECT ImageData FROM UserUploads WHERE UploadID = @UploadID")
+
+        If db.HasException(True) Then Exit Sub
 
         For Each row As DataRow In db.DBDT.Rows
             Dim imageData As Byte() = CType(row("ImageData"), Byte())
             Imageedit = ByteArrayToImage(imageData)
         Next
+
         updatecheck = True
         useruploadid = uploadID
+
         Dim ed As New edit1()
         Me.Controls.Clear()
         Me.Controls.Add(ed)
-
-
     End Sub
 
     Private Sub DeleteMenuItem_Click(sender As Object, e As EventArgs)
@@ -142,7 +251,42 @@ Public Class Gallery1
         End Try
     End Sub
 
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
+    Private Sub Guna2TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles Guna2TextBox1.KeyDown
+        Guna2TextBox1.PlaceholderText = "Username"
+        Guna2TextBox1.PlaceholderForeColor = Color.Gray
+        If e.KeyCode = Keys.Enter Then
+            Dim username = Guna2TextBox1.Text
+            If String.IsNullOrWhiteSpace(username) Then
+                MessageBox.Show("Please enter a username.")
+                Return
+            End If
+            LoadUserDetails(username)
+        End If
+    End Sub
 
+    Private Sub LoadUserDetails(username As String)
+        Try
+            db.AddParam("@Username", username)
+            db.ExecQuery("SELECT UserID FROM Users WHERE Username = @Username")
+
+            If db.HasException(True) OrElse db.DBDT.Rows.Count = 0 Then
+                Guna2TextBox1.Text = " "
+                Guna2TextBox1.PlaceholderForeColor = Color.Red
+                Guna2TextBox1.PlaceholderText = "User not found"
+
+
+
+                Return
+            End If
+
+            searchuserid = Convert.ToInt32(db.DBDT.Rows(0)("UserID"))
+            MsgBox(searchuserid)
+            Dim gallery As New gallery1()
+            Me.Controls.Clear()
+            Me.Controls.Add(gallery)
+            gallery.Dock = DockStyle.Fill
+        Catch ex As Exception
+            MessageBox.Show("Error loading user details: " & ex.Message)
+        End Try
     End Sub
 End Class

@@ -246,15 +246,15 @@ Public Class Gallery1
 
         If Panel1.Visible = True Then
             Panel1.Visible = False
-            FlowLayoutPanel1.Visible = False
+
             FlowLayoutPanel1.Location = New Size(281, 7)
 
-            FlowLayoutPanel1.Visible = True
+
         Else
-            FlowLayoutPanel1.Visible = False
+
             FlowLayoutPanel1.Location = New Size(100, 7)
 
-            FlowLayoutPanel1.Visible = True
+
             Panel1.Visible = True
             commentpanel.Controls.Clear()
         End If

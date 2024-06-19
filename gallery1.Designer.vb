@@ -29,21 +29,24 @@ Partial Class gallery1
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gallery1))
         Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
-        FlowLayoutPanel1 = New FlowLayoutPanel()
-        searchpanel = New Panel()
         Panel1 = New Panel()
         commentpanel = New FlowLayoutPanel()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
+        FlowLayoutPanel1 = New FlowLayoutPanel()
+        searchpanel = New Panel()
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         lblusername = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
+        Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
         Guna2CustomGradientPanel1.SuspendLayout()
-        FlowLayoutPanel1.SuspendLayout()
-        searchpanel.SuspendLayout()
         Panel1.SuspendLayout()
         commentpanel.SuspendLayout()
+        FlowLayoutPanel1.SuspendLayout()
+        searchpanel.SuspendLayout()
         SuspendLayout()
         ' 
         ' Guna2CustomGradientPanel1
@@ -53,6 +56,7 @@ Partial Class gallery1
         Guna2CustomGradientPanel1.Controls.Add(Panel1)
         Guna2CustomGradientPanel1.Controls.Add(FlowLayoutPanel1)
         Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges5
+        Guna2Transition1.SetDecoration(Guna2CustomGradientPanel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2CustomGradientPanel1.Dock = DockStyle.Fill
         Guna2CustomGradientPanel1.FillColor = SystemColors.ControlLightLight
         Guna2CustomGradientPanel1.FillColor2 = SystemColors.ButtonHighlight
@@ -65,32 +69,11 @@ Partial Class gallery1
         Guna2CustomGradientPanel1.Size = New Size(1045, 654)
         Guna2CustomGradientPanel1.TabIndex = 1
         ' 
-        ' FlowLayoutPanel1
-        ' 
-        FlowLayoutPanel1.AutoScroll = True
-        FlowLayoutPanel1.BackColor = Color.White
-        FlowLayoutPanel1.Controls.Add(searchpanel)
-        FlowLayoutPanel1.Controls.Add(lblusername)
-        FlowLayoutPanel1.ForeColor = Color.Transparent
-        FlowLayoutPanel1.Location = New Point(281, 7)
-        FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Padding = New Padding(0, 0, 0, 50)
-        FlowLayoutPanel1.Size = New Size(482, 647)
-        FlowLayoutPanel1.TabIndex = 0
-        ' 
-        ' searchpanel
-        ' 
-        searchpanel.Controls.Add(Guna2TextBox1)
-        searchpanel.Dock = DockStyle.Top
-        searchpanel.Location = New Point(3, 3)
-        searchpanel.Name = "searchpanel"
-        searchpanel.Size = New Size(454, 99)
-        searchpanel.TabIndex = 2
-        ' 
         ' Panel1
         ' 
         Panel1.Controls.Add(commentpanel)
         Panel1.Controls.Add(Guna2TextBox2)
+        Guna2Transition1.SetDecoration(Panel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Panel1.Location = New Point(600, 93)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(382, 485)
@@ -102,6 +85,7 @@ Partial Class gallery1
         commentpanel.AutoScroll = True
         commentpanel.BackColor = Color.White
         commentpanel.Controls.Add(Guna2HtmlLabel1)
+        Guna2Transition1.SetDecoration(commentpanel, Guna.UI2.AnimatorNS.DecorationType.None)
         commentpanel.Dock = DockStyle.Fill
         commentpanel.ForeColor = Color.Black
         commentpanel.Location = New Point(0, 0)
@@ -112,6 +96,7 @@ Partial Class gallery1
         ' Guna2HtmlLabel1
         ' 
         Guna2HtmlLabel1.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(Guna2HtmlLabel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2HtmlLabel1.Dock = DockStyle.Top
         Guna2HtmlLabel1.Font = New Font("Segoe UI Variable Small", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel1.ForeColor = Color.Black
@@ -124,6 +109,7 @@ Partial Class gallery1
         ' Guna2TextBox2
         ' 
         Guna2TextBox2.CustomizableEdges = CustomizableEdges1
+        Guna2Transition1.SetDecoration(Guna2TextBox2, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2TextBox2.DefaultText = ""
         Guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         Guna2TextBox2.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -144,12 +130,37 @@ Partial Class gallery1
         Guna2TextBox2.Size = New Size(382, 48)
         Guna2TextBox2.TabIndex = 1
         ' 
+        ' FlowLayoutPanel1
+        ' 
+        FlowLayoutPanel1.AutoScroll = True
+        FlowLayoutPanel1.BackColor = Color.White
+        FlowLayoutPanel1.Controls.Add(searchpanel)
+        FlowLayoutPanel1.Controls.Add(lblusername)
+        Guna2Transition1.SetDecoration(FlowLayoutPanel1, Guna.UI2.AnimatorNS.DecorationType.None)
+        FlowLayoutPanel1.ForeColor = Color.Transparent
+        FlowLayoutPanel1.Location = New Point(281, 7)
+        FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        FlowLayoutPanel1.Padding = New Padding(0, 0, 0, 50)
+        FlowLayoutPanel1.Size = New Size(482, 647)
+        FlowLayoutPanel1.TabIndex = 0
+        ' 
+        ' searchpanel
+        ' 
+        searchpanel.Controls.Add(Guna2TextBox1)
+        Guna2Transition1.SetDecoration(searchpanel, Guna.UI2.AnimatorNS.DecorationType.None)
+        searchpanel.Dock = DockStyle.Top
+        searchpanel.Location = New Point(3, 3)
+        searchpanel.Name = "searchpanel"
+        searchpanel.Size = New Size(454, 99)
+        searchpanel.TabIndex = 2
+        ' 
         ' Guna2TextBox1
         ' 
         Guna2TextBox1.BackColor = Color.Transparent
         Guna2TextBox1.BorderColor = SystemColors.InactiveCaption
         Guna2TextBox1.BorderRadius = 25
         Guna2TextBox1.CustomizableEdges = CustomizableEdges3
+        Guna2Transition1.SetDecoration(Guna2TextBox1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2TextBox1.DefaultText = ""
         Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -176,6 +187,7 @@ Partial Class gallery1
         ' lblusername
         ' 
         lblusername.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(lblusername, Guna.UI2.AnimatorNS.DecorationType.None)
         lblusername.Dock = DockStyle.Top
         lblusername.Font = New Font("Segoe UI Variable Small", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblusername.ForeColor = Color.Black
@@ -190,6 +202,26 @@ Partial Class gallery1
         Guna2Elipse1.BorderRadius = 30
         Guna2Elipse1.TargetControl = FlowLayoutPanel1
         ' 
+        ' Guna2Transition1
+        ' 
+        Guna2Transition1.Cursor = Nothing
+        Animation1.AnimateOnlyDifferences = True
+        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), PointF)
+        Animation1.LeafCoeff = 0F
+        Animation1.MaxTime = 1F
+        Animation1.MinTime = 0F
+        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), PointF)
+        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), PointF)
+        Animation1.MosaicSize = 0
+        Animation1.Padding = New Padding(0, 0, 0, 0)
+        Animation1.RotateCoeff = 0F
+        Animation1.RotateLimit = 0F
+        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), PointF)
+        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), PointF)
+        Animation1.TimeCoeff = 0F
+        Animation1.TransparencyCoeff = 0F
+        Guna2Transition1.DefaultAnimation = Animation1
+        ' 
         ' gallery1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -197,15 +229,16 @@ Partial Class gallery1
         AutoScroll = True
         BackColor = SystemColors.ControlLight
         Controls.Add(Guna2CustomGradientPanel1)
+        Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
         Name = "gallery1"
         Size = New Size(1045, 654)
         Guna2CustomGradientPanel1.ResumeLayout(False)
-        FlowLayoutPanel1.ResumeLayout(False)
-        FlowLayoutPanel1.PerformLayout()
-        searchpanel.ResumeLayout(False)
         Panel1.ResumeLayout(False)
         commentpanel.ResumeLayout(False)
         commentpanel.PerformLayout()
+        FlowLayoutPanel1.ResumeLayout(False)
+        FlowLayoutPanel1.PerformLayout()
+        searchpanel.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
@@ -218,5 +251,6 @@ Partial Class gallery1
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
 
 End Class

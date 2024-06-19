@@ -2,12 +2,17 @@
 Imports System.Drawing
 Imports System.IO
 Imports System.Windows.Controls.Primitives
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Window
 Imports Guna.UI2.WinForms
+Imports System.Security.Cryptography.Pkcs
 
+Imports System.Threading.Tasks
 Public Class Gallery1
     Inherits UserControl
+    Dim cuid As Integer
 
-    Dim uid As Integer
+
     Private db As New sqlcontrol()
 
     Public Sub New()
@@ -40,21 +45,21 @@ Public Class Gallery1
             End If
             If db.HasException(True) Then Exit Sub
 
-                For Each row As DataRow In db.DBDT.Rows
-                    Dim uploadID As Integer = CType(row("UploadID"), Integer)
-                    Dim imageData As Byte() = CType(row("ImageData"), Byte())
-                    Dim image As Bitmap = ByteArrayToImage(imageData)
-                    Dim caption As String = row("Caption").ToString()
-                    Dim uploadDate As DateTime = CType(row("UploadDate"), DateTime)
-                    Dim username As String = row("Username").ToString()
+            For Each row As DataRow In db.DBDT.Rows
+                Dim uploadID As Integer = CType(row("UploadID"), Integer)
+                Dim imageData As Byte() = CType(row("ImageData"), Byte())
+                Dim image As Bitmap = ByteArrayToImage(imageData)
+                Dim caption As String = row("Caption").ToString()
+                Dim uploadDate As DateTime = CType(row("UploadDate"), DateTime)
+                Dim username As String = row("Username").ToString()
 
-                    db.AddParam("@UploadID", uploadID)
-                    db.AddParam("@UserID", userid)
-                    db.ExecQuery("SELECT COUNT(*) FROM Liked WHERE UserID = @UserID AND UploadID = @UploadID")
-                    Dim alreadyLiked As Boolean = (CInt(db.DBDT.Rows(0).Item(0)) > 0)
+                db.AddParam("@UploadID", uploadID)
+                db.AddParam("@UserID", userid)
+                db.ExecQuery("SELECT COUNT(*) FROM Liked WHERE UserID = @UserID AND UploadID = @UploadID")
+                Dim alreadyLiked As Boolean = (CInt(db.DBDT.Rows(0).Item(0)) > 0)
 
-                    AddImageToGallery(uploadID, image, caption, uploadDate, username, alreadyLiked)
-                Next
+                AddImageToGallery(uploadID, image, caption, uploadDate, username, alreadyLiked)
+            Next
 
         Catch ex As Exception
             MessageBox.Show("Error loading i images: " & ex.Message)
@@ -89,7 +94,7 @@ Public Class Gallery1
         lbluname.TextAlign = ContentAlignment.MiddleLeft
         lbluname.Dock = DockStyle.Top
         lbluname.ForeColor = Color.Black
-        lbluname.Font = New Font("Segoe UI", 10, FontStyle.Bold) 
+        lbluname.Font = New Font("Segoe UI", 10, FontStyle.Bold)
         Dim lblDate As New Label()
         lblDate.Text = uploadDate.ToString("MMM dd, yyyy") ' Format the date as "Jun 16, 2020"
         lblDate.AutoSize = True
@@ -98,6 +103,7 @@ Public Class Gallery1
         lblDate.ForeColor = Color.Black
 
         Dim pictureBox As New PictureBox()
+        AddHandler pictureBox.MouseClick, AddressOf PictureBox1_click
         pictureBox.Image = image
         pictureBox.Dock = DockStyle.Top
         pictureBox.Width = 461 ' Adjust width to fit within the panel with some margin
@@ -135,19 +141,42 @@ Public Class Gallery1
         likebtn.HoverState.FillColor = Color.Transparent
         likebtn.CustomImages.CheckedImage = My.Resources.liked
         likebtn.ButtonMode = Enums.ButtonMode.ToogleButton
-        likebtn.CheckedState.Image = My.Resources.liked
+
         likebtn.CheckedState.FillColor = Color.Transparent
 
         If alreadyLiked Then
             likebtn.Checked = True
         End If
-
         likebtn.Dock = DockStyle.Left
         likebtn.Size = New Size(40, 40)
 
+        Dim commentbtn As New Guna2Button()
+        AddHandler commentbtn.Click, AddressOf commentbtn_click
+        commentbtn.BackColor = Color.Transparent
+        commentbtn.FillColor = Color.Transparent
+        commentbtn.PressedColor = Color.Transparent
+        commentbtn.PressedDepth = 0
+        commentbtn.Tag = uploadID
+        commentbtn.CustomImages.Image = My.Resources.commentclicked
+        commentbtn.CustomImages.ImageAlign = HorizontalAlignment.Center
+        commentbtn.CustomImages.ImageSize = New Size(28, 28)
+        commentbtn.CustomImages.ImageOffset = New Size(0, -5)
+        commentbtn.UseTransparentBackground = True
+
+        commentbtn.HoverState.FillColor = Color.Transparent
+
+
+        commentbtn.CheckedState.FillColor = Color.Transparent
+        commentbtn.Dock = DockStyle.Left
+        commentbtn.Size = New Size(35, 35)
+
+
+
         panel.Controls.Add(lblCaption)
         panel.Controls.Add(likepanel)
+        likepanel.Controls.Add(commentbtn)
         likepanel.Controls.Add(likebtn)
+
         panel.Controls.Add(pictureBox)
         panel.Controls.Add(lblDate)
         If homecheck = True And searchuserid = 0 Then
@@ -173,6 +202,13 @@ Public Class Gallery1
         End If
 
         FlowLayoutPanel1.Controls.Add(panel)
+    End Sub
+
+    Private Sub PictureBox1_click(sender As Object, e As EventArgs)
+        Panel1.Visible = False
+        FlowLayoutPanel1.Visible = False
+        FlowLayoutPanel1.Location = New Size(281, 7)
+        FlowLayoutPanel1.Visible = True
     End Sub
 
     Private Sub ContextMenu_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs)
@@ -205,6 +241,89 @@ Public Class Gallery1
         Catch ex As Exception
             MessageBox.Show("Error updating likes: " & ex.Message)
         End Try
+    End Sub
+    Private Sub commentbtn_click(sender As Object, e As EventArgs)
+
+        If Panel1.Visible = True Then
+            Panel1.Visible = False
+            FlowLayoutPanel1.Visible = False
+            FlowLayoutPanel1.Location = New Size(281, 7)
+
+            FlowLayoutPanel1.Visible = True
+        Else
+            FlowLayoutPanel1.Visible = False
+            FlowLayoutPanel1.Location = New Size(100, 7)
+
+            FlowLayoutPanel1.Visible = True
+            Panel1.Visible = True
+            commentpanel.Controls.Clear()
+        End If
+        Dim commentbtn As Guna2Button = CType(sender, Guna2Button)
+        cuid = CType(commentbtn.Tag, Integer)
+
+        Try
+            db.AddParam("@UploadID", cuid)
+
+            db.ExecQuery("SELECT CommentText, CommentDate, (SELECT Username FROM Users WHERE UserID = Comments.UserID)  AS Username FROM Comments where UploadID=@UploadID ")
+
+            If db.HasException(True) Then Exit Sub
+
+            For Each row As DataRow In db.DBDT.Rows
+
+
+                Dim comment As String = row("CommentText").ToString()
+                Dim CommentDate As DateTime = CType(row("CommentDate"), DateTime)
+                Dim username As String = row("Username").ToString()
+
+
+                AddComment(comment, CommentDate, username)
+            Next
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading i images: " & ex.Message)
+
+        End Try
+
+
+    End Sub
+    Private Sub AddComment(comment As String, CommentDate As DateTime, username As String)
+
+
+
+        Dim panel As New Panel()
+        panel.BorderStyle = BorderStyle.None
+        panel.Size = New Size(370, 100)
+        panel.Margin = New Padding(0, 5, 0, 0)
+        panel.Dock = DockStyle.Top
+
+        Dim lbluname As New Label()
+        lbluname.Text = username
+        lbluname.TextAlign = ContentAlignment.MiddleLeft
+        lbluname.Dock = DockStyle.Top
+        lbluname.ForeColor = Color.Black
+        lbluname.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+
+        Dim lblComment As New Label()
+        lblComment.Text = comment
+        lblComment.AutoSize = True
+        lblComment.TextAlign = ContentAlignment.MiddleLeft
+        lblComment.Dock = DockStyle.Top
+        lblComment.ForeColor = Color.Black
+
+        Dim lblDate As New Label()
+        lblDate.Text = CommentDate.ToString("MMM dd, yyyy") ' Format the date as "Jun 16, 2020"
+        lblDate.AutoSize = True
+        lblDate.TextAlign = ContentAlignment.MiddleLeft
+        lblDate.Dock = DockStyle.Top
+        lblDate.ForeColor = Color.Black
+
+
+        panel.Controls.Add(lblComment)
+        panel.Controls.Add(lblDate)
+        panel.Controls.Add(lbluname)
+        commentpanel.Controls.Add(panel)
+        panel.Height = lblDate.Height + lbluname.Height + lblComment.Height + panel.Padding.Top + panel.Padding.Bottom + 5
+
     End Sub
 
     Private Sub EditMenuItem_Click(sender As Object, e As EventArgs)
@@ -288,5 +407,26 @@ Public Class Gallery1
         Catch ex As Exception
             MessageBox.Show("Error loading user details: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub FlowLayoutPanel1_MouseClick(sender As Object, e As MouseEventArgs) Handles FlowLayoutPanel1.MouseClick
+        Panel1.Visible = False
+        FlowLayoutPanel1.Location = New Size(281, 7)
+    End Sub
+
+    Private Sub Guna2TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles Guna2TextBox2.KeyDown
+        If e.KeyValue = Keys.Enter Then
+
+            db.AddParam("@UserID", userid)
+            db.AddParam("@UploadID", cuid)
+            db.AddParam("@CommentDate", DateTime.Now)
+            db.AddParam("@CommentText", Guna2TextBox2.Text)
+            db.ExecQuery("INSERT INTO Comments (UserID, UploadID,CommentText,CommentDate) VALUES (@UserID, @UploadID,@CommentText,@CommentDate)")
+
+            AddComment(Guna2TextBox2.Text, DateTime.Now, uname)
+            Guna2TextBox2.Clear()
+            commentpanel.Focus()
+        End If
+
     End Sub
 End Class

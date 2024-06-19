@@ -23,27 +23,36 @@ Partial Class gallery1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         searchpanel = New Panel()
+        Panel1 = New Panel()
+        commentpanel = New FlowLayoutPanel()
+        Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         lblusername = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2CustomGradientPanel1.SuspendLayout()
         FlowLayoutPanel1.SuspendLayout()
         searchpanel.SuspendLayout()
+        Panel1.SuspendLayout()
+        commentpanel.SuspendLayout()
         SuspendLayout()
         ' 
         ' Guna2CustomGradientPanel1
         ' 
         Guna2CustomGradientPanel1.BackColor = Color.White
         Guna2CustomGradientPanel1.BorderRadius = 10
+        Guna2CustomGradientPanel1.Controls.Add(Panel1)
         Guna2CustomGradientPanel1.Controls.Add(FlowLayoutPanel1)
-        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges3
+        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges5
         Guna2CustomGradientPanel1.Dock = DockStyle.Fill
         Guna2CustomGradientPanel1.FillColor = SystemColors.ControlLightLight
         Guna2CustomGradientPanel1.FillColor2 = SystemColors.ButtonHighlight
@@ -52,7 +61,7 @@ Partial Class gallery1
         Guna2CustomGradientPanel1.ForeColor = Color.Transparent
         Guna2CustomGradientPanel1.Location = New Point(0, 0)
         Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         Guna2CustomGradientPanel1.Size = New Size(1045, 654)
         Guna2CustomGradientPanel1.TabIndex = 1
         ' 
@@ -78,12 +87,69 @@ Partial Class gallery1
         searchpanel.Size = New Size(454, 99)
         searchpanel.TabIndex = 2
         ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(commentpanel)
+        Panel1.Controls.Add(Guna2TextBox2)
+        Panel1.Location = New Point(600, 93)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(382, 485)
+        Panel1.TabIndex = 1
+        Panel1.Visible = False
+        ' 
+        ' commentpanel
+        ' 
+        commentpanel.AutoScroll = True
+        commentpanel.BackColor = Color.White
+        commentpanel.Controls.Add(Guna2HtmlLabel1)
+        commentpanel.Dock = DockStyle.Fill
+        commentpanel.ForeColor = Color.Black
+        commentpanel.Location = New Point(0, 0)
+        commentpanel.Name = "commentpanel"
+        commentpanel.Size = New Size(382, 437)
+        commentpanel.TabIndex = 0
+        ' 
+        ' Guna2HtmlLabel1
+        ' 
+        Guna2HtmlLabel1.BackColor = Color.Transparent
+        Guna2HtmlLabel1.Dock = DockStyle.Top
+        Guna2HtmlLabel1.Font = New Font("Segoe UI Variable Small", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel1.ForeColor = Color.Black
+        Guna2HtmlLabel1.Location = New Point(3, 3)
+        Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Guna2HtmlLabel1.Size = New Size(3, 2)
+        Guna2HtmlLabel1.TabIndex = 10
+        Guna2HtmlLabel1.Text = Nothing
+        ' 
+        ' Guna2TextBox2
+        ' 
+        Guna2TextBox2.CustomizableEdges = CustomizableEdges1
+        Guna2TextBox2.DefaultText = ""
+        Guna2TextBox2.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
+        Guna2TextBox2.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
+        Guna2TextBox2.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        Guna2TextBox2.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        Guna2TextBox2.Dock = DockStyle.Bottom
+        Guna2TextBox2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2TextBox2.Font = New Font("Segoe UI", 9F)
+        Guna2TextBox2.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        Guna2TextBox2.Location = New Point(0, 437)
+        Guna2TextBox2.Margin = New Padding(3, 4, 3, 4)
+        Guna2TextBox2.Name = "Guna2TextBox2"
+        Guna2TextBox2.PasswordChar = ChrW(0)
+        Guna2TextBox2.PlaceholderForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        Guna2TextBox2.PlaceholderText = "Enter Comment"
+        Guna2TextBox2.SelectedText = ""
+        Guna2TextBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        Guna2TextBox2.Size = New Size(382, 48)
+        Guna2TextBox2.TabIndex = 1
+        ' 
         ' Guna2TextBox1
         ' 
         Guna2TextBox1.BackColor = Color.Transparent
         Guna2TextBox1.BorderColor = SystemColors.InactiveCaption
         Guna2TextBox1.BorderRadius = 25
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges1
+        Guna2TextBox1.CustomizableEdges = CustomizableEdges3
         Guna2TextBox1.DefaultText = ""
         Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -103,7 +169,7 @@ Partial Class gallery1
         Guna2TextBox1.PlaceholderForeColor = Color.Black
         Guna2TextBox1.PlaceholderText = "Username"
         Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Guna2TextBox1.Size = New Size(336, 55)
         Guna2TextBox1.TabIndex = 1
         ' 
@@ -137,6 +203,9 @@ Partial Class gallery1
         FlowLayoutPanel1.ResumeLayout(False)
         FlowLayoutPanel1.PerformLayout()
         searchpanel.ResumeLayout(False)
+        Panel1.ResumeLayout(False)
+        commentpanel.ResumeLayout(False)
+        commentpanel.PerformLayout()
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
@@ -145,5 +214,9 @@ Partial Class gallery1
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents searchpanel As Panel
+    Friend WithEvents commentpanel As FlowLayoutPanel
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
 
 End Class

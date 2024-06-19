@@ -56,7 +56,7 @@ Public Class signin
             lblsignin.Text = " "
             lblsignin.Text = "Signing in"
             progressind.Visible = True
-
+            uname = username
 
 
             progressind.Start()
@@ -73,12 +73,11 @@ Public Class signin
 
             Form1.Hide()
             Form3.Show()
-
-
             ' Proceed to the next step or open the main form of your application
         Else
             lblincorrect.Visible = True
             usernametxt.Clear()
+
             passwordtxt.Clear()
             usernametxt.Focus()
 
@@ -95,6 +94,7 @@ Public Class signin
 
             passwordtxt.Focus()
         End If
+
 
 
         lblincorrect.Visible = False

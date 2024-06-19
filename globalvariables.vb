@@ -9,6 +9,7 @@
     Public updatecheck As Boolean
     Public profilePIC As Bitmap
     Public searchuserid As Integer = 0
+    Public uname As String
 
 
 End Module

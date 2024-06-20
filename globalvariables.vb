@@ -10,6 +10,7 @@
     Public profilePIC As Bitmap
     Public searchuserid As Integer = 0
     Public uname As String
+    Public Followers As Boolean = False
 
 
 End Module

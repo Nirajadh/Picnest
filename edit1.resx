@@ -729,10 +729,12 @@
   </data>
   <data name="resource.Image10" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAIpJREFUSEvtk0EKgCAQRb1EUfc/SauIalOLjlP/B4ZIxRiOEMyDRyjYZ3TGGYbx
-        kRrOsDtXhWDoCnc4cKMEFVwgQzfYQHUsVBULFdPDCXL2pIRzym/K2YsRpvwgSyiJr6yFT2R/U0m4WiO9
-        hauFeu7C1UM9cfNkaSQpYZXqlcawOo4aVa/UMP6IcwcPGkPf1uw4kwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADwSURBVEhL7ZZBSgNBFETnOC7iSpdxb8it9SYaBL2E/iJT
+        0DSPVEOaCUIePNIz1dU/mWxmuXNLjuWp/J3kZ3koI9pIB1zjRxmh4gwjVJphhEozjFCp97t8WtWa9vRG
+        qNT6Uz6W5qH8Kmlva4RKth9qRoZHqCT1SHel8Kdo71167BEqSf2fwgNM+4WeS+rKCJXkvtTB/lVGa91T
+        9rJekxEqkYYyMkIl0lBGRqhEGsrICJVIQxkZoRJpKCMjVCINZWSESqShjIxQiTSUkZHRNxBDWe/QG4je
+        j0aGG8paNfS1nIYP3pz74M14L9/Oy3/DsvwByfeekP43Ch0AAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="Guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

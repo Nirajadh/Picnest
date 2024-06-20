@@ -30,11 +30,18 @@ Public Class Gallery1
         Try
             If homecheck = True Then
                 If searchuserid = 0 Then
-                    db.AddParam("@UserID", userid)
-                    db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = UserUploads.UserID)  AS Username FROM UserUploads where UserID <> @UserID ORDER BY UploadID DESC")
+                    If Followers = True Then
+                        db.AddParam("@UserID", userid)
+                        db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = UserUploads.UserID)  AS Username FROM UserUploads where UserID <> @UserID AND UserID IN (SELECT User2ID FROM Followed WHERE User1ID = @UserID) ORDER BY UploadID DESC")
+                        Followers = False
+                    Else
 
+                        db.AddParam("@UserID", userid)
+                        db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = UserUploads.UserID)  AS Username FROM UserUploads where UserID <> @UserID ORDER BY UploadID DESC")
+                    End If
                 Else
                     db.AddParam("@UserID", searchuserid)
+
                     db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = @UserID) AS Username FROM UserUploads WHERE UserID = @UserID")
                 End If
 
@@ -75,11 +82,25 @@ Public Class Gallery1
     End Function
 
     Private Sub AddImageToGallery(uploadID As Integer, image As Bitmap, caption As String, uploadDate As DateTime, username As String, alreadyLiked As Boolean)
-        If homecheck = True And searchuserid = 0 Then
-            lblusername.Visible = False
+        If homecheck = True Then
+            If searchuserid = 0 Then
+                usernamepanel.Visible = False
+            Else
+                db.AddParam("@User1ID", userid)
+                db.AddParam("@User2ID", searchuserid)
+                db.ExecQuery("SELECT COUNT(*) FROM Followed WHERE User1ID = @User1ID AND User2ID = @User2ID")
+                If (CInt(db.DBDT.Rows(0).Item(0)) > 0) Then
+                    followBtn.Checked = True
+                End If
+                usernamepanel.Visible = True
+                lblusername.Text = username
+            End If
+
+
         Else
-            lblusername.Visible = True
+            usernamepanel.Visible = True
             lblusername.Text = username
+            followBtn.Visible = False
         End If
 
         Dim panel As New Panel()
@@ -399,7 +420,9 @@ Public Class Gallery1
             End If
 
             searchuserid = Convert.ToInt32(db.DBDT.Rows(0)("UserID"))
-            MsgBox(searchuserid)
+            If searchuserid = userid Then
+                searchuserid = 0
+            End If
             Dim gallery As New gallery1()
             Me.Controls.Clear()
             Me.Controls.Add(gallery)
@@ -427,6 +450,37 @@ Public Class Gallery1
             Guna2TextBox2.Clear()
             commentpanel.Focus()
         End If
+
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles followBtn.Click
+        Try
+            db.AddParam("@User1ID", userid)
+            db.AddParam("@User2ID", searchuserid)
+
+            If followBtn.Checked = True Then
+
+
+
+                db.ExecQuery("INSERT INTO Followed (User1ID, User2ID) VALUES (@User1ID, @User2ID)")
+            Else
+
+
+                'db.AddParam("@User1ID", userid)
+                'db.AddParam("@User2ID", searchuserid)
+
+                db.ExecQuery("DELETE FROM Followed WHERE User1ID = @User1ID AND User2ID = @User2ID")
+            End If
+
+            If db.HasException(True) Then Exit Sub
+        Catch ex As Exception
+            MessageBox.Show("Error updating Follow: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Followers = True
+        Form3.btnhome.PerformClick()
 
     End Sub
 End Class

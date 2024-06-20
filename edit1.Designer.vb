@@ -783,8 +783,8 @@ Partial Class edit1
         saveconfirmbtn.BorderRadius = 5
         saveconfirmbtn.CustomImages.Image = CType(resources.GetObject("resource.Image10"), Image)
         saveconfirmbtn.CustomImages.ImageAlign = HorizontalAlignment.Center
-        saveconfirmbtn.CustomImages.ImageOffset = New Point(0, -2)
-        saveconfirmbtn.CustomImages.ImageSize = New Size(26, 26)
+        saveconfirmbtn.CustomImages.ImageOffset = New Point(0, -5)
+        saveconfirmbtn.CustomImages.ImageSize = New Size(30, 30)
         saveconfirmbtn.CustomizableEdges = CustomizableEdges49
         saveconfirmbtn.DisabledState.BorderColor = Color.DarkGray
         saveconfirmbtn.DisabledState.CustomBorderColor = Color.DarkGray

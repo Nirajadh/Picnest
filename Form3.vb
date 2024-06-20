@@ -23,6 +23,8 @@ Public Class Form3
 
 
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles btngallery.Click
+        Imageedit = Nothing
+
         acc.Hide()
         homecheck = False
         Dim g As New gallery1()
@@ -33,6 +35,7 @@ Public Class Form3
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btnhome.Click
+        Imageedit = Nothing
         searchuserid = 0
         acc.Hide()
         homecheck = True

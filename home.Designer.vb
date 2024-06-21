@@ -30,7 +30,7 @@ Partial Class home
         Guna2HtmlLabel3.BackColor = Color.Transparent
         Guna2HtmlLabel3.Font = New Font("Script MT Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight
-        Guna2HtmlLabel3.Location = New Point(91, 180)
+        Guna2HtmlLabel3.Location = New Point(91, 173)
         Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
         Guna2HtmlLabel3.Size = New Size(182, 98)
         Guna2HtmlLabel3.TabIndex = 7

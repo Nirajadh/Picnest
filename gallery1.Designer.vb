@@ -181,7 +181,7 @@ Partial Class gallery1
         Guna2Button1.Image = CType(resources.GetObject("Guna2Button1.Image"), Image)
         Guna2Button1.ImageOffset = New Point(0, -3)
         Guna2Button1.ImageSize = New Size(40, 40)
-        Guna2Button1.Location = New Point(378, 24)
+        Guna2Button1.Location = New Point(380, 24)
         Guna2Button1.Name = "Guna2Button1"
         Guna2Button1.PressedColor = Color.Silver
         Guna2Button1.PressedDepth = 50
@@ -208,7 +208,7 @@ Partial Class gallery1
         Guna2TextBox1.IconLeft = My.Resources.Resources.icons8_search_50
         Guna2TextBox1.IconLeftOffset = New Point(10, 0)
         Guna2TextBox1.IconLeftSize = New Size(30, 30)
-        Guna2TextBox1.Location = New Point(22, 22)
+        Guna2TextBox1.Location = New Point(24, 22)
         Guna2TextBox1.Margin = New Padding(4)
         Guna2TextBox1.Name = "Guna2TextBox1"
         Guna2TextBox1.PasswordChar = ChrW(0)

@@ -86,8 +86,9 @@ Partial Class signin
         Guna2Transition1.SetDecoration(progressind, Guna.UI2.AnimatorNS.DecorationType.None)
         progressind.Location = New Point(169, 51)
         progressind.Name = "progressind"
+        progressind.NumberOfCircles = 7
         progressind.ShadowDecoration.CustomizableEdges = CustomizableEdges1
-        progressind.Size = New Size(53, 60)
+        progressind.Size = New Size(50, 50)
         progressind.TabIndex = 17
         progressind.Visible = False
         ' 

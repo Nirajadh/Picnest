@@ -25,94 +25,34 @@ Partial Class Form1
         components = New ComponentModel.Container()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Panel1 = New Panel()
-        Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
+        Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
-        Panel1.SuspendLayout()
-        Guna2Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Guna2Panel2
         ' 
-        Guna2Panel2.BackColor = SystemColors.ActiveCaptionText
-        Guna2Panel2.BorderColor = SystemColors.WindowFrame
+        Guna2Panel2.BackColor = Color.Black
+        Guna2Panel2.BorderColor = Color.Transparent
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1
         Guna2Panel2.CustomizableEdges = CustomizableEdges1
         Guna2Transition1.SetDecoration(Guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2Panel2.FillColor = Color.Transparent
-        Guna2Panel2.Location = New Point(222, 14)
+        Guna2Panel2.Location = New Point(230, 53)
+        Guna2Panel2.Margin = New Padding(0)
         Guna2Panel2.Name = "Guna2Panel2"
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Guna2Panel2.Size = New Size(365, 458)
         Guna2Panel2.TabIndex = 0
-        ' 
-        ' Panel1
-        ' 
-        Panel1.Controls.Add(Guna2Panel2)
-        Guna2Transition1.SetDecoration(Panel1, Guna.UI2.AnimatorNS.DecorationType.None)
-        Panel1.Dock = DockStyle.Fill
-        Panel1.Location = New Point(20, 41)
-        Panel1.Name = "Panel1"
-        Panel1.Padding = New Padding(0, 5, 20, 30)
-        Panel1.Size = New Size(808, 498)
-        Panel1.TabIndex = 5
-        ' 
-        ' Guna2ControlBox1
-        ' 
-        Guna2ControlBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Guna2ControlBox1.CustomizableEdges = CustomizableEdges3
-        Guna2Transition1.SetDecoration(Guna2ControlBox1, Guna.UI2.AnimatorNS.DecorationType.None)
-        Guna2ControlBox1.FillColor = Color.Black
-        Guna2ControlBox1.IconColor = Color.White
-        Guna2ControlBox1.Location = New Point(755, 12)
-        Guna2ControlBox1.Margin = New Padding(0)
-        Guna2ControlBox1.Name = "Guna2ControlBox1"
-        Guna2ControlBox1.RightToLeft = RightToLeft.Yes
-        Guna2ControlBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
-        Guna2ControlBox1.Size = New Size(40, 25)
-        Guna2ControlBox1.TabIndex = 1
-        ' 
-        ' Guna2Panel1
-        ' 
-        Guna2Panel1.Controls.Add(Guna2ControlBox2)
-        Guna2Panel1.Controls.Add(Guna2ControlBox1)
-        Guna2Panel1.CustomizableEdges = CustomizableEdges7
-        Guna2Transition1.SetDecoration(Guna2Panel1, Guna.UI2.AnimatorNS.DecorationType.None)
-        Guna2Panel1.Dock = DockStyle.Top
-        Guna2Panel1.Location = New Point(20, 0)
-        Guna2Panel1.Name = "Guna2Panel1"
-        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        Guna2Panel1.Size = New Size(808, 41)
-        Guna2Panel1.TabIndex = 9
-        ' 
-        ' Guna2ControlBox2
-        ' 
-        Guna2ControlBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
-        Guna2ControlBox2.CustomizableEdges = CustomizableEdges5
-        Guna2Transition1.SetDecoration(Guna2ControlBox2, Guna.UI2.AnimatorNS.DecorationType.None)
-        Guna2ControlBox2.FillColor = Color.Black
-        Guna2ControlBox2.IconColor = Color.White
-        Guna2ControlBox2.Location = New Point(715, 12)
-        Guna2ControlBox2.Margin = New Padding(0)
-        Guna2ControlBox2.Name = "Guna2ControlBox2"
-        Guna2ControlBox2.RightToLeft = RightToLeft.Yes
-        Guna2ControlBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges6
-        Guna2ControlBox2.Size = New Size(40, 25)
-        Guna2ControlBox2.TabIndex = 2
         ' 
         ' Guna2Transition1
         ' 
@@ -135,6 +75,48 @@ Partial Class Form1
         Animation1.TransparencyCoeff = 0F
         Guna2Transition1.DefaultAnimation = Animation1
         ' 
+        ' Guna2ControlBox2
+        ' 
+        Guna2ControlBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Guna2ControlBox2.BackColor = Color.Transparent
+        Guna2ControlBox2.BackgroundImageLayout = ImageLayout.None
+        Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
+        Guna2ControlBox2.CustomizableEdges = CustomizableEdges3
+        Guna2Transition1.SetDecoration(Guna2ControlBox2, Guna.UI2.AnimatorNS.DecorationType.None)
+        Guna2ControlBox2.FillColor = Color.Transparent
+        Guna2ControlBox2.ForeColor = Color.Transparent
+        Guna2ControlBox2.HoverState.FillColor = Color.FromArgb(CByte(61), CByte(61), CByte(61))
+        Guna2ControlBox2.IconColor = Color.White
+        Guna2ControlBox2.Location = New Point(742, 2)
+        Guna2ControlBox2.Margin = New Padding(0)
+        Guna2ControlBox2.Name = "Guna2ControlBox2"
+        Guna2ControlBox2.RightToLeft = RightToLeft.Yes
+        Guna2ControlBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2ControlBox2.Size = New Size(40, 37)
+        Guna2ControlBox2.TabIndex = 21
+        Guna2ControlBox2.Visible = False
+        ' 
+        ' Guna2ControlBox1
+        ' 
+        Guna2ControlBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Guna2ControlBox1.BackColor = Color.Black
+        Guna2ControlBox1.BackgroundImageLayout = ImageLayout.None
+        Guna2ControlBox1.CustomizableEdges = CustomizableEdges5
+        Guna2Transition1.SetDecoration(Guna2ControlBox1, Guna.UI2.AnimatorNS.DecorationType.None)
+        Guna2ControlBox1.FillColor = Color.Black
+        Guna2ControlBox1.ForeColor = Color.Transparent
+        Guna2ControlBox1.HoverState.FillColor = Color.Red
+        Guna2ControlBox1.IconColor = Color.White
+        Guna2ControlBox1.Location = New Point(782, 2)
+        Guna2ControlBox1.Margin = New Padding(0)
+        Guna2ControlBox1.Name = "Guna2ControlBox1"
+        Guna2ControlBox1.PressedColor = Color.Red
+        Guna2ControlBox1.RightToLeft = RightToLeft.Yes
+        Guna2ControlBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        Guna2ControlBox1.Size = New Size(40, 37)
+        Guna2ControlBox1.TabIndex = 20
+        Guna2ControlBox1.Visible = False
+        ' 
         ' Guna2BorderlessForm1
         ' 
         Guna2BorderlessForm1.AnimateWindow = True
@@ -150,29 +132,25 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(120F, 120F)
         AutoScaleMode = AutoScaleMode.Dpi
-        BackColor = SystemColors.ActiveCaptionText
-        ClientSize = New Size(828, 559)
+        BackColor = Color.Black
+        ClientSize = New Size(825, 564)
         ControlBox = False
-        Controls.Add(Panel1)
-        Controls.Add(Guna2Panel1)
+        Controls.Add(Guna2ControlBox2)
+        Controls.Add(Guna2ControlBox1)
+        Controls.Add(Guna2Panel2)
         Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
         DoubleBuffered = True
-        ForeColor = SystemColors.ActiveCaptionText
+        ForeColor = Color.Transparent
         FormBorderStyle = FormBorderStyle.None
         Name = "Form1"
-        Padding = New Padding(20, 0, 0, 20)
         StartPosition = FormStartPosition.CenterScreen
-        Panel1.ResumeLayout(False)
-        Guna2Panel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
     Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
+    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
 
 
 End Class

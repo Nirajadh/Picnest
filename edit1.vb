@@ -1,9 +1,7 @@
-﻿Imports System.Data.SqlClient
-Imports System.Drawing
+﻿
 Imports System.Drawing.Imaging
 Imports System.IO
-Imports System.Net
-Imports System.Windows.Media.Imaging
+
 Imports AForge.Imaging.Filters
 
 
@@ -39,7 +37,7 @@ Public Class edit1
     End Sub
 
     Private Sub editpb_DoubleClick(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick, Guna2PictureBox1.Click
-        If Imageedit IsNot Nothing Then
+        If originalImage IsNot Nothing Then
 
 
         Else
@@ -53,23 +51,33 @@ Public Class edit1
                     PictureBox1.Image = editedImage
 
                 End If
+                If originalImage IsNot Nothing Then
+                    Guna2PictureBox1.Visible = False
+                End If
             End Using
 
         End If
-        Guna2PictureBox1.Visible = False
+
     End Sub
     Private Sub Guna2PictureBox1_DoubleClick(sender As Object, e As EventArgs) Handles Guna2PictureBox1.DoubleClick
-        Using openFileDialog As New OpenFileDialog
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-            If openFileDialog.ShowDialog = DialogResult.OK Then
-                originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                editedImage = ConvertTo24bppRgb(originalImage).Clone()
-                PictureBox1.Image = editedImage
-            End If
+        If originalImage IsNot Nothing Then
 
 
-        End Using
-        Guna2PictureBox1.Visible = False
+        Else
+            Using openFileDialog As New OpenFileDialog
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
+                If openFileDialog.ShowDialog = DialogResult.OK Then
+                    originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
+                    editedImage = ConvertTo24bppRgb(originalImage).Clone()
+                    PictureBox1.Image = editedImage
+                End If
+                If originalImage IsNot Nothing Then
+                    Guna2PictureBox1.Visible = False
+                End If
+
+            End Using
+
+        End If
     End Sub
 
     Private Function ConvertTo24bppRgb(img As Bitmap) As Bitmap
@@ -122,6 +130,7 @@ Public Class edit1
 
                 Dim grayscaleFilter As New Grayscale(0.2125, 0.7154, 0.0721)
                 filteredImage = grayscaleFilter.Apply(editedImage)
+                filteredImage = ConvertTo24bppRgb(filteredImage).Clone()
                 PictureBox1.Image = filteredImage
             Catch ex As Exception
                 MessageBox.Show("Error applying grayscale filter: " & ex.Message)
@@ -181,6 +190,7 @@ Public Class edit1
 
     Private Sub btnapply_Click(sender As Object, e As EventArgs) Handles btnapply.Click
         editedImage = filteredImage.Clone()
+
     End Sub
 
     Private Sub btnfilterrevert_Click(sender As Object, e As EventArgs) Handles btnfilterrevert.Click
@@ -249,17 +259,17 @@ Public Class edit1
             croppedImage.RotateFlip(RotateFlipType.Rotate90FlipNone)
 
 
-            PictureBox1.Image = croppedImage
+            PictureBox1.Image = croppedImage.Clone()
         End If
     End Sub
     Private Sub CropImage(startPoint As Point, endPoint As Point)
         ' Adjust coordinates if the image size is smaller than the picture box size
-        Dim scaleX As Double = croppedImage.Width / PictureBox1.Width
-        Dim scaleY As Double = croppedImage.Height / PictureBox1.Height
+        Dim scaleX As Double = CDbl(editedImage.Width) / PictureBox1.Width
+        Dim scaleY As Double = CDbl(editedImage.Height) / PictureBox1.Height
 
-        startPoint.X = CInt(startPoint.X * scaleX)
+        startPoint.X = CInt(startPoint.X * scaleX * 0.6)
         startPoint.Y = CInt(startPoint.Y * scaleY)
-        endPoint.X = CInt(endPoint.X * scaleX)
+        endPoint.X = CInt(endPoint.X * scaleX * 1.2)
         endPoint.Y = CInt(endPoint.Y * scaleY)
 
         Dim cropRect As New Rectangle(
@@ -276,7 +286,8 @@ Public Class edit1
             End Using
             croppedImage = ConvertTo24bppRgb(croppedImage)
         End If
-        PictureBox1.Image = croppedImage
+        PictureBox1.Image = croppedImage.Clone()
+
     End Sub
 
 
@@ -288,7 +299,7 @@ Public Class edit1
     Private Sub btncroprevert_Click(sender As Object, e As EventArgs) Handles btncroprevert.Click
         editedImage.RotateFlip(RotateFlipType.RotateNoneFlipNone)
 
-        PictureBox1.Image = editedImage
+        PictureBox1.Image = editedImage.Clone()
 
         croppedImage = editedImage.Clone()
 
@@ -305,7 +316,7 @@ Public Class edit1
 
 
     Private Sub btncropopen_Leave(sender As Object, e As EventArgs) Handles btncropopen.Leave
-        editedImage = PictureBox1.Image
+        'editedImage = PictureBox1.Image
     End Sub
 
     'endcrop

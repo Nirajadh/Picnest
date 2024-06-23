@@ -20,6 +20,7 @@ Public Class Gallery1
 
         If homecheck = True Then
             searchpanel.Visible = True
+            FlowLayoutPanel1.Focus()
         Else
             searchpanel.Visible = False
         End If
@@ -483,6 +484,5 @@ Public Class Gallery1
         Form3.btnhome.PerformClick()
 
     End Sub
-
 
 End Class

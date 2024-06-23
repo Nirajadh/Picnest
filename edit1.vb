@@ -508,7 +508,7 @@ Public Class edit1
                         db.ExecQuery("UPDATE UserUploads SET UserID=@UserID,ImageData=@ImageData,UploadDate=@UploadDate,Caption = @Caption WHERE UploadID = @UploadID")
                     End If
                     If db.HasException(True) Then Exit Sub
-                    ''''1
+
                     MessageBox.Show("Image uploaded successfully!")
                     Form3.btngallery.PerformClick()
                 End Using

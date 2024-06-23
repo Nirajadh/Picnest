@@ -11,7 +11,7 @@ Imports System.Threading.Tasks
 Public Class Gallery1
     Inherits UserControl
     Dim cuid As Integer
-
+    Private likeContextMenu As ContextMenuStrip
 
     Private db As New sqlcontrol()
 
@@ -148,6 +148,8 @@ Public Class Gallery1
 
         Dim likebtn As New Guna2Button()
         AddHandler likebtn.Click, AddressOf likebtn_click
+        AddHandler likebtn.MouseHover, AddressOf likebtn_MouseHover
+        AddHandler likebtn.MouseLeave, AddressOf likebtn_MouseLeave
         likebtn.BackColor = Color.Transparent
         likebtn.FillColor = Color.Transparent
         likebtn.PressedColor = Color.Transparent
@@ -250,8 +252,11 @@ Public Class Gallery1
                 db.AddParam("@UploadID", uploadID)
                 db.AddParam("@UserID", userid)
                 db.ExecQuery("INSERT INTO Liked (UserID, UploadID) VALUES (@UserID, @UploadID)")
-            Else
-                db.AddParam("@UploadID", uploadID)
+            ElseIf likebtn.Checked = False Then
+
+
+
+
 
                 db.ExecQuery("UPDATE UserUploads SET Likes = Likes - 1 WHERE UploadId = @UploadID")
                 db.AddParam("@UploadID", uploadID)
@@ -483,6 +488,38 @@ Public Class Gallery1
         Followers = True
         Form3.btnhome.PerformClick()
 
+    End Sub
+    Private Sub likebtn_MouseHover(sender As Object, e As EventArgs)
+        Dim likebtn As Guna2Button = CType(sender, Guna2Button)
+        Dim uploadID As Integer = CType(likebtn.Tag, Integer)
+
+        Try
+            db.AddParam("@UploadID", uploadID)
+            db.ExecQuery("SELECT Likes FROM UserUploads WHERE UploadID = @UploadID")
+
+            If db.HasException(True) Then Exit Sub
+
+            If db.DBDT.Rows.Count > 0 Then
+                Dim likeCount As Integer = CType(db.DBDT.Rows(0)("Likes"), Integer)
+
+                ' Create a context menu
+                likeContextMenu = New ContextMenuStrip()
+
+                ' Create a ToolStripMenuItem to display the like count
+                Dim likeCountMenuItem As New ToolStripMenuItem("Likes: " & likeCount.ToString())
+                likeContextMenu.Items.Add(likeCountMenuItem)
+
+                ' Show the context menu
+                likeContextMenu.Show(likebtn, New Point(0, likebtn.Height))
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving like count: " & ex.Message)
+        End Try
+    End Sub
+    Private Sub likebtn_MouseLeave(sender As Object, e As EventArgs)
+        If likeContextMenu IsNot Nothing Then
+            likeContextMenu.Hide()
+        End If
     End Sub
 
 End Class

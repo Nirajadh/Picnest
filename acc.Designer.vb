@@ -44,10 +44,13 @@ Partial Class acc
         lblName = New Guna.UI2.WinForms.Guna2HtmlLabel()
         btnlogout = New Guna.UI2.WinForms.Guna2Button()
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
+        ToolStripMenuItem1 = New ToolStripMenuItem()
         OpenFileDialog1 = New OpenFileDialog()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2Panel1.SuspendLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        Guna2ContextMenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
         ' btndelete
@@ -199,6 +202,7 @@ Partial Class acc
         Guna2PictureBox1.AutoRoundedCorners = True
         Guna2PictureBox1.BackColor = Color.Transparent
         Guna2PictureBox1.BorderRadius = 49
+        Guna2PictureBox1.ContextMenuStrip = Guna2ContextMenuStrip1
         Guna2PictureBox1.CustomizableEdges = CustomizableEdges11
         Guna2PictureBox1.ImageRotate = 0F
         Guna2PictureBox1.InitialImage = CType(resources.GetObject("Guna2PictureBox1.InitialImage"), Image)
@@ -209,6 +213,29 @@ Partial Class acc
         Guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         Guna2PictureBox1.TabIndex = 13
         Guna2PictureBox1.TabStop = False
+        ' 
+        ' Guna2ContextMenuStrip1
+        ' 
+        Guna2ContextMenuStrip1.ImageScalingSize = New Size(20, 20)
+        Guna2ContextMenuStrip1.Items.AddRange(New ToolStripItem() {ToolStripMenuItem1})
+        Guna2ContextMenuStrip1.Name = "Guna2ContextMenuStrip1"
+        Guna2ContextMenuStrip1.RenderStyle.ArrowColor = SystemColors.Highlight
+        Guna2ContextMenuStrip1.RenderStyle.BorderColor = Color.Gainsboro
+        Guna2ContextMenuStrip1.RenderStyle.ColorTable = Nothing
+        Guna2ContextMenuStrip1.RenderStyle.RoundedEdges = True
+        Guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = Color.White
+        Guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = SystemColors.Highlight
+        Guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = Color.White
+        Guna2ContextMenuStrip1.RenderStyle.SeparatorColor = Color.Gainsboro
+        Guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = Drawing.Text.TextRenderingHint.SystemDefault
+        Guna2ContextMenuStrip1.Size = New Size(211, 54)
+        ' 
+        ' ToolStripMenuItem1
+        ' 
+        ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        ToolStripMenuItem1.Padding = New Padding(0)
+        ToolStripMenuItem1.Size = New Size(210, 22)
+        ToolStripMenuItem1.Text = "Remove"
         ' 
         ' OpenFileDialog1
         ' 
@@ -239,6 +266,7 @@ Partial Class acc
         Guna2Panel1.ResumeLayout(False)
         Guna2Panel1.PerformLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        Guna2ContextMenuStrip1.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -253,4 +281,6 @@ Partial Class acc
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents txtnewname As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class

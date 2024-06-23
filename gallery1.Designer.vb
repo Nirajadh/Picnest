@@ -23,8 +23,8 @@ Partial Class gallery1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -33,6 +33,10 @@ Partial Class gallery1
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(gallery1))
         Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
@@ -46,7 +50,9 @@ Partial Class gallery1
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         usernamepanel = New Panel()
         followBtn = New Guna.UI2.WinForms.Guna2Button()
-        lblusername = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        unametxtpanel = New Guna.UI2.WinForms.Guna2Panel()
+        lblusername = New Label()
+        profilepb = New Guna.UI2.WinForms.Guna2PictureBox()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
         Guna2CustomGradientPanel1.SuspendLayout()
@@ -55,6 +61,8 @@ Partial Class gallery1
         FlowLayoutPanel1.SuspendLayout()
         searchpanel.SuspendLayout()
         usernamepanel.SuspendLayout()
+        unametxtpanel.SuspendLayout()
+        CType(profilepb, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Guna2CustomGradientPanel1
@@ -63,7 +71,7 @@ Partial Class gallery1
         Guna2CustomGradientPanel1.BorderRadius = 10
         Guna2CustomGradientPanel1.Controls.Add(Panel1)
         Guna2CustomGradientPanel1.Controls.Add(FlowLayoutPanel1)
-        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges9
+        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges13
         Guna2Transition1.SetDecoration(Guna2CustomGradientPanel1, Guna.UI2.AnimatorNS.DecorationType.None)
         Guna2CustomGradientPanel1.Dock = DockStyle.Fill
         Guna2CustomGradientPanel1.FillColor = SystemColors.ControlLightLight
@@ -73,7 +81,7 @@ Partial Class gallery1
         Guna2CustomGradientPanel1.ForeColor = Color.Transparent
         Guna2CustomGradientPanel1.Location = New Point(0, 0)
         Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         Guna2CustomGradientPanel1.Size = New Size(1045, 654)
         Guna2CustomGradientPanel1.TabIndex = 1
         ' 
@@ -148,7 +156,7 @@ Partial Class gallery1
         FlowLayoutPanel1.ForeColor = Color.White
         FlowLayoutPanel1.Location = New Point(281, 7)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        FlowLayoutPanel1.Padding = New Padding(0, 0, 0, 50)
+        FlowLayoutPanel1.Padding = New Padding(10, 5, 0, 50)
         FlowLayoutPanel1.Size = New Size(482, 647)
         FlowLayoutPanel1.TabIndex = 0
         ' 
@@ -158,7 +166,7 @@ Partial Class gallery1
         searchpanel.Controls.Add(Guna2TextBox1)
         Guna2Transition1.SetDecoration(searchpanel, Guna.UI2.AnimatorNS.DecorationType.None)
         searchpanel.Dock = DockStyle.Top
-        searchpanel.Location = New Point(3, 3)
+        searchpanel.Location = New Point(13, 8)
         searchpanel.Name = "searchpanel"
         searchpanel.Size = New Size(454, 99)
         searchpanel.TabIndex = 2
@@ -223,13 +231,14 @@ Partial Class gallery1
         ' 
         usernamepanel.BackColor = Color.Transparent
         usernamepanel.Controls.Add(followBtn)
-        usernamepanel.Controls.Add(lblusername)
+        usernamepanel.Controls.Add(unametxtpanel)
+        usernamepanel.Controls.Add(profilepb)
         Guna2Transition1.SetDecoration(usernamepanel, Guna.UI2.AnimatorNS.DecorationType.None)
         usernamepanel.Dock = DockStyle.Top
-        usernamepanel.Location = New Point(0, 105)
-        usernamepanel.Margin = New Padding(0)
+        usernamepanel.Location = New Point(10, 113)
+        usernamepanel.Margin = New Padding(0, 3, 0, 0)
         usernamepanel.Name = "usernamepanel"
-        usernamepanel.Size = New Size(270, 22)
+        usernamepanel.Size = New Size(270, 39)
         usernamepanel.TabIndex = 11
         usernamepanel.Visible = False
         ' 
@@ -251,26 +260,66 @@ Partial Class gallery1
         followBtn.HoverState.FillColor = Color.White
         followBtn.Image = CType(resources.GetObject("followBtn.Image"), Image)
         followBtn.ImageOffset = New Point(0, -1)
-        followBtn.Location = New Point(3, 0)
+        followBtn.Location = New Point(95, 0)
         followBtn.Name = "followBtn"
+        followBtn.Padding = New Padding(10, 0, 0, 0)
         followBtn.PressedDepth = 0
         followBtn.ShadowDecoration.CustomizableEdges = CustomizableEdges8
-        followBtn.Size = New Size(30, 22)
+        followBtn.Size = New Size(30, 39)
         followBtn.TabIndex = 11
+        ' 
+        ' unametxtpanel
+        ' 
+        unametxtpanel.AutoSize = True
+        unametxtpanel.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        unametxtpanel.BackColor = Color.White
+        unametxtpanel.Controls.Add(lblusername)
+        unametxtpanel.CustomizableEdges = CustomizableEdges9
+        Guna2Transition1.SetDecoration(unametxtpanel, Guna.UI2.AnimatorNS.DecorationType.None)
+        unametxtpanel.Dock = DockStyle.Left
+        unametxtpanel.FillColor = Color.White
+        unametxtpanel.Location = New Point(39, 0)
+        unametxtpanel.Name = "unametxtpanel"
+        unametxtpanel.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        unametxtpanel.Size = New Size(56, 39)
+        unametxtpanel.TabIndex = 12
         ' 
         ' lblusername
         ' 
-        lblusername.BackColor = Color.Transparent
+        lblusername.AutoSize = True
+        lblusername.BackColor = Color.White
         Guna2Transition1.SetDecoration(lblusername, Guna.UI2.AnimatorNS.DecorationType.None)
-        lblusername.Dock = DockStyle.Left
-        lblusername.Font = New Font("Segoe UI Variable Small", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblusername.Font = New Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblusername.ForeColor = Color.Black
-        lblusername.Location = New Point(0, 0)
+        lblusername.Location = New Point(5, 9)
         lblusername.Name = "lblusername"
-        lblusername.Size = New Size(3, 2)
-        lblusername.TabIndex = 10
-        lblusername.Text = Nothing
-        lblusername.TextAlignment = ContentAlignment.MiddleLeft
+        lblusername.Size = New Size(48, 23)
+        lblusername.TabIndex = 12
+        lblusername.Text = "Labe"
+        lblusername.TextAlign = ContentAlignment.BottomCenter
+        ' 
+        ' profilepb
+        ' 
+        profilepb.AutoRoundedCorners = True
+        profilepb.BackColor = Color.Transparent
+        profilepb.BorderRadius = 18
+        profilepb.CustomizableEdges = CustomizableEdges11
+        Guna2Transition1.SetDecoration(profilepb, Guna.UI2.AnimatorNS.DecorationType.None)
+        profilepb.Dock = DockStyle.Left
+        profilepb.ErrorImage = My.Resources.Resources.courtyard_n
+        profilepb.ImageRotate = 0F
+        profilepb.InitialImage = CType(resources.GetObject("profilepb.InitialImage"), Image)
+        profilepb.Location = New Point(0, 0)
+        profilepb.Margin = New Padding(5, 3, 3, 3)
+        profilepb.Name = "profilepb"
+        profilepb.Padding = New Padding(0, 0, 10, 0)
+        profilepb.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        profilepb.Size = New Size(39, 39)
+        profilepb.SizeMode = PictureBoxSizeMode.Zoom
+        profilepb.TabIndex = 14
+        profilepb.TabStop = False
+        profilepb.UseTransparentBackground = True
+        profilepb.WaitOnLoad = True
         ' 
         ' Guna2Elipse1
         ' 
@@ -315,11 +364,13 @@ Partial Class gallery1
         searchpanel.ResumeLayout(False)
         usernamepanel.ResumeLayout(False)
         usernamepanel.PerformLayout()
+        unametxtpanel.ResumeLayout(False)
+        unametxtpanel.PerformLayout()
+        CType(profilepb, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents lblusername As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents searchpanel As Panel
@@ -331,5 +382,8 @@ Partial Class gallery1
     Friend WithEvents usernamepanel As Panel
     Friend WithEvents followBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents profilepb As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents unametxtpanel As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents lblusername As Label
 
 End Class

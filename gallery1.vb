@@ -8,6 +8,7 @@ Imports Guna.UI2.WinForms
 Imports System.Security.Cryptography.Pkcs
 
 Imports System.Threading.Tasks
+Imports System.Runtime.InteropServices.JavaScript.JSType
 Public Class Gallery1
     Inherits UserControl
     Dim cuid As Integer
@@ -24,6 +25,7 @@ Public Class Gallery1
         Else
             searchpanel.Visible = False
         End If
+
         LoadUserImages()
     End Sub
 
@@ -48,7 +50,7 @@ Public Class Gallery1
 
             Else
                 db.AddParam("@UserID", userid)
-                db.ExecQuery("SELECT UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = @UserID) AS Username FROM UserUploads WHERE UserID = @UserID")
+                db.ExecQuery("SELECT  UploadID, ImageData, Caption, UploadDate, (SELECT Username FROM Users WHERE UserID = @UserID) AS Username FROM UserUploads WHERE UserID = @UserID")
 
             End If
             If db.HasException(True) Then Exit Sub
@@ -60,7 +62,6 @@ Public Class Gallery1
                 Dim caption As String = row("Caption").ToString()
                 Dim uploadDate As DateTime = CType(row("UploadDate"), DateTime)
                 Dim username As String = row("Username").ToString()
-
                 db.AddParam("@UploadID", uploadID)
                 db.AddParam("@UserID", userid)
                 db.ExecQuery("SELECT COUNT(*) FROM Liked WHERE UserID = @UserID AND UploadID = @UploadID")
@@ -83,6 +84,7 @@ Public Class Gallery1
     End Function
 
     Private Sub AddImageToGallery(uploadID As Integer, image As Bitmap, caption As String, uploadDate As DateTime, username As String, alreadyLiked As Boolean)
+
         If homecheck = True Then
             If searchuserid = 0 Then
                 usernamepanel.Visible = False
@@ -95,6 +97,7 @@ Public Class Gallery1
                 End If
                 usernamepanel.Visible = True
                 lblusername.Text = username
+
             End If
 
 
@@ -102,6 +105,7 @@ Public Class Gallery1
             usernamepanel.Visible = True
             lblusername.Text = username
             followBtn.Visible = False
+
         End If
 
         Dim panel As New Panel()
@@ -472,8 +476,6 @@ Public Class Gallery1
             Else
 
 
-                'db.AddParam("@User1ID", userid)
-                'db.AddParam("@User2ID", searchuserid)
 
                 db.ExecQuery("DELETE FROM Followed WHERE User1ID = @User1ID AND User2ID = @User2ID")
             End If
@@ -522,4 +524,48 @@ Public Class Gallery1
         End If
     End Sub
 
+    Private Sub gallery1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
+        LoadProfilePicture()
+    End Sub
+    Private Sub LoadProfilePicture()
+        Dim profileImage As Bitmap = Nothing
+
+        Try
+            If searchuserid = 0 Then
+                db.AddParam("@UserID", userid)
+            Else
+                db.AddParam("@UserID", searchuserid)
+            End If
+
+            db.ExecQuery("SELECT ProfilePic FROM Users WHERE UserID=@UserID")
+
+            ' Ensure there's at least one result
+            If db.DBDT.Rows.Count > 0 Then
+                Dim row As DataRow = db.DBDT.Rows(0)
+
+                If Not IsDBNull(row("ProfilePic")) Then
+                    Dim imageData As Byte() = CType(row("ProfilePic"), Byte())
+                    profileImage = ByteArrayToImage(imageData)
+                End If
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading profile picture: " & ex.Message)
+            profileImage = Nothing
+        End Try
+
+        ' Set the profile picture or a default one if profileImage is Nothing
+        If profileImage IsNot Nothing Then
+            profilepb.Image = profileImage
+        Else
+            profilepb.Image = My.Resources.defaultProfile
+        End If
+    End Sub
+    Private Sub gallery1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadProfilePicture()
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblusername.Click
+
+    End Sub
 End Class

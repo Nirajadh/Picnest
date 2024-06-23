@@ -70,7 +70,7 @@ Public Class Form3
             Else
                 ' Handle the case where ProfilePic is NULL (no image)
                 ' Optionally, you can set a default image or leave it blank
-                accountbtn.Image = Nothing ' Set to blank or default image
+                accountbtn.Image = My.Resources.defaultProfile ' Set to blank or default image
             End If
         End If
     End Sub
@@ -108,9 +108,7 @@ Public Class Form3
         accountbtn.Tag = False
     End Sub
 
-    Private Sub pnlcontent1_Paint(sender As Object, e As PaintEventArgs) Handles pnlcontent1.Paint
 
-    End Sub
 
 
 

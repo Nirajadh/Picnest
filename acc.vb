@@ -47,12 +47,12 @@ Public Class acc
             If Not IsDBNull(row("ProfilePic")) Then
                 Dim imagedata As Byte() = CType(row("ProfilePic"), Byte())
                 profileimage = ByteArrayToImage(imagedata)
-                Guna2PictureBox1.Image = profileimage
+                Guna2PictureBox1.Image = profileimage.Clone()
 
             Else
                 ' Handle the case where ProfilePic is NULL (no image)
                 ' Optionally, you can set a default image or leave it blank
-                Guna2PictureBox1.Image = Nothing ' Set to blank or default image
+                Guna2PictureBox1.Image = My.Resources.defaultProfile ' Set to blank or default image
             End If
         Else
             ' Handle the case where no record is found for the UserID
@@ -148,5 +148,17 @@ Public Class acc
         Form3.accountbtn.Tag = False
 
 
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+
+        db.AddParam("@UserID", userid)
+
+        ' Execute the query
+        db.ExecQuery("UPDATE Users SET ProfilePic=NULL WHERE UserID=@UserID")
+        Guna2PictureBox1.Image = My.Resources.defaultProfile
+        Form3.accountbtn.Image = My.Resources.defaultProfile
+        ' Check for exceptions
+        If db.HasException(True) Then Exit Sub
     End Sub
 End Class

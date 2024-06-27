@@ -6,6 +6,8 @@ Public Class Form3
     Dim profileimage As Bitmap
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles btnedit.Click
+
+        pnlcontent1.Controls.Clear()
         Dim ed As New edit1()
         acc.Hide()
         searchuserid = 0
@@ -23,8 +25,8 @@ Public Class Form3
 
 
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles btngallery.Click
+        pnlcontent1.Controls.Clear()
         Imageedit = Nothing
-
         acc.Hide()
         homecheck = False
         Dim g As New gallery1()
@@ -35,6 +37,7 @@ Public Class Form3
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btnhome.Click
+        pnlcontent1.Controls.Clear()
         Imageedit = Nothing
         searchuserid = 0
         acc.Hide()
@@ -90,21 +93,29 @@ Public Class Form3
 
     Private Sub pnlcontent1_MouseClick(sender As Object, e As MouseEventArgs) Handles pnlcontent1.MouseClick
         acc.Hide()
+        acc.Close()
+        acc.Dispose()
         accountbtn.Tag = False
     End Sub
 
     Private Sub Guna2Panel2_MouseClick(sender As Object, e As MouseEventArgs) Handles Guna2Panel2.MouseClick
         acc.Hide()
+        acc.Close()
+        acc.Dispose()
         accountbtn.Tag = False
     End Sub
 
     Private Sub panelcontent_MouseClick(sender As Object, e As MouseEventArgs) Handles panelcontent.MouseClick
         acc.Hide()
+        acc.Close()
+        acc.Dispose()
         accountbtn.Tag = False
     End Sub
 
     Private Sub Panel1_MouseClick(sender As Object, e As MouseEventArgs)
         acc.Hide()
+        acc.Close()
+        acc.Dispose()
         accountbtn.Tag = False
     End Sub
 
@@ -124,6 +135,10 @@ Public Class Form3
             acc.Show()
         Else
             acc.Hide()
+            acc.Close()
+            acc.Dispose()
         End If
     End Sub
+
+
 End Class

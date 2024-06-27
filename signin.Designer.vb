@@ -85,7 +85,7 @@ Partial Class signin
         progressind.AnimationSpeed = 63
         progressind.BackColor = Color.Transparent
         Guna2Transition1.SetDecoration(progressind, Guna.UI2.AnimatorNS.DecorationType.None)
-        progressind.Location = New Point(169, 51)
+        progressind.Location = New Point(166, 53)
         progressind.Name = "progressind"
         progressind.ShadowDecoration.CustomizableEdges = CustomizableEdges1
         progressind.Size = New Size(50, 50)

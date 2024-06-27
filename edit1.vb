@@ -41,41 +41,44 @@ Public Class edit1
 
 
         Else
-
-            Using openFileDialog As New OpenFileDialog
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-                If openFileDialog.ShowDialog = DialogResult.OK Then
-                    originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                    editedImage = ConvertTo24bppRgb(originalImage).Clone()
-                    adjustedtempImage = editedImage.Clone()
-                    PictureBox1.Image = editedImage
-
-                End If
-                If originalImage IsNot Nothing Then
-                    Guna2PictureBox1.Visible = False
-                End If
-            End Using
-
+            filediagopen()
         End If
+    End Sub
+    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles uploadbtn.Click
+
+
+        filediagopen()
+    End Sub
+    Private Sub filediagopen()
+
+        Using openFileDialog As New OpenFileDialog
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
+
+            If openFileDialog.ShowDialog = DialogResult.OK Then
+                Try
+                    Dim tempImage As Image = ConvertTo24bppRgb(Image.FromFile(openFileDialog.FileName))
+
+                    originalImage = ConvertTo24bppRgb(New Bitmap(tempImage))
+
+                    editedImage = originalImage.Clone()
+                    PictureBox1.Image = editedImage
+                Catch ex As Exception
+                    MessageBox.Show("Error loading image: " & ex.Message)
+                End Try
+            End If
+            If originalImage IsNot Nothing Then
+                Guna2PictureBox1.Visible = False
+            End If
+
+        End Using
+
 
     End Sub
     Private Sub Guna2PictureBox1_DoubleClick(sender As Object, e As EventArgs) Handles Guna2PictureBox1.DoubleClick
         If originalImage IsNot Nothing Then
 
-
         Else
-            Using openFileDialog As New OpenFileDialog
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-                If openFileDialog.ShowDialog = DialogResult.OK Then
-                    originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                    editedImage = ConvertTo24bppRgb(originalImage).Clone()
-                    PictureBox1.Image = editedImage
-                End If
-                If originalImage IsNot Nothing Then
-                    Guna2PictureBox1.Visible = False
-                End If
-
-            End Using
+            filediagopen()
 
         End If
     End Sub
@@ -152,8 +155,15 @@ Public Class edit1
     Private Sub btnfiltersharpen_Click(sender As Object, e As EventArgs) Handles btnfiltersharpen.Click
         If editedImage IsNot Nothing Then
             Try
+                ' Resize image for better performance with filters
+                Dim resizedImage As New Bitmap(editedImage, New Size(editedImage.Width \ 2, editedImage.Height \ 2))
+
                 Dim sharpenFilter As New Sharpen()
-                filteredImage = sharpenFilter.Apply(editedImage)
+                filteredImage = sharpenFilter.Apply(resizedImage)
+
+                ' Resize back to original size if needed
+                filteredImage = New Bitmap(filteredImage, editedImage.Size)
+
                 PictureBox1.Image = filteredImage
             Catch ex As Exception
                 MessageBox.Show("Error applying sharpen filter: " & ex.Message)
@@ -164,8 +174,15 @@ Public Class edit1
     Private Sub btnfilterblur_Click(sender As Object, e As EventArgs) Handles btnfilterblur.Click
         If editedImage IsNot Nothing Then
             Try
+                ' Resize image for better performance with filters
+                Dim resizedImage As New Bitmap(editedImage, New Size(editedImage.Width \ 2, editedImage.Height \ 2))
+
                 Dim gaussianBlurFilter As New GaussianBlur(4.0, 7)
-                filteredImage = gaussianBlurFilter.Apply(editedImage)
+                filteredImage = gaussianBlurFilter.Apply(resizedImage)
+
+                ' Resize back to original size if needed
+                filteredImage = New Bitmap(filteredImage, editedImage.Size)
+
                 PictureBox1.Image = filteredImage
             Catch ex As Exception
                 MessageBox.Show("Error applying blur filter: " & ex.Message)
@@ -264,13 +281,14 @@ Public Class edit1
     End Sub
     Private Sub CropImage(startPoint As Point, endPoint As Point)
         ' Adjust coordinates if the image size is smaller than the picture box size
-        Dim scaleX As Double = CDbl(editedImage.Width) / PictureBox1.Width
-        Dim scaleY As Double = CDbl(editedImage.Height) / PictureBox1.Height
 
-        startPoint.X = CInt(startPoint.X * scaleX * 0.6)
-        startPoint.Y = CInt(startPoint.Y * scaleY)
-        endPoint.X = CInt(endPoint.X * scaleX * 1.2)
-        endPoint.Y = CInt(endPoint.Y * scaleY)
+        Dim scaleX As Double = CDbl(croppedImage.Width) / PictureBox1.Width 
+        Dim scaleY As Double = CDbl(croppedImage.Height) / PictureBox1.Height
+
+        startPoint.X = CDbl(startPoint.X * scaleX * 0.4)
+        startPoint.Y = CDbl(startPoint.Y * scaleY)
+        endPoint.X = CDbl(endPoint.X * scaleX * 1.4)
+        endPoint.Y = CDbl(endPoint.Y * scaleY)
 
         Dim cropRect As New Rectangle(
         Math.Min(startPoint.X, endPoint.X),
@@ -461,24 +479,7 @@ Public Class edit1
 
 
 
-    Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles uploadbtn.Click
 
-
-        Using openFileDialog As New OpenFileDialog
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp"
-            If openFileDialog.ShowDialog = DialogResult.OK Then
-                originalImage = CType(Image.FromFile(openFileDialog.FileName), Bitmap)
-                editedImage = ConvertTo24bppRgb(originalImage).Clone()
-                adjustedtempImage = editedImage.Clone()
-                PictureBox1.Image = editedImage
-                filterbtn.PerformClick()
-
-            End If
-        End Using
-
-
-        Guna2PictureBox1.Visible = False
-    End Sub
 
 
     Private Sub Guna2Button3_Click_1(sender As Object, e As EventArgs) Handles saveconfirmbtn.Click

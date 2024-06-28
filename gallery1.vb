@@ -13,7 +13,7 @@ Public Class Gallery1
     Inherits UserControl
     Dim cuid As Integer
     Private likeContextMenu As ContextMenuStrip
-
+    Dim profileimg As Bitmap
     Private db As New sqlcontrol()
 
     Public Sub New()
@@ -118,7 +118,7 @@ Public Class Gallery1
         Dim lbluname As New Label()
         lbluname.Text = username
         lbluname.TextAlign = ContentAlignment.MiddleLeft
-        lbluname.Dock = DockStyle.Top
+        lbluname.Dock = DockStyle.Left
         lbluname.ForeColor = Color.Black
         lbluname.Font = New Font("Segoe UI", 10, FontStyle.Bold)
         Dim lblDate As New Label()
@@ -137,12 +137,31 @@ Public Class Gallery1
         pictureBox.SizeMode = PictureBoxSizeMode.Zoom
         pictureBox.Dock = DockStyle.Top
 
+        Dim profilepictureBox As New Guna2CirclePictureBox()
+        LoadProfilePicture(username)
+        profilepictureBox.Image = profileimg
+        profilepictureBox.Width = 39
+        profilepictureBox.Height = 39
+        profilepictureBox.BackColor = Color.Transparent
+        profilepictureBox.FillColor = Color.White
+        profilepictureBox.Dock = DockStyle.Left
+        profilepictureBox.SizeMode = PictureBoxSizeMode.Zoom
+
         Dim lblCaption As New Label()
         lblCaption.Text = caption
         lblCaption.AutoSize = True
         lblCaption.TextAlign = ContentAlignment.MiddleLeft
         lblCaption.Dock = DockStyle.Top
         lblCaption.ForeColor = Color.Black
+
+
+        Dim unamepanel As New Panel()
+        unamepanel.BorderStyle = BorderStyle.None
+        unamepanel.Dock = DockStyle.Top
+        unamepanel.Padding = New Padding(0, 0, 0, 0)
+        unamepanel.Height = 40
+        unamepanel.Width = 40
+
 
         Dim likepanel As New Panel()
         likepanel.BorderStyle = BorderStyle.None
@@ -190,10 +209,7 @@ Public Class Gallery1
         commentbtn.CustomImages.ImageSize = New Size(28, 28)
         commentbtn.CustomImages.ImageOffset = New Size(0, -5)
         commentbtn.UseTransparentBackground = True
-
         commentbtn.HoverState.FillColor = Color.Transparent
-
-
         commentbtn.CheckedState.FillColor = Color.Transparent
         commentbtn.Dock = DockStyle.Left
         commentbtn.Size = New Size(35, 35)
@@ -208,10 +224,15 @@ Public Class Gallery1
         panel.Controls.Add(pictureBox)
         panel.Controls.Add(lblDate)
         If homecheck = True And searchuserid = 0 Then
-            panel.Controls.Add(lbluname)
+            unamepanel.Controls.Add(lbluname)
+            unamepanel.Controls.Add(profilepictureBox)
+            panel.Controls.Add(unamepanel)
+            panel.Height = pictureBox.Height + lblDate.Height + unamepanel.Height + lblCaption.Height + likebtn.Height + panel.Padding.Top + panel.Padding.Bottom + 5
+        Else
+
+            panel.Height = pictureBox.Height + lblDate.Height + lblusername.Height + lblCaption.Height + likebtn.Height + panel.Padding.Top + panel.Padding.Bottom + 5
         End If
 
-        panel.Height = pictureBox.Height + lblDate.Height + lbluname.Height + lblCaption.Height + likebtn.Height + panel.Padding.Top + panel.Padding.Bottom + 5
 
         ' Add the context menu
         Dim contextMenu As New ContextMenuStrip()
@@ -525,20 +546,27 @@ Public Class Gallery1
     End Sub
 
     Private Sub gallery1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
-        LoadProfilePicture()
+        LoadProfilePicture(Nothing)
     End Sub
-    Private Sub LoadProfilePicture()
+    Private Sub LoadProfilePicture(username As String)
+
+
+
         Dim profileImage As Bitmap = Nothing
 
         Try
-            If searchuserid = 0 Then
-                db.AddParam("@UserID", userid)
+            If username Is Nothing Then
+                If searchuserid = 0 Then
+                    db.AddParam("@UserID", userid)
+                Else
+                    db.AddParam("@UserID", searchuserid)
+                End If
+
+                db.ExecQuery("SELECT ProfilePic FROM Users WHERE UserID=@UserID")
             Else
-                db.AddParam("@UserID", searchuserid)
+                db.AddParam("@Username", username)
+                db.ExecQuery("SELECT ProfilePic FROM Users WHERE Username=@Username")
             End If
-
-            db.ExecQuery("SELECT ProfilePic FROM Users WHERE UserID=@UserID")
-
             ' Ensure there's at least one result
             If db.DBDT.Rows.Count > 0 Then
                 Dim row As DataRow = db.DBDT.Rows(0)
@@ -551,18 +579,21 @@ Public Class Gallery1
 
         Catch ex As Exception
             MessageBox.Show("Error loading profile picture: " & ex.Message)
-            profileImage = Nothing
-        End Try
+                profileImage = Nothing
+            End Try
 
-        ' Set the profile picture or a default one if profileImage is Nothing
-        If profileImage IsNot Nothing Then
+            ' Set the profile picture or a default one if profileImage is Nothing
+            If profileImage IsNot Nothing Then
             profilepb.Image = profileImage
+            profileimg = profileImage
         Else
             profilepb.Image = My.Resources.defaultProfile
+            profileimg = My.Resources.defaultProfile
         End If
+
     End Sub
     Private Sub gallery1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadProfilePicture()
+        LoadProfilePicture(Nothing)
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblusername.Click

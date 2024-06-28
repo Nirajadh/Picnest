@@ -36,6 +36,7 @@ Partial Class signin
         Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(signin))
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         progressind = New Guna.UI2.WinForms.Guna2ProgressIndicator()
         lblincorrect = New Label()
         createacclabel = New LinkLabel()
@@ -43,13 +44,13 @@ Partial Class signin
         continuebtn = New Guna.UI2.WinForms.Guna2Button()
         Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         lblsignin = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         passwordtxt = New Guna.UI2.WinForms.Guna2TextBox()
         usernametxt = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
         Guna2Panel2.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Guna2Panel2
@@ -58,6 +59,7 @@ Partial Class signin
         Guna2Panel2.BorderColor = Color.Transparent
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1
+        Guna2Panel2.Controls.Add(PictureBox1)
         Guna2Panel2.Controls.Add(progressind)
         Guna2Panel2.Controls.Add(lblincorrect)
         Guna2Panel2.Controls.Add(createacclabel)
@@ -65,7 +67,6 @@ Partial Class signin
         Guna2Panel2.Controls.Add(continuebtn)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel5)
         Guna2Panel2.Controls.Add(lblsignin)
-        Guna2Panel2.Controls.Add(Guna2HtmlLabel3)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel2)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel1)
         Guna2Panel2.Controls.Add(passwordtxt)
@@ -79,6 +80,18 @@ Partial Class signin
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges11
         Guna2Panel2.Size = New Size(365, 458)
         Guna2Panel2.TabIndex = 1
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Transparent
+        Guna2Transition1.SetDecoration(PictureBox1, Guna.UI2.AnimatorNS.DecorationType.None)
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(20, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(52, 52)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 18
+        PictureBox1.TabStop = False
         ' 
         ' progressind
         ' 
@@ -215,18 +228,6 @@ Partial Class signin
         lblsignin.TabIndex = 5
         lblsignin.Text = "Sign in"
         ' 
-        ' Guna2HtmlLabel3
-        ' 
-        Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2Transition1.SetDecoration(Guna2HtmlLabel3, Guna.UI2.AnimatorNS.DecorationType.None)
-        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel3.ForeColor = SystemColors.ActiveCaptionText
-        Guna2HtmlLabel3.Location = New Point(22, 16)
-        Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(70, 39)
-        Guna2HtmlLabel3.TabIndex = 4
-        Guna2HtmlLabel3.Text = "IMG"
-        ' 
         ' Guna2HtmlLabel2
         ' 
         Guna2HtmlLabel2.BackColor = Color.Transparent
@@ -338,6 +339,7 @@ Partial Class signin
         Size = New Size(365, 458)
         Guna2Panel2.ResumeLayout(False)
         Guna2Panel2.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -348,12 +350,12 @@ Partial Class signin
     Friend WithEvents continuebtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents lblsignin As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents passwordtxt As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents usernametxt As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents progressind As Guna.UI2.WinForms.Guna2ProgressIndicator
     Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class

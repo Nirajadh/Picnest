@@ -228,13 +228,13 @@ Partial Class acc
         Guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = Color.White
         Guna2ContextMenuStrip1.RenderStyle.SeparatorColor = Color.Gainsboro
         Guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = Drawing.Text.TextRenderingHint.SystemDefault
-        Guna2ContextMenuStrip1.Size = New Size(211, 54)
+        Guna2ContextMenuStrip1.Size = New Size(133, 26)
         ' 
         ' ToolStripMenuItem1
         ' 
         ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         ToolStripMenuItem1.Padding = New Padding(0)
-        ToolStripMenuItem1.Size = New Size(210, 22)
+        ToolStripMenuItem1.Size = New Size(132, 22)
         ToolStripMenuItem1.Text = "Remove"
         ' 
         ' OpenFileDialog1
@@ -259,6 +259,7 @@ Partial Class acc
         Controls.Add(Guna2PictureBox1)
         ForeColor = SystemColors.ActiveCaptionText
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Location = New Point(480, 650)
         Name = "acc"
         StartPosition = FormStartPosition.Manual

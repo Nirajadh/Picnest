@@ -27,11 +27,11 @@ Partial Class Form3
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -49,20 +49,23 @@ Partial Class Form3
         Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(components)
         Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         accountbtn = New Guna.UI2.WinForms.Guna2PictureBox()
         pnlaccount = New Guna.UI2.WinForms.Guna2Panel()
         btngallery = New Guna.UI2.WinForms.Guna2Button()
         btnedit = New Guna.UI2.WinForms.Guna2Button()
         btnhome = New Guna.UI2.WinForms.Guna2Button()
-        Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox2 = New PictureBox()
         pnlcontent1 = New Guna.UI2.WinForms.Guna2Panel()
         panelcontent = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
         Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(components)
         Guna2Panel2.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(accountbtn, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel1.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         panelcontent.SuspendLayout()
         SuspendLayout()
         ' 
@@ -77,7 +80,7 @@ Partial Class Form3
         ' 
         ' Guna2ControlBox2
         ' 
-        Guna2ControlBox2.BackColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
+        Guna2ControlBox2.BackColor = Color.Black
         Guna2ControlBox2.BackgroundImageLayout = ImageLayout.Zoom
         Guna2ControlBox2.BorderColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
         Guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
@@ -99,6 +102,7 @@ Partial Class Form3
         Guna2Panel2.BorderColor = Color.FromArgb(CByte(18), CByte(18), CByte(18))
         Guna2Panel2.BorderRadius = 12
         Guna2Panel2.BorderThickness = 1
+        Guna2Panel2.Controls.Add(PictureBox1)
         Guna2Panel2.Controls.Add(accountbtn)
         Guna2Panel2.Controls.Add(pnlaccount)
         Guna2Panel2.Controls.Add(btngallery)
@@ -111,6 +115,17 @@ Partial Class Form3
         Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         Guna2Panel2.Size = New Size(64, 654)
         Guna2Panel2.TabIndex = 0
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Black
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(4, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(52, 52)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 6
+        PictureBox1.TabStop = False
         ' 
         ' accountbtn
         ' 
@@ -232,20 +247,9 @@ Partial Class Form3
         btnhome.Size = New Size(59, 41)
         btnhome.TabIndex = 6
         ' 
-        ' Guna2HtmlLabel3
-        ' 
-        Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight
-        Guna2HtmlLabel3.Location = New Point(9, 3)
-        Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(55, 30)
-        Guna2HtmlLabel3.TabIndex = 5
-        Guna2HtmlLabel3.Text = "IMG"
-        ' 
         ' Guna2ControlBox1
         ' 
-        Guna2ControlBox1.BackColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
+        Guna2ControlBox1.BackColor = Color.Black
         Guna2ControlBox1.BackgroundImageLayout = ImageLayout.Zoom
         Guna2ControlBox1.BorderColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
         Guna2ControlBox1.CustomizableEdges = CustomizableEdges19
@@ -262,18 +266,30 @@ Partial Class Form3
         ' 
         ' Guna2Panel1
         ' 
-        Guna2Panel1.BackColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
-        Guna2Panel1.Controls.Add(Guna2HtmlLabel3)
+        Guna2Panel1.BackColor = Color.Transparent
+        Guna2Panel1.Controls.Add(PictureBox2)
         Guna2Panel1.Controls.Add(Guna2ControlBox2)
         Guna2Panel1.Controls.Add(Guna2ControlBox1)
         Guna2Panel1.CustomizableEdges = CustomizableEdges21
         Guna2Panel1.Dock = DockStyle.Top
-        Guna2Panel1.FillColor = Color.FromArgb(CByte(31), CByte(31), CByte(31))
+        Guna2Panel1.FillColor = Color.Black
         Guna2Panel1.Location = New Point(0, 0)
         Guna2Panel1.Name = "Guna2Panel1"
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         Guna2Panel1.Size = New Size(1121, 40)
         Guna2Panel1.TabIndex = 3
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.BackColor = Color.Black
+        PictureBox2.Dock = DockStyle.Left
+        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
+        PictureBox2.Location = New Point(0, 0)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(87, 40)
+        PictureBox2.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox2.TabIndex = 15
+        PictureBox2.TabStop = False
         ' 
         ' pnlcontent1
         ' 
@@ -314,21 +330,22 @@ Partial Class Form3
         Controls.Add(Guna2Panel1)
         DoubleBuffered = True
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form3"
         SizeGripStyle = SizeGripStyle.Hide
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form3"
         Guna2Panel2.ResumeLayout(False)
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(accountbtn, ComponentModel.ISupportInitialize).EndInit()
         Guna2Panel1.ResumeLayout(False)
-        Guna2Panel1.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         panelcontent.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnhome As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btngallery As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnedit As Guna.UI2.WinForms.Guna2Button
@@ -341,4 +358,6 @@ Partial Class Form3
 
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents accountbtn As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

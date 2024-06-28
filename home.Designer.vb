@@ -22,33 +22,32 @@ Partial Class home
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        PictureBox1 = New PictureBox()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Guna2HtmlLabel3
+        ' PictureBox1
         ' 
-        Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2HtmlLabel3.Font = New Font("Script MT Bold", 48F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel3.ForeColor = SystemColors.ButtonHighlight
-        Guna2HtmlLabel3.Location = New Point(91, 173)
-        Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(182, 98)
-        Guna2HtmlLabel3.TabIndex = 7
-        Guna2HtmlLabel3.Text = "IMG"
-        Guna2HtmlLabel3.TextAlignment = ContentAlignment.MiddleCenter
+        PictureBox1.Image = My.Resources.Resources.Screenshot_2024_06_28_203856
+        PictureBox1.Location = New Point(48, 129)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(266, 186)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 8
+        PictureBox1.TabStop = False
         ' 
         ' Home
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.Transparent
-        Controls.Add(Guna2HtmlLabel3)
+        Controls.Add(PictureBox1)
         Name = "Home"
         Size = New Size(365, 458)
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
-    Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class

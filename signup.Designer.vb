@@ -24,9 +24,9 @@ Partial Class signup
     Private Sub InitializeComponent()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(signup))
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(signup))
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -36,8 +36,8 @@ Partial Class signup
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        PictureBox1 = New PictureBox()
         Guna2HtmlLabel7 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2HtmlLabel8 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         txtname = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         signinlabel = New LinkLabel()
@@ -49,6 +49,7 @@ Partial Class signup
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         txtusername = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2Panel2.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Guna2Panel2
@@ -57,8 +58,8 @@ Partial Class signup
         Guna2Panel2.BorderColor = Color.White
         Guna2Panel2.BorderRadius = 20
         Guna2Panel2.BorderThickness = 1
+        Guna2Panel2.Controls.Add(PictureBox1)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel7)
-        Guna2Panel2.Controls.Add(Guna2HtmlLabel8)
         Guna2Panel2.Controls.Add(txtname)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel6)
         Guna2Panel2.Controls.Add(signinlabel)
@@ -78,6 +79,17 @@ Partial Class signup
         Guna2Panel2.Size = New Size(365, 458)
         Guna2Panel2.TabIndex = 5
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Transparent
+        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Location = New Point(20, 3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(52, 52)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
+        PictureBox1.TabIndex = 20
+        PictureBox1.TabStop = False
+        ' 
         ' Guna2HtmlLabel7
         ' 
         Guna2HtmlLabel7.BackColor = Color.Transparent
@@ -88,17 +100,6 @@ Partial Class signup
         Guna2HtmlLabel7.Size = New Size(110, 42)
         Guna2HtmlLabel7.TabIndex = 19
         Guna2HtmlLabel7.Text = "Sign up"
-        ' 
-        ' Guna2HtmlLabel8
-        ' 
-        Guna2HtmlLabel8.BackColor = Color.Transparent
-        Guna2HtmlLabel8.Font = New Font("Script MT Bold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel8.ForeColor = SystemColors.ActiveCaptionText
-        Guna2HtmlLabel8.Location = New Point(22, 16)
-        Guna2HtmlLabel8.Name = "Guna2HtmlLabel8"
-        Guna2HtmlLabel8.Size = New Size(70, 39)
-        Guna2HtmlLabel8.TabIndex = 18
-        Guna2HtmlLabel8.Text = "IMG"
         ' 
         ' txtname
         ' 
@@ -321,6 +322,7 @@ Partial Class signup
         Size = New Size(365, 458)
         Guna2Panel2.ResumeLayout(False)
         Guna2Panel2.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -336,6 +338,6 @@ Partial Class signup
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents txtusername As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel7 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel8 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents PictureBox1 As PictureBox
 
 End Class

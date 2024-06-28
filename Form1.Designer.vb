@@ -142,6 +142,7 @@ Partial Class Form1
         DoubleBuffered = True
         ForeColor = Color.Transparent
         FormBorderStyle = FormBorderStyle.None
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
         ResumeLayout(False)

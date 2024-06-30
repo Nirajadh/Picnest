@@ -1,6 +1,4 @@
-﻿Imports System.Security.Cryptography.Pkcs
-
-Imports System.Threading.Tasks
+﻿
 Public Class signup
     Inherits UserControl
     Public Sub New()
@@ -33,11 +31,11 @@ Public Class signup
 
 
 
-        ' Get the username and password from the text boxes
+
         Dim username As String = txtusername.Text
         Dim password As String = txtpassword.Text
         Dim name As String = txtname.Text
-        ' Validate input
+
         If String.IsNullOrWhiteSpace(username) Or String.IsNullOrWhiteSpace(password) Or String.IsNullOrWhiteSpace(name) Then
             If String.IsNullOrWhiteSpace(username) Then
                 txtusername.PlaceholderText = "Enter Username"
@@ -54,35 +52,35 @@ Public Class signup
             Return
         End If
 
-        ' Check if the username already exists
+
         Dim checkQuery As String = "SELECT COUNT(*) FROM Users WHERE Username = @Username"
         db.AddParam("@Username", username)
         db.ExecQuery(checkQuery)
 
-        ' Check for exceptions
+
         If db.HasException(True) Then Return
 
-        ' If the username already exists, display a message
+
         If db.DBDT.Rows.Count > 0 AndAlso Convert.ToInt32(db.DBDT.Rows(0)(0)) > 0 Then
             txtusername.Clear()
             txtusername.PlaceholderText = "Username already taken"
             Return
         End If
 
-        ' Define the query to insert the new user
+
         Dim insertQuery As String = "INSERT INTO Users (Name,Username, Password) VALUES (@Name,@Username, @Password)"
         db.AddParam("@Name", name)
         db.AddParam("@Username", username)
         db.AddParam("@Password", password)
 
-        ' Execute the query
+
         db.ExecQuery(insertQuery)
 
-        ' Check for exceptions
+
         If db.HasException(True) Then Return
 
-        ' If the insertion was successful, display a success message
-        ' Note: For an INSERT query, RecordCount will not be set, so we should rely on exceptions or other logic
+
+
         btncreate.Text = " "
         btncreate.Text = "Created"
         Await Task.Delay(2000)
@@ -94,7 +92,7 @@ Public Class signup
 
 
 
-        ' Optionally, clear the text boxes after successful sign-up
+
         txtusername.Clear()
         txtpassword.Clear()
     End Sub

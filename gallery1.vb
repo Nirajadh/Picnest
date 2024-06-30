@@ -1,14 +1,8 @@
-﻿Imports System.Data.SqlClient
-Imports System.Drawing
+﻿
 Imports System.IO
-Imports System.Windows.Controls.Primitives
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Window
-Imports Guna.UI2.WinForms
-Imports System.Security.Cryptography.Pkcs
 
-Imports System.Threading.Tasks
-Imports System.Runtime.InteropServices.JavaScript.JSType
+Imports Guna.UI2.WinForms
+
 Public Class Gallery1
     Inherits UserControl
     Dim cuid As Integer
@@ -122,7 +116,7 @@ Public Class Gallery1
         lbluname.ForeColor = Color.Black
         lbluname.Font = New Font("Segoe UI", 10, FontStyle.Bold)
         Dim lblDate As New Label()
-        lblDate.Text = uploadDate.ToString("MMM dd, yyyy") ' Format the date as "Jun 16, 2020"
+        lblDate.Text = uploadDate.ToString("MMM dd, yyyy")
         lblDate.AutoSize = True
         lblDate.TextAlign = ContentAlignment.MiddleLeft
         lblDate.Dock = DockStyle.Top
@@ -132,8 +126,8 @@ Public Class Gallery1
         AddHandler pictureBox.MouseClick, AddressOf PictureBox1_click
         pictureBox.Image = image
         pictureBox.Dock = DockStyle.Top
-        pictureBox.Width = 461 ' Adjust width to fit within the panel with some margin
-        pictureBox.Height = CInt((image.Height / image.Width) * pictureBox.Width) ' Adjust height based on image aspect ratio
+        pictureBox.Width = 461
+        pictureBox.Height = CInt((image.Height / image.Width) * pictureBox.Width)
         pictureBox.SizeMode = PictureBoxSizeMode.Zoom
         pictureBox.Dock = DockStyle.Top
 
@@ -261,7 +255,7 @@ Public Class Gallery1
     End Sub
 
     Private Sub ContextMenu_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs)
-        ' Optionally add logic here if needed before the context menu opens
+
     End Sub
 
     Private Sub likebtn_click(sender As Object, e As EventArgs)
@@ -579,11 +573,11 @@ Public Class Gallery1
 
         Catch ex As Exception
             MessageBox.Show("Error loading profile picture: " & ex.Message)
-                profileImage = Nothing
-            End Try
+            profileImage = Nothing
+        End Try
 
-            ' Set the profile picture or a default one if profileImage is Nothing
-            If profileImage IsNot Nothing Then
+        ' Set the profile picture or a default one if profileImage is Nothing
+        If profileImage IsNot Nothing Then
             profilepb.Image = profileImage
             profileimg = profileImage
         Else
@@ -596,7 +590,5 @@ Public Class Gallery1
         LoadProfilePicture(Nothing)
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblusername.Click
 
-    End Sub
 End Class

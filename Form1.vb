@@ -1,8 +1,4 @@
-﻿Imports System.Configuration
-Imports System.Data.SqlClient
-
-
-Imports System.Threading.Tasks
+﻿
 Public Class Form1
     Private Sub Form1_VisibleChanged(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         Dim sin As New signin()
@@ -23,7 +19,5 @@ Public Class Form1
 
 
 
-    Private Sub Guna2HtmlLabel3_Click(sender As Object, e As EventArgs)
 
-    End Sub
 End Class

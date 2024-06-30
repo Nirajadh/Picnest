@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Imports Guna.UI2.WinForms
+
 
 Public Class Form3
     Private db As New sqlcontrol()
@@ -12,7 +12,7 @@ Public Class Form3
         acc.Hide()
         searchuserid = 0
         updatecheck = False
-        ed.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
+        ed.Dock = DockStyle.Fill
         pnlcontent1.Controls.Add(ed)
         ed.BringToFront()
     End Sub
@@ -31,7 +31,7 @@ Public Class Form3
         homecheck = False
         Dim g As New gallery1()
         searchuserid = 0
-        g.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
+        g.Dock = DockStyle.Fill
         pnlcontent1.Controls.Add(g)
         g.BringToFront()
     End Sub
@@ -44,7 +44,7 @@ Public Class Form3
         homecheck = True
         Dim g As New gallery1()
 
-        g.Dock = DockStyle.Fill  ' Optional: if you want it to fill the panel
+        g.Dock = DockStyle.Fill
         pnlcontent1.Controls.Add(g)
         g.BringToFront()
     End Sub
@@ -71,9 +71,8 @@ Public Class Form3
                 profilePIC = profileimage.Clone()
 
             Else
-                ' Handle the case where ProfilePic is NULL (no image)
-                ' Optionally, you can set a default image or leave it blank
-                accountbtn.Image = My.Resources.defaultProfile ' Set to blank or default image
+
+                accountbtn.Image = My.Resources.defaultProfile
             End If
         End If
     End Sub

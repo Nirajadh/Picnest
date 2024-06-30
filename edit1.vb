@@ -15,7 +15,7 @@ Public Class edit1
     Private filtersbtnimage As Bitmap
     Private adjustedImage As Bitmap
     Private adjustedtempImage As Bitmap
-    ' Use croppedImage instead of editedImage for cropping
+
     Private isCropping As Boolean = False
     Private cropStartPoint As Point
     Private cropEndPoint As Point
@@ -270,7 +270,7 @@ Public Class edit1
     Private Sub CropImage(startPoint As Point, endPoint As Point)
         ' Adjust coordinates if the image size is smaller than the picture box size
 
-        Dim scaleX As Double = CDbl(croppedImage.Width) / PictureBox1.Width 
+        Dim scaleX As Double = CDbl(croppedImage.Width) / PictureBox1.Width
         Dim scaleY As Double = CDbl(croppedImage.Height) / PictureBox1.Height
 
         startPoint.X = CDbl(startPoint.X * scaleX * 0.4)
@@ -516,6 +516,8 @@ Public Class edit1
         End If
 
     End Sub
+
+
 End Class
 
 

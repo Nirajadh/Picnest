@@ -145,6 +145,7 @@ Partial Class Form1
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
+        Text = "Picnest"
         ResumeLayout(False)
     End Sub
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel

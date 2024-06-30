@@ -334,7 +334,7 @@ Partial Class Form3
         Name = "Form3"
         SizeGripStyle = SizeGripStyle.Hide
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Form3"
+        Text = "Picnest"
         Guna2Panel2.ResumeLayout(False)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(accountbtn, ComponentModel.ISupportInitialize).EndInit()

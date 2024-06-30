@@ -263,7 +263,7 @@ Partial Class acc
         Location = New Point(480, 650)
         Name = "acc"
         StartPosition = FormStartPosition.Manual
-        Text = "acc"
+        Text = "Picnest"
         Guna2Panel1.ResumeLayout(False)
         Guna2Panel1.PerformLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).EndInit()
